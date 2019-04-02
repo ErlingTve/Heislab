@@ -22,7 +22,7 @@ void esm_stateSwitch(state CurrentState){
 			elev_set_door_open_lamp(0);
 			orders_updateOrderMatrix(); //tar bestilling
 			//får heisen til å bevege seg mot prioritert bestilling
-			while(orders_setPriorityDirection() == -1){
+			while(orders_setPriorityDirectionAndReturnIfOrders() == -1){
 				orders_updateOrderMatrix();
 				if (elev_get_stop_signal()){
 					orders_deleteAllOrders();
@@ -30,7 +30,7 @@ void esm_stateSwitch(state CurrentState){
 					break;
 				}
 			}
-			if (!orders_setPriorityDirection()){
+			if (!orders_setPriorityDirectionAndReturnIfOrders()){
 				CurrentState = Not_moving_at_floor;
 				break;
 			} 
@@ -65,7 +65,7 @@ void esm_stateSwitch(state CurrentState){
 			float position = orders_savePositionBetweenFloors();
 			elev_set_motor_direction(DIRN_STOP);
 			orders_deleteAllOrders();
-			while((orders_setPriorityDirection() == -1) && (!elev_get_stop_signal)){
+			while((orders_setPriorityDirectionAndReturnIfOrders() == -1) && (!elev_get_stop_signal)){
 				orders_updateOrderMatrix();
 				}
 			orders_setDirectionBetweenFloors(position);

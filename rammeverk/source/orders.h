@@ -13,7 +13,9 @@ static int order_matrix[N_FLOORS][N_BUTTONS];
 void orders_updateOrderMatrix();
 
 //Setter motorretning til den prioriterte retningen
-int orders_setPriorityDirection();
+//Returnerer -1 hvis ingen bestillinger, 0 hvis bestilling i samme 
+//etasje og 1 hvis det er i en annen etasje
+int orders_setPriorityDirectionAndReturnIfOrders();
 
 //Returnerer 1 hvis det er bestillinger til valgt etasje
 //0 hvis ikke

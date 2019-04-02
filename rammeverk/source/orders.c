@@ -18,9 +18,8 @@ void orders_updateOrderMatrix(){
 	}
 }
 
-//Returnerer -1 hvis ingen bestillinger, 0 hvis bestilling i samme 
-//etasje og 1 hvis det er i en annen etasje
-int orders_setPriorityDirection() {
+
+int orders_setPriorityDirectionAndReturnIfOrders() {
 	//Stoppknappfunksjon
 	int CurrentFloor = elev_get_floor_sensor_signal();
 	int NumberOfOrders = 0;
