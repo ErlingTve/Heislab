@@ -21,7 +21,12 @@ void esm_stateSwitch(state CurrentState){
 			//får heisen til å bevege seg mot prioritert bestilling
 			while(orders_setPriorityDirection() == -1){
 				orders_updateOrderMatrix();
+				if (elev_get_stop_signal()){
+					orders_deleteAllOrders();
+					//RESET TIMER!!!!
+					break;
 				}
+			}
 			if (!orders_setPriorityDirection()){
 				CurrentState = Not_moving_at_floor;
 				break;
@@ -30,18 +35,22 @@ void esm_stateSwitch(state CurrentState){
 		case Moving:
 			while(elev_get_floor_sensor_signal() == -1) {
 				orders_updateOrderMatrix();
-/**				if("stoppFunksjon"){
-					CurrentState=Not_moving_between_floors;
+			if(elev_get_stop_signal()){
+					CurrentState = Not_moving_between_floors;
 					break;
 				}
-*/
 			}
 			CurrentState=At_floor;
 		case At_floor:
 			int CurrentFloor=elev_get_floor_sensor_signal();
+			if (elev_get_stop_signal()){
+				orders_deleteAllOrders();
+				CurrentState = Not_moving_at_floor;
+				break;
+			}
 			orders_updateOrderMatrix();
 			elev_set_floor_indicator(CurrentFloor);
-			if (orders_orderAtThisFloor(CurrentFloor){
+			if (orders_orderAtThisFloor(CurrentFloor)){
 				CurrentState = Not_moving_at_floor;
 				break;
 			}
@@ -52,10 +61,12 @@ void esm_stateSwitch(state CurrentState){
 		case Not_moving_between_floors:
 			elev_set_motor_direction(DIRN_STOP);
 			orders_deleteAllOrders();
-			while(orders_setPriorityDirection() == -1){
+			while((orders_setPriorityDirection() == -1) && (!elev_get_stop_signal)){
 				orders_updateOrderMatrix();
 				}
 			orders_setDirectionBetweenFloors(orders_savePositionBetweenFloors());
+			CurrentState = Moving;
+			break;	
 	}
 
 }
