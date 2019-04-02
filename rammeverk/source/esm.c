@@ -1,5 +1,6 @@
 #include "esm.h"
 #include "elev.h"
+#include "orders.c"
 #include <stdlib.h>
 
 
@@ -11,6 +12,7 @@ void esm_stateSwitch(state CurrentState){
 			CurrentState=Not_moving_at_floor;			
 		case Not_moving_at_floor:
 			elev_set_motor_direction(DIRN_STOP);
+			orders_deleteOrdersAtThisFloor(elev_get_floor_sensor_signal);
 			elev_set_door_open_lamp(1);
 			//Timerfunksjon inn her
 			//husk å resette timer
@@ -36,11 +38,24 @@ void esm_stateSwitch(state CurrentState){
 			}
 			CurrentState=At_floor;
 		case At_floor:
-			elev_set_floor_indicator(elev_get_floor_sensor_signal());
-			
+			int CurrentFloor=elev_get_floor_sensor_signal();
+			orders_updateOrderMatrix();
+			elev_set_floor_indicator(CurrentFloor);
+			if (orders_orderAtThisFloor(CurrentFloor){
+				CurrentState = Not_moving_at_floor;
+				break;
+			}
+			CurrentState = Moving;
+			break;			
+
 		//hvis endring i planene
 		case Not_moving_between_floors:
-
+			elev_set_motor_direction(DIRN_STOP);
+			orders_deleteAllOrders();
+			while(orders_setPriorityDirection() == -1){
+				orders_updateOrderMatrix();
+				}
+			orders_setDirectionBetweenFloors(orders_savePositionBetweenFloors());
 	}
 
 }

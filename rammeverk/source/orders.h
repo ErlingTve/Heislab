@@ -15,4 +15,17 @@ void orders_updateOrderMatrix();
 //Setter motorretning til den prioriterte retningen
 void orders_setPriorityDirection();
 
+//Returnerer 1 hvis det er bestillinger til valgt etasje
+//0 hvis ikke
+int orders_orderAtThisFloor(int floor);
+
+void orders_deleteOrdersAtThisFloor(int floor);
+
+void orders_deleteAllOrders();
+
+//Kanskje i egen modul??
+float orders_savePositionBetweenFloors(void);
+
+void orders_setDirectionBetweenFloors(float position);
+
 #endif

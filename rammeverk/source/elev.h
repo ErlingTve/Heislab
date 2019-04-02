@@ -28,10 +28,12 @@ typedef enum tag_elev_motor_direction {
     DIRN_UP = 1
 } elev_motor_direction_t;
 
-
+//Global variable for motor direction
+static elev_motor_direction_t MotorDirection;
 
 /**
-  Sets the motor direction of the elevator.
+  Sets the motor direction of the elevator and the
+  global variable MotorDirection.
   @param dirn New direction of the elevator.
 */
 void elev_set_motor_direction(elev_motor_direction_t dirn);
@@ -77,10 +79,11 @@ void elev_set_stop_lamp(int value);
 */
 int elev_get_floor_sensor_signal(void);
 
-
+//Global variable for indicating last visited floor
+static int FloorIndicator;
 
 /**
-  Set floor indicator lamp for a given floor.
+  Set floor indicator lamp for a given floor and the global variable FloorIndicator.
   @param floor Which floor lamp to turn on. Other floor lamps are turned off.
 */
 void elev_set_floor_indicator(int floor);
