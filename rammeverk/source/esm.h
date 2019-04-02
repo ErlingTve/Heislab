@@ -6,13 +6,9 @@
 */
 
 // definerte navn på de forskjellige tilstandende til tilstandsmaskinen
-enum state {Waiting_for_init, Not_moving_at_floor, Moving, At_floor, Not_moving_between_floors};
-
-//initalisering av tilstandsmaskin
-void esm_initState()
-
+typedef enum state {Waiting_for_init, Not_moving_at_floor, Moving, At_floor, Not_moving_between_floors};
 
 //endrer tilstander (i praksis tilstandsmaskinen)
-void esm_stateSwitch();
+state esm_stateSwitch(state CurrentState);
 
 #endif
