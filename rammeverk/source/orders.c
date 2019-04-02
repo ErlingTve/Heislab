@@ -1,7 +1,11 @@
-#include "orders.h"
+#include "channels.h"
 #include "elev.h"
 #include "io.h"
+#include "orders.h"
+#include "esm.h"
 
+#include <assert.h>
+#include <stdlib.h>
 
 
 
@@ -30,7 +34,7 @@ int orders_setPriorityDirection() {
 		return -1;
 	}
 	
-	if (orders_orderAtThisFloor){
+	if (orders_orderAtThisFloor(CurrentFloor)){
 		elev_set_motor_direction(DIRN_STOP);
 		return 0;
 	}
@@ -44,7 +48,7 @@ int orders_orderAtThisFloor(int floor) {
 		if (order_matrix[floor][i]) {
 			return 1;
 		}
-	return 0;
+	}return 0;
 }
 
 void orders_deleteOrdersAtThisFloor(int floor) {
@@ -66,8 +70,11 @@ float orders_savePositionBetweenFloors(void) {
 		case DIRN_DOWN :
 			return FloorIndicator - 0.5;
 			break;
-		case DIRN_UP ;
+		case DIRN_UP :
 			return FloorIndicator + 0.5;
+			break;
+		case DIRN_STOP :
+			return FloorIndicator;
 			break;
 	}
 }

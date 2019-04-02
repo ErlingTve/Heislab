@@ -1,8 +1,11 @@
-#include "esm.h"
+#include "channels.h"
 #include "elev.h"
-#include "orders.c"
-#include <stdlib.h>
+#include "io.h"
+#include "orders.h"
+#include "esm.h"
 
+#include <assert.h>
+#include <stdlib.h>
 
 
 
@@ -59,14 +62,14 @@ void esm_stateSwitch(state CurrentState){
 
 		//hvis endring i planene
 		case Not_moving_between_floors:
+			float position = orders_savePositionBetweenFloors();
 			elev_set_motor_direction(DIRN_STOP);
 			orders_deleteAllOrders();
 			while((orders_setPriorityDirection() == -1) && (!elev_get_stop_signal)){
 				orders_updateOrderMatrix();
 				}
-			orders_setDirectionBetweenFloors(orders_savePositionBetweenFloors());
+			orders_setDirectionBetweenFloors(position);
 			CurrentState = Moving;
 			break;	
 	}
-
 }

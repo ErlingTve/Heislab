@@ -1,6 +1,12 @@
+#include "channels.h"
 #include "elev.h"
-#include <stdio.h>
+#include "io.h"
+#include "orders.h"
+#include "esm.h"
 
+#include <assert.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 int main() {
     // Initialize hardware

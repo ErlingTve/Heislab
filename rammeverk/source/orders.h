@@ -1,6 +1,6 @@
 #ifndef ORDERS_H
 #define ORDERS_H
-
+#include "channels.h"
 /**
 	@file
 	@brief File to manage orders
@@ -13,7 +13,7 @@ static int order_matrix[N_FLOORS][N_BUTTONS];
 void orders_updateOrderMatrix();
 
 //Setter motorretning til den prioriterte retningen
-void orders_setPriorityDirection();
+int orders_setPriorityDirection();
 
 //Returnerer 1 hvis det er bestillinger til valgt etasje
 //0 hvis ikke
