@@ -26,8 +26,19 @@ void esm_stateSwitch(state CurrentState){
 			} 
 			CurrentState = Moving;
 		case Moving:
-
+			while(elev_get_floor_sensor_signal() == -1) {
+				orders_updateOrderMatrix();
+/**				if("stoppFunksjon"){
+					CurrentState=Not_moving_between_floors;
+					break;
+				}
+*/
+			}
+			CurrentState=At_floor;
 		case At_floor:
+			elev_set_floor_indicator(elev_get_floor_sensor_signal());
+			
+		//hvis endring i planene
 		case Not_moving_between_floors:
 
 	}
