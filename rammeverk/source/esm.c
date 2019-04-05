@@ -11,11 +11,11 @@
 
 void esm_stateSwitch(state CurrentState){
 	switch (CurrentState){
-		case Waiting_for_init:
-			CurrentState=Not_moving_at_floor;			
-		case Not_moving_at_floor:
+		case WAITING_FOR_INIT:
+			CurrentState=NOT_MOVING_AT_FLOOR;
+		case NOT_MOVING_AT_FLOOR:
 			elev_set_motor_direction(DIRN_STOP);
-			orders_deleteOrdersAtThisFloor(elev_get_floor_sensor_signal);
+			orders_deleteOrdersAtThisFloor(elev_get_floor_sensor_signal());
 			elev_set_door_open_lamp(1);
 			//Timerfunksjon inn her
 			//husk å resette timer
@@ -31,37 +31,37 @@ void esm_stateSwitch(state CurrentState){
 				}
 			}
 			if (!orders_setPriorityDirectionAndReturnIfOrders()){
-				CurrentState = Not_moving_at_floor;
+				CurrentState = NOT_MOVING_AT_FLOOR;
 				break;
 			} 
-			CurrentState = Moving;
-		case Moving:
+			CurrentState = MOVING;
+		case MOVING:
 			while(elev_get_floor_sensor_signal() == -1) {
 				orders_updateOrderMatrix();
 			if(elev_get_stop_signal()){
-					CurrentState = Not_moving_between_floors;
+					CurrentState = NOT_MOVING_BETWEEN_FLOORS;
 					break;
 				}
 			}
-			CurrentState=At_floor;
-		case At_floor:
-			int CurrentFloor=elev_get_floor_sensor_signal();
+			CurrentState=AT_FLOOR;
+		case AT_FLOOR:
+			int CurrentFloor = elev_get_floor_sensor_signal();
 			if (elev_get_stop_signal()){
 				orders_deleteAllOrders();
-				CurrentState = Not_moving_at_floor;
+				CurrentState = NOT_MOVING_AT_FLOOR;
 				break;
 			}
 			orders_updateOrderMatrix();
 			elev_set_floor_indicator(CurrentFloor);
 			if (orders_orderAtThisFloor(CurrentFloor)){
-				CurrentState = Not_moving_at_floor;
+				CurrentState = NOT_MOVING_AT_FLOOR;
 				break;
 			}
-			CurrentState = Moving;
+			CurrentState = MOVING;
 			break;			
 
 		//hvis endring i planene
-		case Not_moving_between_floors:
+		case NOT_MOVING_BETWEEN_FLOORS:
 			float position = orders_savePositionBetweenFloors();
 			elev_set_motor_direction(DIRN_STOP);
 			orders_deleteAllOrders();
@@ -69,7 +69,7 @@ void esm_stateSwitch(state CurrentState){
 				orders_updateOrderMatrix();
 				}
 			orders_setDirectionBetweenFloors(position);
-			CurrentState = Moving;
+			CurrentState = MOVING;
 			break;	
 	}
 }
