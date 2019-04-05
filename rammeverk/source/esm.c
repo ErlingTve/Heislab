@@ -44,8 +44,8 @@ void esm_stateSwitch(state CurrentState){
 				}
 			}
 			CurrentState=At_floor;
-		case At_floor:
-			int CurrentFloor=elev_get_floor_sensor_signal();
+        case At_floor:
+            int CurrentFloor=elev_get_floor_sensor_signal();
 			if (elev_get_stop_signal()){
 				orders_deleteAllOrders();
 				CurrentState = Not_moving_at_floor;
