@@ -1,0 +1,110 @@
+\hypertarget{orders_8h}{}\section{rammeverk/source/orders.h File Reference}
+\label{orders_8h}\index{rammeverk/source/orders.h@{rammeverk/source/orders.h}}
+
+
+File to manage orders.  
+
+
+{\ttfamily \#include \char`\"{}channels.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{orders_8h_a8dee37b40f9a183df93324e08431f0e3}\label{orders_8h_a8dee37b40f9a183df93324e08431f0e3}} 
+void \mbox{\hyperlink{orders_8h_a8dee37b40f9a183df93324e08431f0e3}{orders\+\_\+update\+Order\+Matrix}} ()
+\begin{DoxyCompactList}\small\item\em Itererer gjennom alle knappene for å se om de er trykket inn og oppdaterer bestillingsmatrisen. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{orders_8h_a2e3b1478e7fdfedba961c264346246fc}{orders\+\_\+set\+Priority\+Direction\+And\+Return\+If\+Orders}} ()
+\begin{DoxyCompactList}\small\item\em Setter motorretning til den prioriterte retningen og returnerer om det er bestillinger. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{orders_8h_a4ce102d75072a02a85fa62491d7c6acd}{orders\+\_\+order\+At\+This\+Floor}} (int floor)
+\begin{DoxyCompactList}\small\item\em Returnerer om det er bestillinger i valgt etasje. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{orders_8h_acd423ba645a6554b99f38b8a686d3094}{orders\+\_\+delete\+Orders\+At\+This\+Floor}} (int floor)
+\begin{DoxyCompactList}\small\item\em Sletter besillinger i gitt etasje. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{orders_8h_a2ba507d6a2d4aac7cdc3ae493a90b0d4}\label{orders_8h_a2ba507d6a2d4aac7cdc3ae493a90b0d4}} 
+void \mbox{\hyperlink{orders_8h_a2ba507d6a2d4aac7cdc3ae493a90b0d4}{orders\+\_\+delete\+All\+Orders}} ()
+\begin{DoxyCompactList}\small\item\em Sletter alle bestillinger. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{orders_8h_a10783192ba606eefa2b8fb71befe501b}\label{orders_8h_a10783192ba606eefa2b8fb71befe501b}} 
+float \mbox{\hyperlink{orders_8h_a10783192ba606eefa2b8fb71befe501b}{orders\+\_\+save\+Position\+Between\+Floors}} (void)
+\begin{DoxyCompactList}\small\item\em D\+E\+N\+NE S\+K\+AL E\+N\+D\+R\+ES. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{orders_8h_aed1a1a68f80047212cb92b48b0af2c5f}{orders\+\_\+set\+Direction\+Between\+Floors}} (float position)
+\begin{DoxyCompactList}\small\item\em Setter retning når heisen har stoppet mellom to etasjer. MÅ E\+N\+D\+R\+ES E\+T\+T\+E\+R\+S\+OM P\+O\+S\+I\+S\+J\+O\+N\+S\+L\+O\+G\+I\+K\+K\+EN E\+N\+D\+R\+ES. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+File to manage orders. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{orders_8h_acd423ba645a6554b99f38b8a686d3094}\label{orders_8h_acd423ba645a6554b99f38b8a686d3094}} 
+\index{orders.h@{orders.h}!orders\_deleteOrdersAtThisFloor@{orders\_deleteOrdersAtThisFloor}}
+\index{orders\_deleteOrdersAtThisFloor@{orders\_deleteOrdersAtThisFloor}!orders.h@{orders.h}}
+\subsubsection{\texorpdfstring{orders\_deleteOrdersAtThisFloor()}{orders\_deleteOrdersAtThisFloor()}}
+{\footnotesize\ttfamily void orders\+\_\+delete\+Orders\+At\+This\+Floor (\begin{DoxyParamCaption}\item[{int}]{floor }\end{DoxyParamCaption})}
+
+
+
+Sletter besillinger i gitt etasje. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em floor} & Etasjenummer \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 53 of file orders.\+c.
+
+\mbox{\Hypertarget{orders_8h_a4ce102d75072a02a85fa62491d7c6acd}\label{orders_8h_a4ce102d75072a02a85fa62491d7c6acd}} 
+\index{orders.h@{orders.h}!orders\_orderAtThisFloor@{orders\_orderAtThisFloor}}
+\index{orders\_orderAtThisFloor@{orders\_orderAtThisFloor}!orders.h@{orders.h}}
+\subsubsection{\texorpdfstring{orders\_orderAtThisFloor()}{orders\_orderAtThisFloor()}}
+{\footnotesize\ttfamily int orders\+\_\+order\+At\+This\+Floor (\begin{DoxyParamCaption}\item[{int}]{floor }\end{DoxyParamCaption})}
+
+
+
+Returnerer om det er bestillinger i valgt etasje. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em floor} & Etasjenummer \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 45 of file orders.\+c.
+
+\mbox{\Hypertarget{orders_8h_aed1a1a68f80047212cb92b48b0af2c5f}\label{orders_8h_aed1a1a68f80047212cb92b48b0af2c5f}} 
+\index{orders.h@{orders.h}!orders\_setDirectionBetweenFloors@{orders\_setDirectionBetweenFloors}}
+\index{orders\_setDirectionBetweenFloors@{orders\_setDirectionBetweenFloors}!orders.h@{orders.h}}
+\subsubsection{\texorpdfstring{orders\_setDirectionBetweenFloors()}{orders\_setDirectionBetweenFloors()}}
+{\footnotesize\ttfamily void orders\+\_\+set\+Direction\+Between\+Floors (\begin{DoxyParamCaption}\item[{float}]{position }\end{DoxyParamCaption})}
+
+
+
+Setter retning når heisen har stoppet mellom to etasjer. MÅ E\+N\+D\+R\+ES E\+T\+T\+E\+R\+S\+OM P\+O\+S\+I\+S\+J\+O\+N\+S\+L\+O\+G\+I\+K\+K\+EN E\+N\+D\+R\+ES. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & Et flyttall som sier mellom hvilke etasjer heisen er \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 81 of file orders.\+c.
+
+\mbox{\Hypertarget{orders_8h_a2e3b1478e7fdfedba961c264346246fc}\label{orders_8h_a2e3b1478e7fdfedba961c264346246fc}} 
+\index{orders.h@{orders.h}!orders\_setPriorityDirectionAndReturnIfOrders@{orders\_setPriorityDirectionAndReturnIfOrders}}
+\index{orders\_setPriorityDirectionAndReturnIfOrders@{orders\_setPriorityDirectionAndReturnIfOrders}!orders.h@{orders.h}}
+\subsubsection{\texorpdfstring{orders\_setPriorityDirectionAndReturnIfOrders()}{orders\_setPriorityDirectionAndReturnIfOrders()}}
+{\footnotesize\ttfamily int orders\+\_\+set\+Priority\+Direction\+And\+Return\+If\+Orders (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Setter motorretning til den prioriterte retningen og returnerer om det er bestillinger. 
+
+\begin{DoxyReturn}{Returns}
+-\/1 hvis ingen bestillinger, 0 hvis bestilling i samme etasje og 1 hvis det er i en annen etasje 
+\end{DoxyReturn}
+
+
+Definition at line 22 of file orders.\+c.
+
