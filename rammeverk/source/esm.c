@@ -11,7 +11,8 @@
 
 void esm_stateSwitch(state CurrentState){
 	switch (CurrentState){
-		case WAITING_FOR_INIT:
+		
+        case WAITING_FOR_INIT:
 			CurrentState=NOT_MOVING_AT_FLOOR;
 		case NOT_MOVING_AT_FLOOR:
 			elev_set_motor_direction(DIRN_STOP);
@@ -35,7 +36,8 @@ void esm_stateSwitch(state CurrentState){
 				break;
 			} 
 			CurrentState = MOVING;
-		case MOVING:
+		
+        case MOVING:
 			while(elev_get_floor_sensor_signal() == -1) {
 				orders_updateOrderMatrix();
 			if(elev_get_stop_signal()){
@@ -43,8 +45,9 @@ void esm_stateSwitch(state CurrentState){
 					break;
 				}
 			}
-			CurrentState=AT_FLOOR;
-		case AT_FLOOR:
+            CurrentState=AT_FLOOR;
+		
+        case AT_FLOOR:
 			int CurrentFloor = elev_get_floor_sensor_signal();
 			if (elev_get_stop_signal()){
 				orders_deleteAllOrders();
