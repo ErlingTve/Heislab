@@ -37,7 +37,7 @@
 		40B643E42257B3D10047246D /* orders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = orders.h; sourceTree = "<group>"; };
 		40B643E52257B3D10047246D /* elev.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = elev.c; sourceTree = "<group>"; };
 		40B643E62257B3D10047246D /* io.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = io.h; sourceTree = "<group>"; };
-		40B643EC2257C4040047246D /* HeisIXcode */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = HeisIXcode; path = ../../../../../../../../Documents/git/Heislab/rammeverk/source/HeisIXcode; sourceTree = BUILT_PRODUCTS_DIR; };
+		40B643EC2257C4040047246D /* source */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = source; path = ../../../../../../../../Documents/git/Heislab/rammeverk/source; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +64,7 @@
 				40B643E12257B3D10047246D /* main.c */,
 				40B643E32257B3D10047246D /* orders.c */,
 				40B643E42257B3D10047246D /* orders.h */,
-				40B643EC2257C4040047246D /* HeisIXcode */,
+				40B643EC2257C4040047246D /* source */,
 			);
 			sourceTree = "<group>";
 		};
@@ -85,7 +85,7 @@
 			);
 			name = HeisIXcode;
 			productName = HeisIXcode;
-			productReference = 40B643EC2257C4040047246D /* HeisIXcode */;
+			productReference = 40B643EC2257C4040047246D /* source */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
