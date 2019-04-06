@@ -39,7 +39,7 @@ void esm_stateSwitch(state CurrentState){
 			elev_set_door_open_lamp(0); //DETTE VIL VEL GJØRE AT DØREN LUKKER SEG OGSÅ VED TRYKKET STOPPKNAPP
 			orders_updateOrderMatrix(); //tar bestilling
 			//får heisen til å bevege seg mot prioritert bestilling
-			while(orders_setPriorityDirectionAndReturnIfOrders() == -1){
+			while(!orders_existOrders()){
 				orders_updateOrderMatrix();
 				if (elev_get_stop_signal()){
 					orders_deleteAllOrders();
@@ -48,7 +48,7 @@ void esm_stateSwitch(state CurrentState){
 				}
 			}
 			//Heisen går inn i samme tilstand på nytt om det er ny bestilling i samme etasje
-            if (!orders_setPriorityDirectionAndReturnIfOrders()){
+            if (orders_orderAtThisFloor(Posisjon)){
 				CurrentState = NOT_MOVING_AT_FLOOR;
 				break;
 			} 

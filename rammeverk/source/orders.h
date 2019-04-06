@@ -14,17 +14,26 @@ static int order_matrix[N_FLOORS][N_BUTTONS];
 /**
  @brief Itererer gjennom alle knappene for å se om de er trykket inn og oppdaterer bestillingsmatrisen
 */
-void orders_updateOrderMatrix();
+void orders_updateOrderMatrix(void);
 
 /**
  @brief Setter motorretning til den prioriterte retningen og returnerer om det er bestillinger.
 @return -1 hvis ingen bestillinger, 0 hvis bestilling i samme etasje og 1 hvis det er i en annen etasje
 */
-int orders_setPriorityDirectionAndReturnIfOrders();
+int orders_setPriorityDirectionAndReturnIfOrders(void);
+
+/**
+ @brief Gir om det finnes bestillinger i det hele tatt
+ @return 1 om det finnes bestillinger, 0 hvis ikke
+ */
+int orders_existOrders(void);
+
+void orders_setPriorityDirection(void);
 
 /**
  @brief Returnerer om det er bestillinger i valgt etasje
  @param floor Etasjenummer
+ @return 1 hvis det finnes bestilling i valgt etasje, 0 hvis ikke
 */
 int orders_orderAtThisFloor(int floor);
 
@@ -37,7 +46,7 @@ void orders_deleteOrdersAtThisFloor(int floor);
 /**
  @brief Sletter alle bestillinger
  */
-void orders_deleteAllOrders();
+void orders_deleteAllOrders(void);
 
 /**
  @brief DENNE SKAL ENDRES

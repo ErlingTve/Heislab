@@ -42,6 +42,16 @@ int orders_setPriorityDirectionAndReturnIfOrders() {
 	//returner 1
 }
 
+int orders_existOrders() {
+    int order = 0;
+    for (int floor = 0; floor < N_FLOORS; floor++) {
+        order += orders_orderAtThisFloor(floor);
+    }
+    if (order) {
+        return 1;
+    }return 0;
+}
+
 int orders_orderAtThisFloor(int floor) {
 	for (int i = 0; i < N_BUTTONS; ++i){
 		if (order_matrix[floor][i]) {
