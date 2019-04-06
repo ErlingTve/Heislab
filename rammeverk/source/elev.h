@@ -32,8 +32,10 @@ typedef enum tag_elev_motor_direction {
     DIRN_UP = 1
 } elev_motor_direction_t;
 
-//Global variable for motor direction
-static elev_motor_direction_t MotorDirection;
+/**
+ @brief Global variable for motor direction
+ */
+elev_motor_direction_t MotorDirection;
 
 /**
   Sets the motor direction of the elevator and the
