@@ -68,7 +68,7 @@ void esm_stateSwitch(state CurrentState){
 			float position = orders_savePositionBetweenFloors();
 			elev_set_motor_direction(DIRN_STOP);
 			orders_deleteAllOrders();
-			while((orders_setPriorityDirectionAndReturnIfOrders() == -1) && (!elev_get_stop_signal)){
+			while((orders_setPriorityDirectionAndReturnIfOrders() == -1) && (!elev_get_stop_signal())){
 				orders_updateOrderMatrix();
 				}
 			orders_setDirectionBetweenFloors(position);
