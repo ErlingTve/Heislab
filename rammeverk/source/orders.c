@@ -6,8 +6,30 @@
 
 #include <assert.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 
+int orders_commandAtFloor() {
+    if (Posisjon > 3) {
+        printf("order_commandAtFloor er kalt mens Posisjon ikke er i en etasje");
+        return -1;
+    }return order_matrix[Posisjon][BUTTON_COMMAND];
+}
+
+int orders_upAtFloor() {
+    if (Posisjon > 3) {
+        printf("order_upAtFloor er kalt mens Posisjon ikke er i en etasje");
+        return -1;
+    }return order_matrix[Posisjon][BUTTON_CALL_UP];
+}
+
+//Returnerer om det er noen som har trykket 'ned' i etasjen heisen er i
+int orders_downAtFloor() {
+    if (Posisjon > 3) {
+        printf("order_downAtFloor er kalt mens Posisjon ikke er i en etasje");
+        return -1;
+    }return order_matrix[Posisjon][BUTTON_CALL_DOWN];
+}
 
 void orders_updateOrderMatrix(){
 	for (int i=0; i<N_FLOORS; i++){
@@ -40,6 +62,14 @@ int orders_setPriorityDirectionAndReturnIfOrders() {
 
 	//Legg inn logikk for når den skal kjøre opp og ned
 	//returner 1
+}
+
+void orders_setPriorityDirection() {
+    if (orders_orderAtThisFloor(Posisjon)) {
+        elev_set_motor_direction(DIRN_STOP);
+        return;
+    }
+    
 }
 
 int orders_existOrders() {

@@ -120,7 +120,7 @@ int elev_get_button_signal(elev_button_type_t button, int floor);
 
 /**
   Set a button lamp.
-  @param lamp Which type of lamp to set. Can be BUTTON_CALL_UP,
+  @param button Which type of lamp to set. Can be BUTTON_CALL_UP,
     BUTTON_CALL_DOWN or BUTTON_COMMAND (button "inside" the elevator).
   @param floor Floor of lamp to set. Must be 0-3
   @param value Non-zero value turns lamp on, 0 turns lamp off.

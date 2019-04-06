@@ -28,6 +28,9 @@ int orders_setPriorityDirectionAndReturnIfOrders(void);
  */
 int orders_existOrders(void);
 
+/**
+ @brief Setter motorretningen til den prioriterte retningen, kun opp eller ned
+ */
 void orders_setPriorityDirection(void);
 
 /**
@@ -48,6 +51,28 @@ void orders_deleteOrdersAtThisFloor(int floor);
  */
 void orders_deleteAllOrders(void);
 
+/**
+ @brief Ser om det er en bestilling fra inne i heisen til etasjen heisen er i
+ @return 1 om det er en bestilling fra inne i heisen til etasjen heisen er i
+ @return 0 hvis ikke
+ */
+int orders_commandAtFloor(void);
+
+/**
+ @brief Sier om det er noen som har trykket 'opp' i etasjen heisen er i
+ @return 1 hvis noen har trykket på up i etasjen heisen er i
+ @return 0 hvis ikke
+ */
+int orders_upAtFloor(void);
+
+/**
+ @brief Sier om det er noen som har trykket 'ned' i etasjen heisen er i
+ @return 1 hvis noen har trykket på ned i etasjen heisen er i
+ @return 0 hvis ikke
+*/
+int orders_downAtFloor(void);
+
+//FUNKSJONENE UNDER SKAL SLETTES
 /**
  @brief DENNE SKAL ENDRES
  */

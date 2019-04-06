@@ -25,6 +25,14 @@ void esm_changePositionBetweenFloors() {
     }
 }
 
+//Returnerer 1 om heisen skal stoppe, 0 hvis ikke
+int esm_stopAtFloor() {
+    if (orders_commandAtFloor() || (orders_upAtFloor() && MotorDirection == DIRN_UP) || (orders_downAtFloor() && MotorDirection == DIRN_DOWN)) {
+        return 1;
+    }return 0;
+}
+
+
 void esm_stateSwitch(state CurrentState){
 	switch (CurrentState){
 		
@@ -36,7 +44,7 @@ void esm_stateSwitch(state CurrentState){
 			elev_set_door_open_lamp(1);
 			//Timerfunksjon inn her
 			//husk å resette timer
-			elev_set_door_open_lamp(0); //DETTE VIL VEL GJØRE AT DØREN LUKKER SEG OGSÅ VED TRYKKET STOPPKNAPP
+			elev_set_door_open_lamp(0); //DETTE VIL VEL GJØRE AT DØREN LUKKER SEG OGSÅ VED TRYKKET STOPPKNAPP kan fikses vha egen EMERGENCY_STOP-modul
 			orders_updateOrderMatrix(); //tar bestilling
 			//får heisen til å bevege seg mot prioritert bestilling
 			while(!orders_existOrders()){
@@ -77,7 +85,7 @@ void esm_stateSwitch(state CurrentState){
 			}
 			orders_updateOrderMatrix();
 			elev_set_floor_indicator(Posisjon);
-			if (orders_orderAtThisFloor(Posisjon)){
+			if (esm_stopAtFloor()){ 
 				CurrentState = NOT_MOVING_AT_FLOOR;
 				break;
 			}
@@ -89,7 +97,7 @@ void esm_stateSwitch(state CurrentState){
 			float position = orders_savePositionBetweenFloors();
 			elev_set_motor_direction(DIRN_STOP);
 			orders_deleteAllOrders();
-			while((orders_setPriorityDirectionAndReturnIfOrders() == -1) && (!elev_get_stop_signal())){
+			while(!orders_existOrders() && (!elev_get_stop_signal())){
 				orders_updateOrderMatrix();
 				}
 			orders_setDirectionBetweenFloors(position);
