@@ -67,7 +67,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#enum-members">Enumerations</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">esm.h File Reference</div>  </div>
 </div><!--header-->
@@ -91,12 +92,32 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:adc6e5733fc3c22f0a7b2914188c49c90"><td class="mdescLeft">&#160;</td><td class="mdescRight">definerer navn på de forskjellige tilstandende til tilstandsmaskinen <br /></td></tr>
 <tr class="separator:adc6e5733fc3c22f0a7b2914188c49c90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab86c092f44cafca69dc6a1b1eef65871"><td class="memItemLeft" align="right" valign="top"><a id="ab86c092f44cafca69dc6a1b1eef65871"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="esm_8h.html#ab86c092f44cafca69dc6a1b1eef65871">posisjon</a> { <br />
+&#160;&#160;<b>FØRSTE</b> = 0, 
+<b>ANDRE</b> = 1, 
+<b>TREDJE</b> = 2, 
+<b>FJERDE</b> = 3, 
+<br />
+&#160;&#160;<b>MELLOM_FØRSTE_OG_ANDRE</b> = 4, 
+<b>MELLOM_ANDRE_OG_TREDJE</b> = 5, 
+<b>MELLOM_TREDJE_OG_FJERDE</b> = 6
+<br />
+ }</td></tr>
+<tr class="memdesc:ab86c092f44cafca69dc6a1b1eef65871"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum for hvilken posisjon heisen er i. 0-3 for etasje. 4-6 for mellom etasjene. <br /></td></tr>
+<tr class="separator:ab86c092f44cafca69dc6a1b1eef65871"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a2177f422b16737befd8f1bee0b2ca74a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="esm_8h.html#a2177f422b16737befd8f1bee0b2ca74a">esm_stateSwitch</a> (<a class="el" href="esm_8h.html#adc6e5733fc3c22f0a7b2914188c49c90">state</a> CurrentState)</td></tr>
 <tr class="memdesc:a2177f422b16737befd8f1bee0b2ca74a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Endrer tilstander (i praksis tilstandsmaskinen)  <a href="#a2177f422b16737befd8f1bee0b2ca74a">More...</a><br /></td></tr>
 <tr class="separator:a2177f422b16737befd8f1bee0b2ca74a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a72b27ed9dbcaaebb62ba485c0d1cc873"><td class="memItemLeft" align="right" valign="top"><a id="a72b27ed9dbcaaebb62ba485c0d1cc873"></a>
+<a class="el" href="esm_8h.html#ab86c092f44cafca69dc6a1b1eef65871">posisjon</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="esm_8h.html#a72b27ed9dbcaaebb62ba485c0d1cc873">Posisjon</a></td></tr>
+<tr class="memdesc:a72b27ed9dbcaaebb62ba485c0d1cc873"><td class="mdescLeft">&#160;</td><td class="mdescRight">Global variabel som sier hvilken posisjon heisen til enhver tid er i. <br /></td></tr>
+<tr class="separator:a72b27ed9dbcaaebb62ba485c0d1cc873"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>File to make elevator state machine. </p>
@@ -127,7 +148,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="esm_8c_source.html#l00012">12</a> of file <a class="el" href="esm_8c_source.html">esm.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="esm_8c_source.html#l00028">28</a> of file <a class="el" href="esm_8c_source.html">esm.c</a>.</p>
 
 </div>
 </div>

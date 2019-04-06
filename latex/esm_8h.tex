@@ -17,12 +17,30 @@ enum \mbox{\hyperlink{esm_8h_adc6e5733fc3c22f0a7b2914188c49c90}{state}} \{ \newl
 \newline
 {\bfseries N\+O\+T\+\_\+\+M\+O\+V\+I\+N\+G\+\_\+\+B\+E\+T\+W\+E\+E\+N\+\_\+\+F\+L\+O\+O\+RS}
  \}
-\begin{DoxyCompactList}\small\item\em definerer navn på de forskjellige tilstandende til tilstandsmaskinen \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em definerer navn på de forskjellige tilstandende til tilstandsmaskinen \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{esm_8h_ab86c092f44cafca69dc6a1b1eef65871}\label{esm_8h_ab86c092f44cafca69dc6a1b1eef65871}} 
+enum \mbox{\hyperlink{esm_8h_ab86c092f44cafca69dc6a1b1eef65871}{posisjon}} \{ \newline
+{\bfseries FØ\+R\+S\+TE} = 0, 
+{\bfseries A\+N\+D\+RE} = 1, 
+{\bfseries T\+R\+E\+D\+JE} = 2, 
+{\bfseries F\+J\+E\+R\+DE} = 3, 
+\newline
+{\bfseries M\+E\+L\+L\+O\+M\+\_\+\+FØ\+R\+S\+T\+E\+\_\+\+O\+G\+\_\+\+A\+N\+D\+RE} = 4, 
+{\bfseries M\+E\+L\+L\+O\+M\+\_\+\+A\+N\+D\+R\+E\+\_\+\+O\+G\+\_\+\+T\+R\+E\+D\+JE} = 5, 
+{\bfseries M\+E\+L\+L\+O\+M\+\_\+\+T\+R\+E\+D\+J\+E\+\_\+\+O\+G\+\_\+\+F\+J\+E\+R\+DE} = 6
+ \}
+\begin{DoxyCompactList}\small\item\em Enum for hvilken posisjon heisen er i. 0-\/3 for etasje. 4-\/6 for mellom etasjene. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{esm_8h_a2177f422b16737befd8f1bee0b2ca74a}{esm\+\_\+state\+Switch}} (\mbox{\hyperlink{esm_8h_adc6e5733fc3c22f0a7b2914188c49c90}{state}} Current\+State)
 \begin{DoxyCompactList}\small\item\em Endrer tilstander (i praksis tilstandsmaskinen) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{esm_8h_a72b27ed9dbcaaebb62ba485c0d1cc873}\label{esm_8h_a72b27ed9dbcaaebb62ba485c0d1cc873}} 
+\mbox{\hyperlink{esm_8h_ab86c092f44cafca69dc6a1b1eef65871}{posisjon}} \mbox{\hyperlink{esm_8h_a72b27ed9dbcaaebb62ba485c0d1cc873}{Posisjon}}
+\begin{DoxyCompactList}\small\item\em Global variabel som sier hvilken posisjon heisen til enhver tid er i. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -48,5 +66,5 @@ Endrer tilstander (i praksis tilstandsmaskinen)
 \end{DoxyParams}
 
 
-Definition at line 12 of file esm.\+c.
+Definition at line 28 of file esm.\+c.
 
