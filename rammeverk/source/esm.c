@@ -73,7 +73,6 @@ void esm_stateSwitch(){
 			//Timerfunksjon inn her
 			//husk å resette timer
 			elev_set_door_open_lamp(0); //DETTE VIL VEL GJØRE AT DØREN LUKKER SEG OGSÅ VED TRYKKET STOPPKNAPP kan fikses vha egen EMERGENCY_STOP-modul
-			//får heisen til å bevege seg mot prioritert bestilling
 			while(!orders_existOrders()){
 				orders_updateOrderMatrix();
 				if (elev_get_stop_signal()){
