@@ -16,6 +16,6 @@ int timer_timerExpired(void);
 /**
 @brief Lokal variabel for antall sekunder gått
 */
-static time_t Timestamp = time(NULL);
+static time_t Timestamp = 0;
 
 #endif
