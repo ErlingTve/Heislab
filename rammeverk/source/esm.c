@@ -65,7 +65,7 @@ void esm_stateSwitch(){
 			elev_set_door_open_lamp(1);
 			// lag funksjon for å sette timestamp
 			timer_startTimer();
-			while(timer_timerExpired() != 0){
+			while(timer_timerExpired() == 0){
 				if(elev_get_stop_signal()){
 					CurrentState=EMERGENCY_STOP;
 					break;
@@ -133,7 +133,7 @@ void esm_stateSwitch(){
 			break;
 		//hvis endring i planene
 		case NOT_MOVING_BETWEEN_FLOORS:
-			while((orders_existOrders() != 0) && (elev_get_stop_signal() != 0)){
+			while((orders_existOrders() == 0) && (elev_get_stop_signal() == 0)){
 				orders_updateOrderMatrix();
 			}
 			CurrentState = MOVING;
