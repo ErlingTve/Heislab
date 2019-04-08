@@ -27,7 +27,7 @@ void esm_changePositionBetweenFloors() {
 
 //Returnerer 1 om heisen skal stoppe, 0 hvis ikke
 int esm_stopAtFloor() {
-    if (orders_commandAtFloor(Posisjon)) || (orders_upAtFloor(Posisjon) && MotorDirection == DIRN_UP) || (orders_downAtFloor(Posisjon) && MotorDirection == DIRN_DOWN)) {
+    if ((orders_commandAtFloor(Posisjon)) || (orders_upAtFloor(Posisjon) && MotorDirection == DIRN_UP) || (orders_downAtFloor(Posisjon) && MotorDirection == DIRN_DOWN)) {
         return 1;
     }return 0;
 }
@@ -37,7 +37,7 @@ void esm_setPriorityDirection(){
 	if(LastMovingDirection=DIRN_UP){
 		for (int i = Posisjon+1; i < N_FLOORS; ++i){
 			if(orders_orderAtThisFloor(i)){
-				elev_set_motor_direction()=DIRN_UP;
+				elev_set_motor_direction(DIRN_UP);
 				return;
 			}
 		}
@@ -45,7 +45,7 @@ void esm_setPriorityDirection(){
 	if(LastMovingDirection=DIRN_DOWN){
 		for (int i = 0; i < Posisjon; ++i){
 			if(orders_orderAtThisFloor(i)){
-				elev_set_motor_direction()=DIRN_DOWN;
+				elev_set_motor_direction(DIRN_DOWN);
 				return;
 			}
 		}
@@ -116,11 +116,11 @@ void esm_stateSwitch(){
 			CurrentState = MOVING;
 			break;
 		case EMERGENCY_STOP:
-			elev_set_motor_direction()=DIRN_STOP;
+			elev_set_motor_direction(DIRN_STOP);
 			orders_deleteAllOrders();
 			if (Posisjon<4){
 				//i etasje
-				elev_set_door_open_lamp();
+				elev_set_door_open_lamp(1);
 				while(elev_get_stop_signal()){
 					//ingenting
 				}
