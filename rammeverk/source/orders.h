@@ -8,6 +8,16 @@
 */
 
 /**
+ @brief Enum for hvilken posisjon heisen er i. 0-3 for etasje (for enkel bruk i andre funksjoner). 4-6 for mellom etasjene.
+ */
+typedef enum {FØRSTE = 0, ANDRE = 1, TREDJE = 2, FJERDE = 3, MELLOM_FØRSTE_OG_ANDRE = 4, MELLOM_ANDRE_OG_TREDJE = 5,  MELLOM_TREDJE_OG_FJERDE = 6} posisjon;
+
+/**
+ @brief Global variabel som sier hvilken posisjon heisen til enhver tid er i
+ */
+posisjon Posisjon;
+
+/**
  @brief Matrise med bestillingene til heisen
 */
 static int order_matrix[N_FLOORS][N_BUTTONS];
@@ -62,6 +72,5 @@ int orders_upAtFloor(posisjon pos);
  @return 0 hvis ikke
 */
 int orders_downAtFloor(posisjon pos);
-
 
 #endif
