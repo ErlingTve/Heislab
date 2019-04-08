@@ -65,7 +65,7 @@ void esm_stateSwitch(){
 			elev_set_door_open_lamp(1);
 			// lag funksjon for å sette timestamp
 			timer_startTimer();
-			while(!timer_timerExpired()){
+			while(timer_timerExpired() != 0){
 				if(elev_get_stop_signal()){
 					CurrentState=EMERGENCY_STOP;
 					break;
@@ -75,7 +75,7 @@ void esm_stateSwitch(){
 			//Timerfunksjon inn her
 			//husk å resette timer
 			elev_set_door_open_lamp(0); //DETTE VIL VEL GJØRE AT DØREN LUKKER SEG OGSÅ VED TRYKKET STOPPKNAPP kan fikses vha egen EMERGENCY_STOP-modul
-			while(!orders_existOrders()){
+			while(orders_existOrders() == 0){
 				orders_updateOrderMatrix();
 				if (elev_get_stop_signal()){
 					CurrentState=EMERGENCY_STOP;
@@ -133,7 +133,7 @@ void esm_stateSwitch(){
 			break;
 		//hvis endring i planene
 		case NOT_MOVING_BETWEEN_FLOORS:
-			while(!orders_existOrders() && (!elev_get_stop_signal())){
+			while((orders_existOrders() != 0) && (elev_get_stop_signal() != 0)){
 				orders_updateOrderMatrix();
 			}
 			CurrentState = MOVING;

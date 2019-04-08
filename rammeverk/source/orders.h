@@ -15,7 +15,7 @@ typedef enum {FØRSTE = 0, ANDRE = 1, TREDJE = 2, FJERDE = 3, MELLOM_FØRSTE_OG_
 /**
  @brief Global variabel som sier hvilken posisjon heisen til enhver tid er i
  */
-posisjon Posisjon;
+posisjon Posisjon = 1;
 
 /**
  @brief Matrise med bestillingene til heisen

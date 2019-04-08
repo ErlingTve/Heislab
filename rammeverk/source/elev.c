@@ -49,7 +49,7 @@ int elev_init(void) {
     }
 
     //get elevator to ground floor
-    while(!elev_get_floor_sensor_signal()) {
+    while(elev_get_floor_sensor_signal() != 0) {
     	elev_set_motor_direction(DIRN_DOWN);
     }
     elev_set_motor_direction(DIRN_STOP);
