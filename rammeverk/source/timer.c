@@ -1,6 +1,6 @@
 #include "timer.h"
 
 #include <stdio.h>
-#include <timer.h>
+#include <time.h>
 
 
