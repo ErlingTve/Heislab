@@ -12,9 +12,10 @@ void timer_startTimer(void){
 	Timestamp = time(NULL);
 }
 
-bool timer_timerExpired(void){
+int timer_timerExpired(void){
 	if(difftime(time(NULL), Timestamp) < 3){
-		return false;
+		return 0;
 	}
-	return true;
+	return 1;
 }
+
