@@ -1,3 +1,8 @@
+#ifndef TIMER_H
+#define TIMER_H
+
+#include <time.h>
+
 /**
 @brief Setter et timestamp til nåtid
 */
@@ -12,3 +17,5 @@ int timer_timerExpired(void);
 @brief Lokal variabel for antall sekunder gått
 */
 static time_t Timestamp = time(NULL);
+
+#endif

@@ -1,5 +1,9 @@
 #include "timer.h"
 
+<<<<<<< HEAD
+=======
+#include <stdio.h>
+>>>>>>> eaf799c51f0009a30bb529771d0d01110e8bc46c
 #include <time.h>
 
 
