@@ -9,7 +9,7 @@
 #include <stdio.h>
 
 //Endrer posisjon til noe mellom etasjer
-//Kalles kun når man går inn i MOVING og posisjonen er satt til "i etasje fra før"
+//Kalles kun når man går inn i MOVING og posisjonen er satt til "i etasje" fra før
 void esm_changePositionBetweenFloors() {
     switch (MotorDirection) {
         case DIRN_DOWN:
@@ -19,7 +19,7 @@ void esm_changePositionBetweenFloors() {
         case DIRN_UP:
             Posisjon += 4;
             break;
-        default:
+        default: 
             printf("MotorDirection er satt til DIRN_STOP selv om du vil endre posisjon til noe mellom etasjer.");
             break;
     }
@@ -33,7 +33,7 @@ int esm_stopAtFloor() {
 }
 
 
-void esm_stateSwitch(state CurrentState){
+void esm_stateSwitch(){
 	switch (CurrentState){
 		
         case WAITING_FOR_INIT:
@@ -42,16 +42,22 @@ void esm_stateSwitch(state CurrentState){
 			elev_set_motor_direction(DIRN_STOP);
 			orders_deleteOrdersAtThisFloor(elev_get_floor_sensor_signal());
 			elev_set_door_open_lamp(1);
+			// lag funksjon for å sette timestamp
+			while(tid ikke gått ut){
+				if(elev_get_stop_signal()){
+					CurrentState=EMERGENCY_STOP;
+					break;
+				}
+				orders_updateOrderMatrix();
+			}
 			//Timerfunksjon inn her
 			//husk å resette timer
 			elev_set_door_open_lamp(0); //DETTE VIL VEL GJØRE AT DØREN LUKKER SEG OGSÅ VED TRYKKET STOPPKNAPP kan fikses vha egen EMERGENCY_STOP-modul
-			orders_updateOrderMatrix(); //tar bestilling
 			//får heisen til å bevege seg mot prioritert bestilling
 			while(!orders_existOrders()){
 				orders_updateOrderMatrix();
 				if (elev_get_stop_signal()){
-					orders_deleteAllOrders();
-					//RESET TIMER!!!!
+					CurrentState=EMERGENCY_STOP;
 					break;
 				}
 			}
@@ -63,44 +69,53 @@ void esm_stateSwitch(state CurrentState){
 			CurrentState = MOVING;
 		
         case MOVING:
+        	//sett prioritert retning
             if (Posisjon < 4) {
                 esm_changePositionBetweenFloors();
             }
 			while(elev_get_floor_sensor_signal() == -1) {
 				orders_updateOrderMatrix();
-			if(elev_get_stop_signal()){
-                CurrentState = NOT_MOVING_BETWEEN_FLOORS;
-                break;
+				if(elev_get_stop_signal()){
+	                CurrentState = EMERGENCY_STOP;
+	                break;
 				}
 			}
             CurrentState=AT_FLOOR;
 		
         case AT_FLOOR:
-			//int CurrentFloor = elev_get_floor_sensor_signal();
-            Posisjon = elev_get_floor_sensor_signal();
+            Posisjon = elev_get_floor_sensor_signal(); //test at ikke oppstår problem når den returnerer -1 fordi heisen er mellom etasjer
+			elev_set_floor_indicator(Posisjon);
 			if (elev_get_stop_signal()){
-				orders_deleteAllOrders();
-				CurrentState = NOT_MOVING_AT_FLOOR;
+				CurrentState = EMERGENCY_STOP;
 				break;
 			}
 			orders_updateOrderMatrix();
-			elev_set_floor_indicator(Posisjon);
 			if (esm_stopAtFloor()){ 
 				CurrentState = NOT_MOVING_AT_FLOOR;
 				break;
 			}
 			CurrentState = MOVING;
-			break;			
-
+			break;
+		case EMERGENCY_STOP:
+			elev_set_motor_direction()=DIRN_STOP;
+			orders_deleteAllOrders();
+			if (Posisjon<4){
+				//i etasje
+				elev_set_door_open_lamp();
+				while(elev_get_stop_signal()){
+					//ingenting
+				}
+				CurrentState=NOT_MOVING_AT_FLOOR;
+				break;
+			}
+			CurrentState=NOT_MOVING_BETWEEN_FLOORS;
+			break;
 		//hvis endring i planene
 		case NOT_MOVING_BETWEEN_FLOORS:
-			float position = orders_savePositionBetweenFloors();
-			elev_set_motor_direction(DIRN_STOP);
-			orders_deleteAllOrders();
 			while(!orders_existOrders() && (!elev_get_stop_signal())){
 				orders_updateOrderMatrix();
 				}
-			orders_setDirectionBetweenFloors(position);
+			//LAG FUNKSJON FOR Å VELGE RETNING OG SETTE MOTOR DIRECTION
 			CurrentState = MOVING;
 			break;	
 	}

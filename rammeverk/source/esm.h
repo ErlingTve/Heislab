@@ -8,13 +8,13 @@
 /**
  @brief definerer navn på de forskjellige tilstandende til tilstandsmaskinen
  */
-typedef enum {WAITING_FOR_INIT, NOT_MOVING_AT_FLOOR, MOVING, AT_FLOOR, NOT_MOVING_BETWEEN_FLOORS} state;
+typedef enum {WAITING_FOR_INIT, NOT_MOVING_AT_FLOOR, MOVING, AT_FLOOR,EMERGENCY-STOP, NOT_MOVING_BETWEEN_FLOORS} state;
 
 /**
  @brief Endrer tilstander (i praksis tilstandsmaskinen)
  @param CurrentState Nåværende tilstand
 */
-void esm_stateSwitch(state CurrentState);
+void esm_stateSwitch(void);
 
 /**
  @brief Enum for hvilken posisjon heisen er i. 0-3 for etasje (for enkel bruk i andre funksjoner). 4-6 for mellom etasjene. 
@@ -25,5 +25,9 @@ typedef enum {FØRSTE = 0, ANDRE = 1, TREDJE = 2, FJERDE = 3, MELLOM_FØRSTE_OG_
  @brief Global variabel som sier hvilken posisjon heisen til enhver tid er i
  */
 posisjon Posisjon;
+/**
+ @brief Privat variabel som sier hvilken state tilstandmaskinen er i
+ */
+static state CurrentState=WAITING_FOR_INIT;
 
 #endif
