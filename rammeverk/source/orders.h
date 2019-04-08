@@ -1,6 +1,7 @@
 #ifndef ORDERS_H
 #define ORDERS_H
 #include "channels.h"
+#include "esm.h"
 /**
 	@file
 	@brief File to manage orders
