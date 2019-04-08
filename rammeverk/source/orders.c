@@ -32,10 +32,13 @@ int orders_downAtFloor(posisjon pos) {
 }
 
 void orders_updateOrderMatrix(){
-	for (int i=0; i<N_FLOORS; i++){
-		for (int j=0; j<N_BUTTONS;j++){ 
-			if(elev_get_button_signal(i,j))
-				order_matrix[i][j] = 1;
+	for (int floor=0; floor<N_FLOORS; floor++){
+		for (int button=0; button<N_BUTTONS; button++){ 
+            if (((floor != FØRSTE) && (button == BUTTON_CALL_DOWN)) || ((floor != FJERDE) && (button == BUTTON_CALL_UP)) || button == BUTTON_COMMAND) {
+                if(elev_get_button_signal(button,floor)){
+                order_matrix[floor][button] = 1;
+                }
+            }	
 		}
 	}
 }

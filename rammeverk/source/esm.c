@@ -135,8 +135,7 @@ void esm_stateSwitch(){
 		case NOT_MOVING_BETWEEN_FLOORS:
 			while(!orders_existOrders() && (!elev_get_stop_signal())){
 				orders_updateOrderMatrix();
-				}
-			//LAG FUNKSJON FOR Å VELGE RETNING OG SETTE MOTOR DIRECTION
+			}
 			CurrentState = MOVING;
 			break;	
 	}
