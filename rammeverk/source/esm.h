@@ -30,4 +30,5 @@ posisjon Posisjon;
  */
 static state CurrentState=WAITING_FOR_INIT;
 
+
 #endif

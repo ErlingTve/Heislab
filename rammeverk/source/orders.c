@@ -9,26 +9,26 @@
 #include <stdio.h>
 
 
-int orders_commandAtFloor() {
-    if (Posisjon > 3) {
+int orders_commandAtFloor(posisjon pos) {
+    if (pos > 3) {
         printf("order_commandAtFloor er kalt mens Posisjon ikke er i en etasje");
         return -1;
-    }return order_matrix[Posisjon][BUTTON_COMMAND];
+    }return order_matrix[pos][BUTTON_COMMAND];
 }
 
-int orders_upAtFloor() {
-    if (Posisjon > 3) {
+int orders_upAtFloor(posisjon pos) {
+    if (pos > 3) {
         printf("order_upAtFloor er kalt mens Posisjon ikke er i en etasje");
         return -1;
     }return order_matrix[Posisjon][BUTTON_CALL_UP];
 }
 
 //Returnerer om det er noen som har trykket 'ned' i etasjen heisen er i
-int orders_downAtFloor() {
-    if (Posisjon > 3) {
+int orders_downAtFloor(posisjon pos) {
+    if (pos > 3) {
         printf("order_downAtFloor er kalt mens Posisjon ikke er i en etasje");
         return -1;
-    }return order_matrix[Posisjon][BUTTON_CALL_DOWN];
+    }return order_matrix[pos][BUTTON_CALL_DOWN];
 }
 
 void orders_updateOrderMatrix(){
@@ -38,38 +38,6 @@ void orders_updateOrderMatrix(){
 				order_matrix[i][j] = 1;
 		}
 	}
-}
-
-
-int orders_setPriorityDirectionAndReturnIfOrders() {
-	//Stoppknappfunksjon
-	int CurrentFloor = elev_get_floor_sensor_signal();
-	int NumberOfOrders = 0;
-	for (int i = 0; i < N_FLOORS; ++i){
-		for (int j = 0; j < N_BUTTONS; ++j){
-			NumberOfOrders += order_matrix[i][j];
-		}
-	}
-	if (!NumberOfOrders){
-		elev_set_motor_direction(0); //Denne trengs nok egentlig ikke
-		return -1;
-	}
-	
-	if (orders_orderAtThisFloor(CurrentFloor)){
-		elev_set_motor_direction(DIRN_STOP);
-		return 0;
-	}
-
-	//Legg inn logikk for når den skal kjøre opp og ned
-	//returner 1
-}
-
-void orders_setPriorityDirection() {
-    if (orders_orderAtThisFloor(Posisjon)) {
-        elev_set_motor_direction(DIRN_STOP);
-        return;
-    }
-    
 }
 
 int orders_existOrders() {
@@ -100,36 +68,6 @@ void orders_deleteAllOrders() {
 	for (int i = 0; i < N_FLOORS; ++i){
 		for (int j = 0; j < N_BUTTONS; ++j){
 			order_matrix[i][j] = 0;
-		}
-	}
-}
-
-float orders_savePositionBetweenFloors(void) {
-	switch (MotorDirection) {
-		case DIRN_DOWN :
-			return FloorIndicator - 0.5;
-			break;
-		case DIRN_UP :
-			return FloorIndicator + 0.5;
-			break;
-		case DIRN_STOP :
-			return FloorIndicator;
-			break;
-	}
-}
-
-void orders_setDirectionBetweenFloors(float position) {
-	int OrderFloor;
-	for (int i = 0; i < N_FLOORS; ++i){
-		for (int j = 0; j < N_BUTTONS; ++j){
-			if (order_matrix[i][j]){
-				OrderFloor = i;
-				if ((OrderFloor - position)>0){
-					elev_set_motor_direction(DIRN_UP);
-				}else
-					elev_set_motor_direction(DIRN_DOWN);
-				return;
-			}
 		}
 	}
 }

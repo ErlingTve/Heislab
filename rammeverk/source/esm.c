@@ -27,9 +27,29 @@ void esm_changePositionBetweenFloors() {
 
 //Returnerer 1 om heisen skal stoppe, 0 hvis ikke
 int esm_stopAtFloor() {
-    if (orders_commandAtFloor() || (orders_upAtFloor() && MotorDirection == DIRN_UP) || (orders_downAtFloor() && MotorDirection == DIRN_DOWN)) {
+    if (orders_commandAtFloor(Posisjon)) || (orders_upAtFloor(Posisjon) && MotorDirection == DIRN_UP) || (orders_downAtFloor(Posisjon) && MotorDirection == DIRN_DOWN)) {
         return 1;
     }return 0;
+}
+
+void esm_setPriorityDirection(){
+	//sjekker om bestillinger i retning motorretning, hvis det er det; behold mottorretning, hvis ikke, bytt motorretning
+	if(LastMovingDirection=DIRN_UP){
+		for (int i = Posisjon+1; i < N_FLOORS; ++i){
+			if(orders_orderAtThisFloor(i)){
+				elev_set_motor_direction()=DIRN_UP;
+				return;
+			}
+		}
+	}
+	if(LastMovingDirection=DIRN_DOWN){
+		for (int i = 0; i < Posisjon; ++i){
+			if(orders_orderAtThisFloor(i)){
+				elev_set_motor_direction()=DIRN_DOWN;
+				return;
+			}
+		}
+	}
 }
 
 
@@ -69,7 +89,7 @@ void esm_stateSwitch(){
 			CurrentState = MOVING;
 		
         case MOVING:
-        	//sett prioritert retning
+        	esm_setPriorityDirection();
             if (Posisjon < 4) {
                 esm_changePositionBetweenFloors();
             }

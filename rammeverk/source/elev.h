@@ -38,6 +38,10 @@ typedef enum tag_elev_motor_direction {
 elev_motor_direction_t MotorDirection;
 
 /**
+@brief Global variable for the last MOVING directon. is set by elev_set_motor_direction()
+*/
+elev_motor_direction_t LastMovingDirection;
+/**
   Sets the motor direction of the elevator and the
   global variable MotorDirection.
   @param dirn New direction of the elevator.
