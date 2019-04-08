@@ -3,6 +3,7 @@
 #include "io.h"
 #include "orders.h"
 #include "esm.h"
+#include "timer.h"
 
 #include <assert.h>
 #include <stdlib.h>
@@ -34,7 +35,7 @@ int esm_stopAtFloor() {
 
 void esm_setPriorityDirection(){
 	//sjekker om bestillinger i retning motorretning, hvis det er det; behold mottorretning, hvis ikke, bytt motorretning
-	if(LastMovingDirection=DIRN_UP){
+	if(LastMovingDirection==DIRN_UP){
 		for (int i = Posisjon+1; i < N_FLOORS; ++i){
 			if(orders_orderAtThisFloor(i)){
 				elev_set_motor_direction(DIRN_UP);
@@ -42,7 +43,7 @@ void esm_setPriorityDirection(){
 			}
 		}
 	}
-	if(LastMovingDirection=DIRN_DOWN){
+	if(LastMovingDirection==DIRN_DOWN){
 		for (int i = 0; i < Posisjon; ++i){
 			if(orders_orderAtThisFloor(i)){
 				elev_set_motor_direction(DIRN_DOWN);
@@ -63,7 +64,8 @@ void esm_stateSwitch(){
 			orders_deleteOrdersAtThisFloor(elev_get_floor_sensor_signal());
 			elev_set_door_open_lamp(1);
 			// lag funksjon for å sette timestamp
-			while(tid ikke gått ut){
+			timer_startTimer();
+			while(!timer_timerExpired()){
 				if(elev_get_stop_signal()){
 					CurrentState=EMERGENCY_STOP;
 					break;
