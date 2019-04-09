@@ -1,6 +1,4 @@
-#include "channels.h"
 #include "elev.h"
-#include "io.h"
 #include "orders.h"
 #include "esm.h"
 #include "timer.h"
@@ -9,16 +7,19 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+
 //Endrer posisjon til noe mellom etasjer
 //Kalles kun når man går inn i MOVING og posisjonen er satt til "i etasje" fra før
 void esm_changePositionBetweenFloors() {
     switch (MotorDirection) {
         case DIRN_DOWN:
-            Posisjon += 3;
+        	orders_setPosisjon(orders_getPosisjon()+3);
+            //Posisjon += 3;
             break;
         
         case DIRN_UP:
-            Posisjon += 4;
+        	orders_setPosisjon(orders_getPosisjon()+4);
+            //Posisjon += 4;
             break;
         default: 
             printf("MotorDirection er satt til DIRN_STOP selv om du vil endre posisjon til noe mellom etasjer.");
@@ -28,37 +29,60 @@ void esm_changePositionBetweenFloors() {
 
 //Returnerer 1 om heisen skal stoppe, 0 hvis ikke
 int esm_stopAtFloor() {
-    if ((orders_commandAtFloor(Posisjon)) || (orders_upAtFloor(Posisjon) && MotorDirection == DIRN_UP) || (orders_downAtFloor(Posisjon) && MotorDirection == DIRN_DOWN)) {
+    if ((orders_commandAtFloor(orders_getPosisjon())) || (orders_upAtFloor(orders_getPosisjon()) && MotorDirection == DIRN_UP) || (orders_downAtFloor(orders_getPosisjon()) && MotorDirection == DIRN_DOWN)) {
         return 1;
-    }return 0;
+    }
+    if((orders_orderBelowPosition() == 0) && MotorDirection == DIRN_DOWN){
+
+    }
+    if((orders_orderAbovePosition() == 0) && MotorDirection == DIRN_UP){
+    	return 1;
+    }
+    return 0;
 }
 
+// HUSK Å ENDRE MED ORDERSBELOWPOSITION OG ORDERSABOVEPOSISTION
 void esm_setPriorityDirection(){
 	//sjekker om bestillinger i retning motorretning, hvis det er det; behold mottorretning, hvis ikke, bytt motorretning
 	if(LastMovingDirection==DIRN_UP){
-		for (int i = Posisjon+1; i < N_FLOORS; ++i){
-			if(orders_orderAtThisFloor(i)){
-				elev_set_motor_direction(DIRN_UP);
-				return;
-			}
+		if(orders_orderAbovePosition()){
+			elev_set_motor_direction(DIRN_UP);
+			return;
 		}
+		elev_set_motor_direction(DIRN_DOWN);
+		return;
 	}
-	if(LastMovingDirection==DIRN_DOWN){
-		for (int i = 0; i < Posisjon; ++i){
-			if(orders_orderAtThisFloor(i)){
-				elev_set_motor_direction(DIRN_DOWN);
-				return;
-			}
-		}
+	//Hvis LastMovingDirection == DIRN_DOWN
+	if(orders_orderBelowPosition()){
+		elev_set_motor_direction(DIRN_DOWN);
+		return;
 	}
+	elev_set_motor_direction(DIRN_UP);
+	return;
 }
 
 
 void esm_stateSwitch(){
-	switch (CurrentState){
-		
+	printf("CurrentState: ");
+	printf("%d", CurrentState);
+	printf("\n");
+	switch (CurrentState){	
+
         case WAITING_FOR_INIT:
+        	while(!orders_existOrders()){
+        		if(elev_get_stop_signal()){
+        			CurrentState=EMERGENCY_STOP;
+        			return;
+        		}
+        	orders_updateOrderMatrix();
+        	}
+        	if(orders_orderAbovePosition()){
+        		CurrentState=MOVING;
+        		return;
+        	}
 			CurrentState=NOT_MOVING_AT_FLOOR;
+			return;
+
 		case NOT_MOVING_AT_FLOOR:
 			elev_set_motor_direction(DIRN_STOP);
 			orders_deleteOrdersAtThisFloor(elev_get_floor_sensor_signal());
@@ -68,7 +92,7 @@ void esm_stateSwitch(){
 			while(timer_timerExpired() == 0){
 				if(elev_get_stop_signal()){
 					CurrentState=EMERGENCY_STOP;
-					break;
+					return;
 				}
 				orders_updateOrderMatrix();
 			}
@@ -79,65 +103,79 @@ void esm_stateSwitch(){
 				orders_updateOrderMatrix();
 				if (elev_get_stop_signal()){
 					CurrentState=EMERGENCY_STOP;
-					break;
+					return;
 				}
 			}
 			//Heisen går inn i samme tilstand på nytt om det er ny bestilling i samme etasje
-            if (orders_orderAtThisFloor(Posisjon)){
+            if (orders_orderAtThisFloor(orders_getPosisjon())){
 				CurrentState = NOT_MOVING_AT_FLOOR;
-				break;
-			} 
-			CurrentState = MOVING;
+				return;
+			}
+			 	CurrentState = MOVING;
+			return;
 		
         case MOVING:
         	esm_setPriorityDirection();
-            if (Posisjon < 4) {
+            if (orders_getPosisjon() < 4) {
                 esm_changePositionBetweenFloors();
             }
 			while(elev_get_floor_sensor_signal() == -1) {
+				//printf("Movingstate");
 				orders_updateOrderMatrix();
 				if(elev_get_stop_signal()){
 	                CurrentState = EMERGENCY_STOP;
-	                break;
+	                return;
 				}
 			}
-            CurrentState=AT_FLOOR;
-		
+			CurrentState=AT_FLOOR;
+			return;
+
         case AT_FLOOR:
-            Posisjon = elev_get_floor_sensor_signal(); //test at ikke oppstår problem når den returnerer -1 fordi heisen er mellom etasjer
-			elev_set_floor_indicator(Posisjon);
-			if (elev_get_stop_signal()){
-				CurrentState = EMERGENCY_STOP;
-				break;
-			}
-			orders_updateOrderMatrix();
+            orders_setPosisjon(elev_get_floor_sensor_signal()); //test at ikke oppstår problem når den returnerer -1 fordi heisen er mellom etasjer
+			elev_set_floor_indicator(orders_getPosisjon());
+
 			if (esm_stopAtFloor()){ 
 				CurrentState = NOT_MOVING_AT_FLOOR;
-				break;
+				return;
+			}
+			while(elev_get_floor_sensor_signal() != -1){
+				if (elev_get_stop_signal()){
+					CurrentState = EMERGENCY_STOP;
+					return;
+				}
+				orders_updateOrderMatrix();
 			}
 			CurrentState = MOVING;
-			break;
+			return;
+
 		case EMERGENCY_STOP:
+			elev_set_stop_lamp(1);
 			elev_set_motor_direction(DIRN_STOP);
 			orders_deleteAllOrders();
-			if (Posisjon<4){
+			if (orders_getPosisjon()<4){
 				//i etasje
 				elev_set_door_open_lamp(1);
 				while(elev_get_stop_signal()){
 					//ingenting
 				}
 				CurrentState=NOT_MOVING_AT_FLOOR;
-				break;
+				elev_set_stop_lamp(0);
+				return;
 			}
+				while(elev_get_stop_signal()){
+					//ingenting
+				}
 			CurrentState=NOT_MOVING_BETWEEN_FLOORS;
-			break;
+			elev_set_stop_lamp(0);
+			return;
+
 		//hvis endring i planene
 		case NOT_MOVING_BETWEEN_FLOORS:
 			while((orders_existOrders() == 0) && (elev_get_stop_signal() == 0)){
 				orders_updateOrderMatrix();
 			}
 			CurrentState = MOVING;
-			break;	
+			return;	
 	}
 }
 

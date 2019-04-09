@@ -9,7 +9,7 @@ void timer_startTimer(void){
 }
 
 int timer_timerExpired(void){
-	if(difftime(time(NULL), Timestamp) < 3){
+	if(difftime(time(NULL), Timestamp) < 3.0){
 		return 0;
 	}
 	return 1;

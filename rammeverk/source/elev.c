@@ -7,8 +7,6 @@
 #include "channels.h"
 #include "elev.h"
 #include "io.h"
-#include "orders.h"
-#include "esm.h"
 
 #include <assert.h>
 #include <stdlib.h>
@@ -115,8 +113,14 @@ int elev_get_floor_sensor_signal(void) {
 }
 
 void elev_set_floor_indicator(int floor) {
-    assert(floor >= 0);
-    assert(floor < N_FLOORS);
+    //assert(floor >= 0);
+    //assert(floor < N_FLOORS);
+    if(floor < 0){
+    	return;
+    }
+    if(floor >= N_FLOORS){
+    	return;
+    }
 
     FloorIndicator = floor;
     // Binary encoding. One light must always be on.

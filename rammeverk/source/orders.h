@@ -1,7 +1,6 @@
 #ifndef ORDERS_H
 #define ORDERS_H
 #include "channels.h"
-#include "esm.h"
 /**
 	@file
 	@brief File to manage orders
@@ -15,7 +14,7 @@ typedef enum {FØRSTE = 0, ANDRE = 1, TREDJE = 2, FJERDE = 3, MELLOM_FØRSTE_OG_
 /**
  @brief Global variabel som sier hvilken posisjon heisen til enhver tid er i
  */
-posisjon Posisjon = 1;
+static posisjon Posisjon = 0;
 
 /**
  @brief Matrise med bestillingene til heisen
@@ -33,6 +32,18 @@ void orders_updateOrderMatrix(void);
  */
 int orders_existOrders(void);
 
+
+/**
+ @brief sjekker om det er noen bestillinger fra etasjene under nåværende posisjon
+ @return 1 hvis det finnes bestilling i valgt etasjer under, 0 hvis ikke
+*/
+int orders_orderBelowPosition();
+
+/**
+ @brief sjekker om det er noen bestillinger fra etasjene over nåværende posisjon
+ @return 1 hvis det finnes bestilling i valgt etasjer over, 0 hvis ikke
+*/
+int orders_orderAbovePosition();
 
 /**
  @brief Returnerer om det er bestillinger i valgt etasje
@@ -72,5 +83,16 @@ int orders_upAtFloor(posisjon pos);
  @return 0 hvis ikke
 */
 int orders_downAtFloor(posisjon pos);
+
+/**
+ @brief Gir esm tilgang på nåværende heispoisjon
+ @return Variabel av type posisjon 
+*/
+posisjon orders_getPosisjon(void);
+/**
+ @brief Gir esm tilgang til å endre posisjon, når den beveger seg inn eller ut av en etasje
+ @param Tar inn variabel av type posisjon
+*/
+void orders_setPosisjon(posisjon pos);
 
 #endif
