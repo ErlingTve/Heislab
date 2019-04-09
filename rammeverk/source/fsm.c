@@ -33,7 +33,7 @@ int fsm_stopAtFloor() {
         return 1;
     }
     if((orders_orderBelowPosition() == 0) && MotorDirection == DIRN_DOWN){
-
+        return 1;
     }
     if((orders_orderAbovePosition() == 0) && MotorDirection == DIRN_UP){
     	return 1;
