@@ -35,6 +35,7 @@ void orders_updateOrderMatrix(){
             if (((floor != FØRSTE) && (button == BUTTON_CALL_DOWN)) || ((floor != FJERDE) && (button == BUTTON_CALL_UP)) || button == BUTTON_COMMAND) {
                 if(elev_get_button_signal(button,floor)){
                 order_matrix[floor][button] = 1;
+                elev_set_button_lamp(button, floor, 1);
                 }
             }	
 		}
@@ -83,15 +84,21 @@ int orders_orderAbovePosition(){
 
 
 void orders_deleteOrdersAtThisFloor(int floor) {
-	for (int i = 0; i < N_BUTTONS; ++i){
-		order_matrix[floor][i] = 0;
+	for (int button = 0; button < N_BUTTONS; ++button){
+		order_matrix[floor][button] = 0;
+		if (((floor != FØRSTE) && (button == BUTTON_CALL_DOWN)) || ((floor != FJERDE) && (button == BUTTON_CALL_UP)) || button == BUTTON_COMMAND) {
+			elev_set_button_lamp(button, floor, 0);
+		}
 	}
 }
 
 void orders_deleteAllOrders() {
-	for (int i = 0; i < N_FLOORS; ++i){
-		for (int j = 0; j < N_BUTTONS; ++j){
-			order_matrix[i][j] = 0;
+	for (int floor = 0; floor < N_FLOORS; ++floor){
+		for (int button = 0; button < N_BUTTONS; ++button){
+			order_matrix[floor][button] = 0;
+			if (((floor != FØRSTE) && (button == BUTTON_CALL_DOWN)) || ((floor != FJERDE) && (button == BUTTON_CALL_UP)) || button == BUTTON_COMMAND) {
+				elev_set_button_lamp(button, floor, 0);
+			}
 		}
 	}
 }
