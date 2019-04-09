@@ -10,7 +10,6 @@
 
 #include <assert.h>
 #include <stdlib.h>
-#include <stdio.h>
 
 
 
@@ -67,9 +66,6 @@ void elev_set_motor_direction(elev_motor_direction_t dirn) {
         LastMovingDirection = MotorDirection;
     }
     MotorDirection = dirn;
-    printf("LastMovingDirection: ");
-	printf("%d", LastMovingDirection);
-	printf("\n");
     if (dirn == 0){
         io_write_analog(MOTOR, 0);
     } else if (dirn > 0) {

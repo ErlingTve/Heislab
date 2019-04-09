@@ -6,29 +6,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-
-int orders_commandAtFloor(posisjon pos) {
-    if (pos > 3) {
-        printf("order_commandAtFloor er kalt mens Posisjon ikke er i en etasje");
-        return -1;
-    }return order_matrix[pos][BUTTON_COMMAND];
-}
-
-int orders_upAtFloor(posisjon pos) {
-    if (pos > 3) {
-        printf("order_upAtFloor er kalt mens Posisjon ikke er i en etasje");
-        return -1;
-    }return order_matrix[Posisjon][BUTTON_CALL_UP];
-}
-
-//Returnerer om det er noen som har trykket 'ned' i etasjen heisen er i
-int orders_downAtFloor(posisjon pos) {
-    if (pos > 3) {
-        printf("order_downAtFloor er kalt mens Posisjon ikke er i en etasje");
-        return -1;
-    }return order_matrix[pos][BUTTON_CALL_DOWN];
-}
-
 void orders_updateOrderMatrix(){
 	for (int floor=0; floor<N_FLOORS; floor++){
 		for (int button=0; button<N_BUTTONS; button++){ 
@@ -52,15 +29,6 @@ int orders_existOrders() {
     }return 0;
 }
 
-int orders_orderAtThisFloor(int floor) {
-	for (int i = 0; i < N_BUTTONS; ++i){
-		if (order_matrix[floor][i]) {
-			return 1;
-		}
-	}return 0;
-}
-
-//Sjekker om det er noen bestillinger under den nåværende posisjonen, returnere 1 hvis det er bestilling under, 0 hvis det ikke er noen bestillinger under
 int orders_orderBelowPosition(){
 	int pos = orders_getPosisjon();
 	if(pos > 3){
@@ -72,9 +40,8 @@ int orders_orderBelowPosition(){
 		}
 	}
 	return 0;
-}	
+}
 
-//Sjekker om det er noen bestillinger over den nåværende posisjonen, returnere 1 hvis det er bestilling over, 0 hvis det ikke er noen bestillinger over
 int orders_orderAbovePosition(){
 	int pos =orders_getPosisjon();
 	if (pos > 3){
@@ -88,7 +55,13 @@ int orders_orderAbovePosition(){
 	return 0;
 }	
 
-
+int orders_orderAtThisFloor(int floor) {
+	for (int i = 0; i < N_BUTTONS; ++i){
+		if (order_matrix[floor][i]) {
+			return 1;
+		}
+	}return 0;
+}
 
 void orders_deleteOrdersAtThisFloor(int floor) {
 	for (int button = 0; button < N_BUTTONS; ++button){
@@ -108,6 +81,27 @@ void orders_deleteAllOrders() {
 			}
 		}
 	}
+}
+
+int orders_commandAtFloor(posisjon pos) {
+    if (pos > 3) {
+        printf("order_commandAtFloor er kalt mens Posisjon ikke er i en etasje");
+        return -1;
+    }return order_matrix[pos][BUTTON_COMMAND];
+}
+
+int orders_upAtFloor(posisjon pos) {
+    if (pos > 3) {
+        printf("order_upAtFloor er kalt mens Posisjon ikke er i en etasje");
+        return -1;
+    }return order_matrix[Posisjon][BUTTON_CALL_UP];
+}
+
+int orders_downAtFloor(posisjon pos) {
+    if (pos > 3) {
+        printf("order_downAtFloor er kalt mens Posisjon ikke er i en etasje");
+        return -1;
+    }return order_matrix[pos][BUTTON_CALL_DOWN];
 }
 
 posisjon orders_getPosisjon(void){
