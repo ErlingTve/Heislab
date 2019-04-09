@@ -66,6 +66,17 @@ void esm_stateSwitch(){
 	switch (CurrentState){
 		
         case WAITING_FOR_INIT:
+        	while(!orders_existOrders()){
+        		if(elev_get_stop_signal()){
+        			CurrentState=EMERGENCY_STOP;
+        			break;
+        		}
+        	orders_updateOrderMatrix();
+        	}
+        	if(orders_orderAbovePosition()){
+        		CurrentState=MOVING;
+        		break;
+        	}
 			CurrentState=NOT_MOVING_AT_FLOOR;
 		case NOT_MOVING_AT_FLOOR:
 			elev_set_motor_direction(DIRN_STOP);
@@ -73,7 +84,7 @@ void esm_stateSwitch(){
 			elev_set_door_open_lamp(1);
 			// lag funksjon for å sette timestamp
 			timer_startTimer();
-			while(timer_timerExpired() != 0){
+			while(timer_timerExpired() == 0){
 				if(elev_get_stop_signal()){
 					CurrentState=EMERGENCY_STOP;
 					break;
