@@ -62,8 +62,11 @@ int orders_orderAtThisFloor(int floor) {
 
 //Sjekker om det er noen bestillinger under den nåværende posisjonen, returnere 1 hvis det er bestilling under, 0 hvis det ikke er noen bestillinger under
 int orders_orderBelowPosition(){
-
-	for (int i = 0; i < orders_getPosisjon(); ++i){
+	int pos = orders_getPosisjon();
+	if(pos > 3){
+		pos -= 3;
+	}
+	for (int i = 0; i < pos; ++i){
 		if(orders_orderAtThisFloor(i)){
 			return 1;
 		}
@@ -73,7 +76,11 @@ int orders_orderBelowPosition(){
 
 //Sjekker om det er noen bestillinger over den nåværende posisjonen, returnere 1 hvis det er bestilling over, 0 hvis det ikke er noen bestillinger over
 int orders_orderAbovePosition(){
-	for (int i = orders_getPosisjon()+1; i < N_FLOORS; ++i){
+	int pos =orders_getPosisjon();
+	if (pos > 3){
+		pos -= 4;
+	}
+	for (int i = pos+1; i < N_FLOORS; ++i){
 		if(orders_orderAtThisFloor(i)){
 			return 1;
 		}

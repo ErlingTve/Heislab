@@ -1,6 +1,11 @@
 #ifndef TIMER_H
 #define TIMER_H
 
+/**
+	@file
+	@brief Denne modulen inneholder alle timerfunksjoner og -variablecd ra	
+*/
+
 #include <time.h>
 
 /**
