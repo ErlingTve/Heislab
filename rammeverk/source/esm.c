@@ -47,21 +47,17 @@ void esm_setPriorityDirection(){
 	if(LastMovingDirection==DIRN_UP){
 		if(orders_orderAbovePosition()){
 			elev_set_motor_direction(DIRN_UP);
-			printf("a");
 			return;
 		}
 		elev_set_motor_direction(DIRN_DOWN);
-		printf("b");
 		return;
 	}
 	//Hvis LastMovingDirection == DIRN_DOWN
 	if(orders_orderBelowPosition()){
 		elev_set_motor_direction(DIRN_DOWN);
-		printf("c");
 		return;
 	}
 	elev_set_motor_direction(DIRN_UP);
-	printf("d");
 	return;
 }
 
