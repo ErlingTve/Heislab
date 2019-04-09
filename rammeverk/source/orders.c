@@ -1,8 +1,6 @@
-#include "channels.h"
 #include "elev.h"
-#include "io.h"
 #include "orders.h"
-#include "esm.h"
+
 
 #include <assert.h>
 #include <stdlib.h>
@@ -61,6 +59,29 @@ int orders_orderAtThisFloor(int floor) {
 	}return 0;
 }
 
+//Sjekker om det er noen bestillinger under den nåværende posisjonen, returnere 1 hvis det er bestilling under, 0 hvis det ikke er noen bestillinger under
+int orders_orderBelowPosition(){
+
+	for (int i = 0; i < orders_getPosisjon(); ++i){
+		if(orders_orderAtThisFloor(i)){
+			return 1;
+		}
+	}
+	return 0;
+}	
+
+//Sjekker om det er noen bestillinger over den nåværende posisjonen, returnere 1 hvis det er bestilling over, 0 hvis det ikke er noen bestillinger over
+int orders_orderAbovePosition(){
+	for (int i = orders_getPosisjon()+1; i < N_FLOORS; ++i){
+		if(orders_orderAtThisFloor(i)){
+			return 1;
+		}
+	}
+	return 0;
+}	
+
+
+
 void orders_deleteOrdersAtThisFloor(int floor) {
 	for (int i = 0; i < N_BUTTONS; ++i){
 		order_matrix[floor][i] = 0;
@@ -73,4 +94,12 @@ void orders_deleteAllOrders() {
 			order_matrix[i][j] = 0;
 		}
 	}
+}
+
+posisjon orders_getPosisjon(void){
+	return Posisjon;
+}
+
+void orders_setPosisjon(posisjon pos){
+	Posisjon=pos;
 }
