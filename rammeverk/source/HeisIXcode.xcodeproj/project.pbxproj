@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		40B643E72257B3D20047246D /* esm.c in Sources */ = {isa = PBXBuildFile; fileRef = 40B643E02257B3D10047246D /* esm.c */; };
 		40B643E82257B3D20047246D /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 40B643E12257B3D10047246D /* main.c */; };
 		40B643E92257B3D20047246D /* io.c in Sources */ = {isa = PBXBuildFile; fileRef = 40B643E22257B3D10047246D /* io.c */; };
 		40B643EA2257B3D20047246D /* orders.c in Sources */ = {isa = PBXBuildFile; fileRef = 40B643E32257B3D10047246D /* orders.c */; };
 		40B643EB2257B3D20047246D /* elev.c in Sources */ = {isa = PBXBuildFile; fileRef = 40B643E52257B3D10047246D /* elev.c */; };
 		40B643EE225B7F830047246D /* timer.c in Sources */ = {isa = PBXBuildFile; fileRef = 40B643ED225B7F830047246D /* timer.c */; };
+		40B643F2225CF9A80047246D /* fsm.c in Sources */ = {isa = PBXBuildFile; fileRef = 40B643F1225CF9A80047246D /* fsm.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,9 +29,7 @@
 
 /* Begin PBXFileReference section */
 		40B643DD2257B3D10047246D /* channels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = channels.h; sourceTree = "<group>"; };
-		40B643DE2257B3D10047246D /* esm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = esm.h; sourceTree = "<group>"; };
 		40B643DF2257B3D10047246D /* elev.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = elev.h; sourceTree = "<group>"; };
-		40B643E02257B3D10047246D /* esm.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = esm.c; sourceTree = "<group>"; };
 		40B643E12257B3D10047246D /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		40B643E22257B3D10047246D /* io.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = io.c; sourceTree = "<group>"; };
 		40B643E32257B3D10047246D /* orders.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = orders.c; sourceTree = "<group>"; };
@@ -41,6 +39,8 @@
 		40B643EC2257C4040047246D /* source */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = source; path = ../../../../../../../../Documents/git/Heislab/rammeverk/source; sourceTree = BUILT_PRODUCTS_DIR; };
 		40B643ED225B7F830047246D /* timer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = timer.c; sourceTree = "<group>"; };
 		40B643EF225B7F8E0047246D /* timer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = timer.h; sourceTree = "<group>"; };
+		40B643F0225CF9A80047246D /* fsm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fsm.h; sourceTree = "<group>"; };
+		40B643F1225CF9A80047246D /* fsm.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = fsm.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +60,8 @@
 				40B643DD2257B3D10047246D /* channels.h */,
 				40B643E52257B3D10047246D /* elev.c */,
 				40B643DF2257B3D10047246D /* elev.h */,
-				40B643E02257B3D10047246D /* esm.c */,
-				40B643DE2257B3D10047246D /* esm.h */,
+				40B643F1225CF9A80047246D /* fsm.c */,
+				40B643F0225CF9A80047246D /* fsm.h */,
 				40B643E22257B3D10047246D /* io.c */,
 				40B643E62257B3D10047246D /* io.h */,
 				40B643E12257B3D10047246D /* main.c */,
@@ -129,9 +129,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40B643F2225CF9A80047246D /* fsm.c in Sources */,
 				40B643EB2257B3D20047246D /* elev.c in Sources */,
 				40B643E92257B3D20047246D /* io.c in Sources */,
-				40B643E72257B3D20047246D /* esm.c in Sources */,
 				40B643EE225B7F830047246D /* timer.c in Sources */,
 				40B643E82257B3D20047246D /* main.c in Sources */,
 				40B643EA2257B3D20047246D /* orders.c in Sources */,
