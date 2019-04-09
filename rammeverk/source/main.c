@@ -1,5 +1,5 @@
 #include "elev.h"
-#include "esm.h"
+#include "fsm.h"
 
 #include <assert.h>
 #include <stdlib.h>
@@ -17,7 +17,7 @@ int main() {
     //elev_set_motor_direction(DIRN_UP);
 
     while (1) {
-    	esm_stateSwitch();
+    	fsm_stateSwitch();
  	   }
 
     return 0;

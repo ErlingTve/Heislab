@@ -1,6 +1,6 @@
 #include "elev.h"
 #include "orders.h"
-#include "esm.h"
+#include "fsm.h"
 #include "timer.h"
 
 #include <assert.h>
@@ -10,7 +10,7 @@
 
 //Endrer posisjon til noe mellom etasjer
 //Kalles kun når man går inn i MOVING og posisjonen er satt til "i etasje" fra før
-void esm_changePositionBetweenFloors() {
+void fsm_changePositionBetweenFloors() {
     switch (MotorDirection) {
         case DIRN_DOWN:
         	orders_setPosisjon(orders_getPosisjon()+3);
@@ -28,7 +28,7 @@ void esm_changePositionBetweenFloors() {
 }
 
 //Returnerer 1 om heisen skal stoppe, 0 hvis ikke
-int esm_stopAtFloor() {
+int fsm_stopAtFloor() {
     if ((orders_commandAtFloor(orders_getPosisjon())) || (orders_upAtFloor(orders_getPosisjon()) && MotorDirection == DIRN_UP) || (orders_downAtFloor(orders_getPosisjon()) && MotorDirection == DIRN_DOWN)) {
         return 1;
     }
@@ -42,7 +42,7 @@ int esm_stopAtFloor() {
 }
 
 // HUSK Å ENDRE MED ORDERSBELOWPOSITION OG ORDERSABOVEPOSISTION
-void esm_setPriorityDirection(){
+void fsm_setPriorityDirection(){
 	//sjekker om bestillinger i retning motorretning, hvis det er det; behold mottorretning, hvis ikke, bytt motorretning
 	if(LastMovingDirection==DIRN_UP){
 		if(orders_orderAbovePosition()){
@@ -62,7 +62,7 @@ void esm_setPriorityDirection(){
 }
 
 
-void esm_stateSwitch(){
+void fsm_stateSwitch(){
 	printf("CurrentState: ");
 	printf("%d", CurrentState);
 	printf("\n");
@@ -95,10 +95,11 @@ void esm_stateSwitch(){
 					return;
 				}
 				orders_updateOrderMatrix();
+				if (orders_orderAtThisFloor(orders_getPosisjon())){
+					return;
+				}
 			}
-			//Timerfunksjon inn her
-			//husk å resette timer
-			elev_set_door_open_lamp(0); //DETTE VIL VEL GJØRE AT DØREN LUKKER SEG OGSÅ VED TRYKKET STOPPKNAPP kan fikses vha egen EMERGENCY_STOP-modul
+			elev_set_door_open_lamp(0); 
 			while(orders_existOrders() == 0){
 				orders_updateOrderMatrix();
 				if (elev_get_stop_signal()){
@@ -115,9 +116,9 @@ void esm_stateSwitch(){
 			return;
 		
         case MOVING:
-        	esm_setPriorityDirection();
+        	fsm_setPriorityDirection();
             if (orders_getPosisjon() < 4) {
-                esm_changePositionBetweenFloors();
+                fsm_changePositionBetweenFloors();
             }
 			while(elev_get_floor_sensor_signal() == -1) {
 				//printf("Movingstate");
@@ -134,7 +135,7 @@ void esm_stateSwitch(){
             orders_setPosisjon(elev_get_floor_sensor_signal()); //test at ikke oppstår problem når den returnerer -1 fordi heisen er mellom etasjer
 			elev_set_floor_indicator(orders_getPosisjon());
 
-			if (esm_stopAtFloor()){ 
+			if (fsm_stopAtFloor()){ 
 				CurrentState = NOT_MOVING_AT_FLOOR;
 				return;
 			}

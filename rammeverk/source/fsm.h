@@ -1,5 +1,5 @@
-#ifndef ESM_H
-#define ESM_H
+#ifndef FSM_H
+#define FSM_H
 /**
 	@file
 	@brief File to make elevator state machine
@@ -13,7 +13,7 @@ typedef enum {WAITING_FOR_INIT, NOT_MOVING_AT_FLOOR, MOVING, AT_FLOOR, EMERGENCY
 /**
  @brief Endrer tilstander (i praksis tilstandsmaskinen)
 */
-void esm_stateSwitch(void);
+void fsm_stateSwitch(void);
 
 /**
  @brief Privat variabel som sier hvilken state tilstandmaskinen er i
