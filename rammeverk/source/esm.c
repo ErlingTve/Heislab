@@ -63,21 +63,26 @@ void esm_setPriorityDirection(){
 
 
 void esm_stateSwitch(){
-	switch (CurrentState){
+	printf("CurrentState: ");
+	printf("%d", CurrentState);
+	printf("\n");
+	switch (CurrentState){	
 		
         case WAITING_FOR_INIT:
         	while(!orders_existOrders()){
         		if(elev_get_stop_signal()){
         			CurrentState=EMERGENCY_STOP;
-        			break;
+        			return;
         		}
         	orders_updateOrderMatrix();
         	}
         	if(orders_orderAbovePosition()){
         		CurrentState=MOVING;
-        		break;
+        		return;
         	}
 			CurrentState=NOT_MOVING_AT_FLOOR;
+			return;
+
 		case NOT_MOVING_AT_FLOOR:
 			elev_set_motor_direction(DIRN_STOP);
 			orders_deleteOrdersAtThisFloor(elev_get_floor_sensor_signal());
@@ -87,7 +92,7 @@ void esm_stateSwitch(){
 			while(timer_timerExpired() == 0){
 				if(elev_get_stop_signal()){
 					CurrentState=EMERGENCY_STOP;
-					break;
+					return;
 				}
 				orders_updateOrderMatrix();
 			}
@@ -98,15 +103,16 @@ void esm_stateSwitch(){
 				orders_updateOrderMatrix();
 				if (elev_get_stop_signal()){
 					CurrentState=EMERGENCY_STOP;
-					break;
+					return;
 				}
 			}
 			//Heisen går inn i samme tilstand på nytt om det er ny bestilling i samme etasje
             if (orders_orderAtThisFloor(orders_getPosisjon())){
 				CurrentState = NOT_MOVING_AT_FLOOR;
-				break;
-			} 
-			CurrentState = MOVING;
+				return;
+			}
+			 	CurrentState = MOVING;
+			return;
 		
         case MOVING:
         	esm_setPriorityDirection();
@@ -114,29 +120,36 @@ void esm_stateSwitch(){
                 esm_changePositionBetweenFloors();
             }
 			while(elev_get_floor_sensor_signal() == -1) {
+				//printf("Movingstate");
 				orders_updateOrderMatrix();
 				if(elev_get_stop_signal()){
 	                CurrentState = EMERGENCY_STOP;
-	                break;
+	                return;
 				}
 			}
-            CurrentState=AT_FLOOR;
-		
+			CurrentState=AT_FLOOR;
+			return;
+
         case AT_FLOOR:
             orders_setPosisjon(elev_get_floor_sensor_signal()); //test at ikke oppstår problem når den returnerer -1 fordi heisen er mellom etasjer
 			elev_set_floor_indicator(orders_getPosisjon());
-			if (elev_get_stop_signal()){
-				CurrentState = EMERGENCY_STOP;
-				break;
-			}
-			orders_updateOrderMatrix();
+
 			if (esm_stopAtFloor()){ 
 				CurrentState = NOT_MOVING_AT_FLOOR;
-				break;
+				return;
+			}
+			while(elev_get_floor_sensor_signal() != -1){
+				if (elev_get_stop_signal()){
+					CurrentState = EMERGENCY_STOP;
+					return;
+				}
+				orders_updateOrderMatrix();
 			}
 			CurrentState = MOVING;
-			break;
+			return;
+
 		case EMERGENCY_STOP:
+			elev_set_stop_lamp(1);
 			elev_set_motor_direction(DIRN_STOP);
 			orders_deleteAllOrders();
 			if (orders_getPosisjon()<4){
@@ -146,17 +159,23 @@ void esm_stateSwitch(){
 					//ingenting
 				}
 				CurrentState=NOT_MOVING_AT_FLOOR;
-				break;
+				elev_set_stop_lamp(0);
+				return;
 			}
+				while(elev_get_stop_signal()){
+					//ingenting
+				}
 			CurrentState=NOT_MOVING_BETWEEN_FLOORS;
-			break;
+			elev_set_stop_lamp(0);
+			return;
+
 		//hvis endring i planene
 		case NOT_MOVING_BETWEEN_FLOORS:
-			while((orders_existOrders() != 0) && (elev_get_stop_signal() != 0)){
+			while((orders_existOrders() == 0) && (elev_get_stop_signal() == 0)){
 				orders_updateOrderMatrix();
 			}
 			CurrentState = MOVING;
-			break;	
+			return;	
 	}
 }
 

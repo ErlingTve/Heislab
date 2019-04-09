@@ -102,4 +102,7 @@ posisjon orders_getPosisjon(void){
 
 void orders_setPosisjon(posisjon pos){
 	Posisjon=pos;
+	printf("Posisjon: ");
+	printf("%d", pos);
+	printf("\n" );
 }

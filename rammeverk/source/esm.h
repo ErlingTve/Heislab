@@ -8,7 +8,7 @@
 /**
  @brief definerer navn på de forskjellige tilstandende til tilstandsmaskinen
  */
-typedef enum {WAITING_FOR_INIT, NOT_MOVING_AT_FLOOR, MOVING, AT_FLOOR,EMERGENCY_STOP, NOT_MOVING_BETWEEN_FLOORS} state;
+typedef enum {WAITING_FOR_INIT, NOT_MOVING_AT_FLOOR, MOVING, AT_FLOOR, EMERGENCY_STOP, NOT_MOVING_BETWEEN_FLOORS} state;
 
 /**
  @brief Endrer tilstander (i praksis tilstandsmaskinen)
