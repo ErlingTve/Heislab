@@ -95,7 +95,7 @@ int orders_down_at_floor(posisjon pos);
 posisjon orders_get_posisjon(void);
 /**
  @brief Changes the current postion.
- @param Variable of type postion.
+ @param pos of type postion.
 */
 void orders_set_posisjon(posisjon pos);
 
