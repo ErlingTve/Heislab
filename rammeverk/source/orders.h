@@ -39,14 +39,14 @@ int orders_exist_orders(void);
     @return 1 if there are any orders below the current position.
     @return 0 if no orders below.
 */
-int orders_order_below_position();
+int orders_order_below_position(void);
 
 /**
     @brief Checks if there are any orders, in order matrix, above the elevators current position.
     @return 1 if there are any orders above the current position.
     @return 0 if no orders above.
 */
-int orders_order_above_position();
+int orders_order_above_position(void);
 
 /**
     @brief Checks if there are any orders on the current floor

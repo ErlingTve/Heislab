@@ -44,12 +44,12 @@ static elev_motor_direction_t LastMovingDirection;
   @brief Gives the current moving direction.
   @param MovingDirection Current moving direction
 */
-int elev_get_motor_direction();
+int elev_get_motor_direction(void);
 /**
   @brief Gives the last moving direction.
   @returns MovingDirection Last moving direction
 */
-int elev_get_last_moving_direction();
+int elev_get_last_moving_direction(void);
 
 /**
   @brief Sets the motor direction of the elevator and the global variable MotorDirection.
