@@ -11,7 +11,7 @@
 //Endrer posisjon til noe mellom etasjer
 //Kalles kun når man går inn i MOVING og posisjonen er satt til "i etasje" fra før
 void fsm_change_position_between_floors() {
-    switch (MotorDirection) {
+    switch (elev_get_motor_direction()) {
         case DIRN_DOWN:
         	orders_set_posisjon(orders_get_posisjon()+3);
             //Posisjon += 3;
@@ -29,26 +29,25 @@ void fsm_change_position_between_floors() {
 
 //Returnerer 1 om heisen skal stoppe, 0 hvis ikke
 int fsm_stop_at_floor() {
-    if ((orders_command_at_floor(orders_get_posisjon())) || (orders_up_at_floor(orders_get_posisjon()) && MotorDirection == DIRN_UP) || (orders_down_at_floor(orders_get_posisjon()) && MotorDirection == DIRN_DOWN)) {
+    if ((orders_command_at_floor(orders_get_posisjon())) || (orders_up_at_floor(orders_get_posisjon()) && elev_get_motor_direction() == DIRN_UP) || (orders_down_at_floor(orders_get_posisjon()) && elev_get_motor_direction() == DIRN_DOWN)) {
         return 1;
     }
-    if((orders_order_below_position() == 0) && MotorDirection == DIRN_DOWN){
+    if((orders_order_below_position() == 0) && elev_get_motor_direction() == DIRN_DOWN){
         return 1;
     }
-    if((orders_order_above_position() == 0) && MotorDirection == DIRN_UP){
+    if((orders_order_above_position() == 0) && elev_get_motor_direction() == DIRN_UP){
     	return 1;
     }
     return 0;
 }
 
-// HUSK Å ENDRE MED ORDERSBELOWPOSITION OG ORDERSABOVEPOSISTION
 void fsm_set_priority_direction(){
 	//Sjekker at heisen nå står stille. Sikrer at ikke heisen momentant skifter retning
-	if (MotorDirection != DIRN_STOP){
+	if (elev_get_motor_direction() != DIRN_STOP){
 		return;
 	}
 	//sjekker om bestillinger i retning motorretning, hvis det er det; behold mottorretning, hvis ikke, bytt motorretning
-	if(LastMovingDirection==DIRN_UP){
+	if(elev_get_last_moving_direction()==DIRN_UP){
 		if(orders_order_above_position()){
 			elev_set_motor_direction(DIRN_UP);
 			return;
@@ -56,7 +55,7 @@ void fsm_set_priority_direction(){
 		elev_set_motor_direction(DIRN_DOWN);
 		return;
 	}
-	//Hvis LastMovingDirection == DIRN_DOWN
+	//Hvis elev_get_last_moving_direction() == DIRN_DOWN
 	if(orders_order_below_position()){
 		elev_set_motor_direction(DIRN_DOWN);
 		return;

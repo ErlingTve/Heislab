@@ -19,37 +19,37 @@ enum \hyperlink{orders_8h_ab86c092f44cafca69dc6a1b1eef65871}{posisjon} \{ \\*
 {\bfseries M\+E\+L\+L\+O\+M\+\_\+\+A\+N\+D\+R\+E\+\_\+\+O\+G\+\_\+\+T\+R\+E\+D\+JE} = 5, 
 {\bfseries M\+E\+L\+L\+O\+M\+\_\+\+T\+R\+E\+D\+J\+E\+\_\+\+O\+G\+\_\+\+F\+J\+E\+R\+DE} = 6
  \}\hypertarget{orders_8h_ab86c092f44cafca69dc6a1b1eef65871}{}\label{orders_8h_ab86c092f44cafca69dc6a1b1eef65871}
-\begin{DoxyCompactList}\small\item\em Enum for hvilken posisjon heisen er i. 0-\/3 for etasje (for enkel bruk i andre funksjoner). 4-\/6 for mellom etasjene. \end{DoxyCompactList}
+\begin{DoxyCompactList}\small\item\em Enum for the elevators current position, 0-\/3 are floors, 4-\/6 are between floors. \end{DoxyCompactList}
 \end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{orders_8h_ac623b013331edd6e546887fc28152cb8}{orders\+\_\+update\+Order\+Matrix} (void)\hypertarget{orders_8h_ac623b013331edd6e546887fc28152cb8}{}\label{orders_8h_ac623b013331edd6e546887fc28152cb8}
+void \hyperlink{orders_8h_ae99d9f1e7763f65438231c525772d73a}{orders\+\_\+update\+\_\+order\+\_\+matrix} (void)\hypertarget{orders_8h_ae99d9f1e7763f65438231c525772d73a}{}\label{orders_8h_ae99d9f1e7763f65438231c525772d73a}
 
-\begin{DoxyCompactList}\small\item\em Itererer gjennom alle knappene for å se om de er trykket inn og oppdaterer bestillingsmatrisen. \end{DoxyCompactList}\item 
-int \hyperlink{orders_8h_a32e701ddf36056390cefe3b40084aae5}{orders\+\_\+exist\+Orders} (void)
-\begin{DoxyCompactList}\small\item\em Gir om det finnes bestillinger i det hele tatt. \end{DoxyCompactList}\item 
-int \hyperlink{orders_8h_a8a6aba1cc373ea6710d140bf64530140}{orders\+\_\+order\+Below\+Position} ()
-\begin{DoxyCompactList}\small\item\em sjekker om det er noen bestillinger fra etasjene under nåværende posisjon \end{DoxyCompactList}\item 
-int \hyperlink{orders_8h_ae7aada496879776462c9938034a69410}{orders\+\_\+order\+Above\+Position} ()
-\begin{DoxyCompactList}\small\item\em sjekker om det er noen bestillinger fra etasjene over nåværende posisjon \end{DoxyCompactList}\item 
-int \hyperlink{orders_8h_a4ce102d75072a02a85fa62491d7c6acd}{orders\+\_\+order\+At\+This\+Floor} (int floor)
-\begin{DoxyCompactList}\small\item\em Returnerer om det er bestillinger i valgt etasje. \end{DoxyCompactList}\item 
-void \hyperlink{orders_8h_acd423ba645a6554b99f38b8a686d3094}{orders\+\_\+delete\+Orders\+At\+This\+Floor} (int floor)
-\begin{DoxyCompactList}\small\item\em Sletter besillinger i gitt etasje. \end{DoxyCompactList}\item 
-void \hyperlink{orders_8h_a753a7a85a972e6dd6f6218b0b9f27aa9}{orders\+\_\+delete\+All\+Orders} (void)\hypertarget{orders_8h_a753a7a85a972e6dd6f6218b0b9f27aa9}{}\label{orders_8h_a753a7a85a972e6dd6f6218b0b9f27aa9}
+\begin{DoxyCompactList}\small\item\em Iterate through all the buttons to check if they are pressed, if a button is pressed, this function updates the order matrix. \end{DoxyCompactList}\item 
+int \hyperlink{orders_8h_a26e627e58208d002f2da46d75dc79e5a}{orders\+\_\+exist\+\_\+orders} (void)
+\begin{DoxyCompactList}\small\item\em Tells if there is any current orders in order matrix. \end{DoxyCompactList}\item 
+int \hyperlink{orders_8h_af838d7a2d9d914c1db5a5d2c2496cee8}{orders\+\_\+order\+\_\+below\+\_\+position} ()
+\begin{DoxyCompactList}\small\item\em Checks if there are any orders, in order matrix, below the elevators current position. \end{DoxyCompactList}\item 
+int \hyperlink{orders_8h_a702403ea3736e6cdb165ba58e022da44}{orders\+\_\+order\+\_\+above\+\_\+position} ()
+\begin{DoxyCompactList}\small\item\em Checks if there are any orders, in order matrix, above the elevators current position. \end{DoxyCompactList}\item 
+int \hyperlink{orders_8h_a8be7f135068c2118d80f73dfbd0d4b16}{orders\+\_\+order\+\_\+at\+\_\+this\+\_\+floor} (int floor)
+\begin{DoxyCompactList}\small\item\em Checks if there are any orders on the current floor. \end{DoxyCompactList}\item 
+void \hyperlink{orders_8h_a6643ce3042ce31c0a8251fab269c4ddd}{orders\+\_\+delete\+\_\+orders\+\_\+at\+\_\+this\+\_\+floor} (int floor)
+\begin{DoxyCompactList}\small\item\em Deletes orders in order matrix on the current floor. \end{DoxyCompactList}\item 
+void \hyperlink{orders_8h_a1db58ad1dd61605812cd8cdb21997c60}{orders\+\_\+delete\+\_\+all\+\_\+orders} (void)\hypertarget{orders_8h_a1db58ad1dd61605812cd8cdb21997c60}{}\label{orders_8h_a1db58ad1dd61605812cd8cdb21997c60}
 
-\begin{DoxyCompactList}\small\item\em Sletter alle bestillinger. \end{DoxyCompactList}\item 
-int \hyperlink{orders_8h_a27187760c74601ce5eb69cdc0c822aa0}{orders\+\_\+command\+At\+Floor} (\hyperlink{orders_8h_ab86c092f44cafca69dc6a1b1eef65871}{posisjon} pos)
-\begin{DoxyCompactList}\small\item\em Ser om det er en bestilling fra inne i heisen til etasjen heisen er i. \end{DoxyCompactList}\item 
-int \hyperlink{orders_8h_aff4ce3fe137a36325509df9a2cbc9f82}{orders\+\_\+up\+At\+Floor} (\hyperlink{orders_8h_ab86c092f44cafca69dc6a1b1eef65871}{posisjon} pos)
-\begin{DoxyCompactList}\small\item\em Sier om det er noen som har trykket \textquotesingle{}opp\textquotesingle{} i etasjen heisen er i. \end{DoxyCompactList}\item 
-int \hyperlink{orders_8h_a1de363ad3f461857756156db28779067}{orders\+\_\+down\+At\+Floor} (\hyperlink{orders_8h_ab86c092f44cafca69dc6a1b1eef65871}{posisjon} pos)
-\begin{DoxyCompactList}\small\item\em Sier om det er noen som har trykket \textquotesingle{}ned\textquotesingle{} i etasjen heisen er i. \end{DoxyCompactList}\item 
-\hyperlink{orders_8h_ab86c092f44cafca69dc6a1b1eef65871}{posisjon} \hyperlink{orders_8h_a9b80056cd9e333ad7f4ad1137205718f}{orders\+\_\+get\+Posisjon} (void)
-\begin{DoxyCompactList}\small\item\em Gir esm tilgang på nåværende heispoisjon. \end{DoxyCompactList}\item 
-void \hyperlink{orders_8h_a8ba595f5b3ec8f77650e48ae75c9768b}{orders\+\_\+set\+Posisjon} (\hyperlink{orders_8h_ab86c092f44cafca69dc6a1b1eef65871}{posisjon} pos)
-\begin{DoxyCompactList}\small\item\em Gir esm tilgang til å endre posisjon, når den beveger seg inn eller ut av en etasje. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Deletes all orders in order matrix. \end{DoxyCompactList}\item 
+int \hyperlink{orders_8h_a213093d982e9f5daf44744f10e389b2c}{orders\+\_\+command\+\_\+at\+\_\+floor} (\hyperlink{orders_8h_ab86c092f44cafca69dc6a1b1eef65871}{posisjon} pos)
+\begin{DoxyCompactList}\small\item\em Checks if there are any orders in order matrix on the current floor. \end{DoxyCompactList}\item 
+int \hyperlink{orders_8h_afa70a6f96827b2dd432dab4ea9801f04}{orders\+\_\+up\+\_\+at\+\_\+floor} (\hyperlink{orders_8h_ab86c092f44cafca69dc6a1b1eef65871}{posisjon} pos)
+\begin{DoxyCompactList}\small\item\em Checks if there are any orders, in order matrix, above the current floor. \end{DoxyCompactList}\item 
+int \hyperlink{orders_8h_a7c7840a530516cd0c2211d5e3a8887b6}{orders\+\_\+down\+\_\+at\+\_\+floor} (\hyperlink{orders_8h_ab86c092f44cafca69dc6a1b1eef65871}{posisjon} pos)
+\begin{DoxyCompactList}\small\item\em Checks if there are any orders, in order matrix, below the current floor. \end{DoxyCompactList}\item 
+\hyperlink{orders_8h_ab86c092f44cafca69dc6a1b1eef65871}{posisjon} \hyperlink{orders_8h_ad152a56c3879678b65ba3ad6853119cc}{orders\+\_\+get\+\_\+posisjon} (void)
+\begin{DoxyCompactList}\small\item\em Checks current postiton. \end{DoxyCompactList}\item 
+void \hyperlink{orders_8h_ab6ca554e85cd61b0588b2563e4ac5015}{orders\+\_\+set\+\_\+posisjon} (\hyperlink{orders_8h_ab86c092f44cafca69dc6a1b1eef65871}{posisjon} pos)
+\begin{DoxyCompactList}\small\item\em Changes the current postion. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -58,198 +58,206 @@ File to manage orders.
 
 
 \subsection{Function Documentation}
-\index{orders.\+h@{orders.\+h}!orders\+\_\+command\+At\+Floor@{orders\+\_\+command\+At\+Floor}}
-\index{orders\+\_\+command\+At\+Floor@{orders\+\_\+command\+At\+Floor}!orders.\+h@{orders.\+h}}
-\subsubsection[{\texorpdfstring{orders\+\_\+command\+At\+Floor(posisjon pos)}{orders_commandAtFloor(posisjon pos)}}]{\setlength{\rightskip}{0pt plus 5cm}int orders\+\_\+command\+At\+Floor (
+\index{orders.\+h@{orders.\+h}!orders\+\_\+command\+\_\+at\+\_\+floor@{orders\+\_\+command\+\_\+at\+\_\+floor}}
+\index{orders\+\_\+command\+\_\+at\+\_\+floor@{orders\+\_\+command\+\_\+at\+\_\+floor}!orders.\+h@{orders.\+h}}
+\subsubsection[{\texorpdfstring{orders\+\_\+command\+\_\+at\+\_\+floor(posisjon pos)}{orders_command_at_floor(posisjon pos)}}]{\setlength{\rightskip}{0pt plus 5cm}int orders\+\_\+command\+\_\+at\+\_\+floor (
 \begin{DoxyParamCaption}
 \item[{{\bf posisjon}}]{pos}
 \end{DoxyParamCaption}
-)}\hypertarget{orders_8h_a27187760c74601ce5eb69cdc0c822aa0}{}\label{orders_8h_a27187760c74601ce5eb69cdc0c822aa0}
+)}\hypertarget{orders_8h_a213093d982e9f5daf44744f10e389b2c}{}\label{orders_8h_a213093d982e9f5daf44744f10e389b2c}
 
 
-Ser om det er en bestilling fra inne i heisen til etasjen heisen er i. 
+Checks if there are any orders in order matrix on the current floor. 
 
 \begin{DoxyReturn}{Returns}
-1 om det er en bestilling fra inne i heisen til etasjen heisen er i 
+1 if there are any orders on the current floor. 
 
-0 hvis ikke 
+0 if no orders on the current floor. 
 \end{DoxyReturn}
-
-
-Definition at line 10 of file orders.\+c.
-
-\index{orders.\+h@{orders.\+h}!orders\+\_\+delete\+Orders\+At\+This\+Floor@{orders\+\_\+delete\+Orders\+At\+This\+Floor}}
-\index{orders\+\_\+delete\+Orders\+At\+This\+Floor@{orders\+\_\+delete\+Orders\+At\+This\+Floor}!orders.\+h@{orders.\+h}}
-\subsubsection[{\texorpdfstring{orders\+\_\+delete\+Orders\+At\+This\+Floor(int floor)}{orders_deleteOrdersAtThisFloor(int floor)}}]{\setlength{\rightskip}{0pt plus 5cm}void orders\+\_\+delete\+Orders\+At\+This\+Floor (
-\begin{DoxyParamCaption}
-\item[{int}]{floor}
-\end{DoxyParamCaption}
-)}\hypertarget{orders_8h_acd423ba645a6554b99f38b8a686d3094}{}\label{orders_8h_acd423ba645a6554b99f38b8a686d3094}
-
-
-Sletter besillinger i gitt etasje. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em floor} & Etasjenummer \\
-\hline
-\end{DoxyParams}
 
 
 Definition at line 86 of file orders.\+c.
 
-\index{orders.\+h@{orders.\+h}!orders\+\_\+down\+At\+Floor@{orders\+\_\+down\+At\+Floor}}
-\index{orders\+\_\+down\+At\+Floor@{orders\+\_\+down\+At\+Floor}!orders.\+h@{orders.\+h}}
-\subsubsection[{\texorpdfstring{orders\+\_\+down\+At\+Floor(posisjon pos)}{orders_downAtFloor(posisjon pos)}}]{\setlength{\rightskip}{0pt plus 5cm}int orders\+\_\+down\+At\+Floor (
+\index{orders.\+h@{orders.\+h}!orders\+\_\+delete\+\_\+orders\+\_\+at\+\_\+this\+\_\+floor@{orders\+\_\+delete\+\_\+orders\+\_\+at\+\_\+this\+\_\+floor}}
+\index{orders\+\_\+delete\+\_\+orders\+\_\+at\+\_\+this\+\_\+floor@{orders\+\_\+delete\+\_\+orders\+\_\+at\+\_\+this\+\_\+floor}!orders.\+h@{orders.\+h}}
+\subsubsection[{\texorpdfstring{orders\+\_\+delete\+\_\+orders\+\_\+at\+\_\+this\+\_\+floor(int floor)}{orders_delete_orders_at_this_floor(int floor)}}]{\setlength{\rightskip}{0pt plus 5cm}void orders\+\_\+delete\+\_\+orders\+\_\+at\+\_\+this\+\_\+floor (
+\begin{DoxyParamCaption}
+\item[{int}]{floor}
+\end{DoxyParamCaption}
+)}\hypertarget{orders_8h_a6643ce3042ce31c0a8251fab269c4ddd}{}\label{orders_8h_a6643ce3042ce31c0a8251fab269c4ddd}
+
+
+Deletes orders in order matrix on the current floor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em floor} & Current floor. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 66 of file orders.\+c.
+
+\index{orders.\+h@{orders.\+h}!orders\+\_\+down\+\_\+at\+\_\+floor@{orders\+\_\+down\+\_\+at\+\_\+floor}}
+\index{orders\+\_\+down\+\_\+at\+\_\+floor@{orders\+\_\+down\+\_\+at\+\_\+floor}!orders.\+h@{orders.\+h}}
+\subsubsection[{\texorpdfstring{orders\+\_\+down\+\_\+at\+\_\+floor(posisjon pos)}{orders_down_at_floor(posisjon pos)}}]{\setlength{\rightskip}{0pt plus 5cm}int orders\+\_\+down\+\_\+at\+\_\+floor (
 \begin{DoxyParamCaption}
 \item[{{\bf posisjon}}]{pos}
 \end{DoxyParamCaption}
-)}\hypertarget{orders_8h_a1de363ad3f461857756156db28779067}{}\label{orders_8h_a1de363ad3f461857756156db28779067}
+)}\hypertarget{orders_8h_a7c7840a530516cd0c2211d5e3a8887b6}{}\label{orders_8h_a7c7840a530516cd0c2211d5e3a8887b6}
 
 
-Sier om det er noen som har trykket \textquotesingle{}ned\textquotesingle{} i etasjen heisen er i. 
+Checks if there are any orders, in order matrix, below the current floor. 
 
 \begin{DoxyReturn}{Returns}
-1 hvis noen har trykket på ned i etasjen heisen er i 
+1 if there are any orders below the current floor. 
 
-0 hvis ikke 
+0 if no orders below the current floor. 
 \end{DoxyReturn}
 
 
-Definition at line 25 of file orders.\+c.
+Definition at line 100 of file orders.\+c.
 
-\index{orders.\+h@{orders.\+h}!orders\+\_\+exist\+Orders@{orders\+\_\+exist\+Orders}}
-\index{orders\+\_\+exist\+Orders@{orders\+\_\+exist\+Orders}!orders.\+h@{orders.\+h}}
-\subsubsection[{\texorpdfstring{orders\+\_\+exist\+Orders(void)}{orders_existOrders(void)}}]{\setlength{\rightskip}{0pt plus 5cm}int orders\+\_\+exist\+Orders (
+\index{orders.\+h@{orders.\+h}!orders\+\_\+exist\+\_\+orders@{orders\+\_\+exist\+\_\+orders}}
+\index{orders\+\_\+exist\+\_\+orders@{orders\+\_\+exist\+\_\+orders}!orders.\+h@{orders.\+h}}
+\subsubsection[{\texorpdfstring{orders\+\_\+exist\+\_\+orders(void)}{orders_exist_orders(void)}}]{\setlength{\rightskip}{0pt plus 5cm}int orders\+\_\+exist\+\_\+orders (
 \begin{DoxyParamCaption}
 \item[{void}]{}
 \end{DoxyParamCaption}
-)}\hypertarget{orders_8h_a32e701ddf36056390cefe3b40084aae5}{}\label{orders_8h_a32e701ddf36056390cefe3b40084aae5}
+)}\hypertarget{orders_8h_a26e627e58208d002f2da46d75dc79e5a}{}\label{orders_8h_a26e627e58208d002f2da46d75dc79e5a}
 
 
-Gir om det finnes bestillinger i det hele tatt. 
+Tells if there is any current orders in order matrix. 
 
 \begin{DoxyReturn}{Returns}
-1 om det finnes bestillinger, 0 hvis ikke 
+1 if there are any orders in order matrix 
+
+0 if order matrix is empty. 
+\end{DoxyReturn}
+
+
+Definition at line 22 of file orders.\+c.
+
+\index{orders.\+h@{orders.\+h}!orders\+\_\+get\+\_\+posisjon@{orders\+\_\+get\+\_\+posisjon}}
+\index{orders\+\_\+get\+\_\+posisjon@{orders\+\_\+get\+\_\+posisjon}!orders.\+h@{orders.\+h}}
+\subsubsection[{\texorpdfstring{orders\+\_\+get\+\_\+posisjon(void)}{orders_get_posisjon(void)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf posisjon} orders\+\_\+get\+\_\+posisjon (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{orders_8h_ad152a56c3879678b65ba3ad6853119cc}{}\label{orders_8h_ad152a56c3879678b65ba3ad6853119cc}
+
+
+Checks current postiton. 
+
+\begin{DoxyReturn}{Returns}
+Variable of type position. 
+\end{DoxyReturn}
+
+
+Definition at line 107 of file orders.\+c.
+
+\index{orders.\+h@{orders.\+h}!orders\+\_\+order\+\_\+above\+\_\+position@{orders\+\_\+order\+\_\+above\+\_\+position}}
+\index{orders\+\_\+order\+\_\+above\+\_\+position@{orders\+\_\+order\+\_\+above\+\_\+position}!orders.\+h@{orders.\+h}}
+\subsubsection[{\texorpdfstring{orders\+\_\+order\+\_\+above\+\_\+position()}{orders_order_above_position()}}]{\setlength{\rightskip}{0pt plus 5cm}int orders\+\_\+order\+\_\+above\+\_\+position (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{orders_8h_a702403ea3736e6cdb165ba58e022da44}{}\label{orders_8h_a702403ea3736e6cdb165ba58e022da44}
+
+
+Checks if there are any orders, in order matrix, above the elevators current position. 
+
+\begin{DoxyReturn}{Returns}
+1 if there are any orders above the current position. 
+
+0 if no orders above. 
 \end{DoxyReturn}
 
 
 Definition at line 45 of file orders.\+c.
 
-\index{orders.\+h@{orders.\+h}!orders\+\_\+get\+Posisjon@{orders\+\_\+get\+Posisjon}}
-\index{orders\+\_\+get\+Posisjon@{orders\+\_\+get\+Posisjon}!orders.\+h@{orders.\+h}}
-\subsubsection[{\texorpdfstring{orders\+\_\+get\+Posisjon(void)}{orders_getPosisjon(void)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf posisjon} orders\+\_\+get\+Posisjon (
-\begin{DoxyParamCaption}
-\item[{void}]{}
-\end{DoxyParamCaption}
-)}\hypertarget{orders_8h_a9b80056cd9e333ad7f4ad1137205718f}{}\label{orders_8h_a9b80056cd9e333ad7f4ad1137205718f}
-
-
-Gir esm tilgang på nåværende heispoisjon. 
-
-\begin{DoxyReturn}{Returns}
-Variabel av type posisjon 
-\end{DoxyReturn}
-
-
-Definition at line 106 of file orders.\+c.
-
-\index{orders.\+h@{orders.\+h}!orders\+\_\+order\+Above\+Position@{orders\+\_\+order\+Above\+Position}}
-\index{orders\+\_\+order\+Above\+Position@{orders\+\_\+order\+Above\+Position}!orders.\+h@{orders.\+h}}
-\subsubsection[{\texorpdfstring{orders\+\_\+order\+Above\+Position()}{orders_orderAbovePosition()}}]{\setlength{\rightskip}{0pt plus 5cm}int orders\+\_\+order\+Above\+Position (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}\hypertarget{orders_8h_ae7aada496879776462c9938034a69410}{}\label{orders_8h_ae7aada496879776462c9938034a69410}
-
-
-sjekker om det er noen bestillinger fra etasjene over nåværende posisjon 
-
-\begin{DoxyReturn}{Returns}
-1 hvis det finnes bestilling i valgt etasjer over, 0 hvis ikke 
-\end{DoxyReturn}
-
-
-Definition at line 75 of file orders.\+c.
-
-\index{orders.\+h@{orders.\+h}!orders\+\_\+order\+At\+This\+Floor@{orders\+\_\+order\+At\+This\+Floor}}
-\index{orders\+\_\+order\+At\+This\+Floor@{orders\+\_\+order\+At\+This\+Floor}!orders.\+h@{orders.\+h}}
-\subsubsection[{\texorpdfstring{orders\+\_\+order\+At\+This\+Floor(int floor)}{orders_orderAtThisFloor(int floor)}}]{\setlength{\rightskip}{0pt plus 5cm}int orders\+\_\+order\+At\+This\+Floor (
+\index{orders.\+h@{orders.\+h}!orders\+\_\+order\+\_\+at\+\_\+this\+\_\+floor@{orders\+\_\+order\+\_\+at\+\_\+this\+\_\+floor}}
+\index{orders\+\_\+order\+\_\+at\+\_\+this\+\_\+floor@{orders\+\_\+order\+\_\+at\+\_\+this\+\_\+floor}!orders.\+h@{orders.\+h}}
+\subsubsection[{\texorpdfstring{orders\+\_\+order\+\_\+at\+\_\+this\+\_\+floor(int floor)}{orders_order_at_this_floor(int floor)}}]{\setlength{\rightskip}{0pt plus 5cm}int orders\+\_\+order\+\_\+at\+\_\+this\+\_\+floor (
 \begin{DoxyParamCaption}
 \item[{int}]{floor}
 \end{DoxyParamCaption}
-)}\hypertarget{orders_8h_a4ce102d75072a02a85fa62491d7c6acd}{}\label{orders_8h_a4ce102d75072a02a85fa62491d7c6acd}
+)}\hypertarget{orders_8h_a8be7f135068c2118d80f73dfbd0d4b16}{}\label{orders_8h_a8be7f135068c2118d80f73dfbd0d4b16}
 
 
-Returnerer om det er bestillinger i valgt etasje. 
+Checks if there are any orders on the current floor. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em floor} & Etasjenummer \\
+{\em floor} & Current floor. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-1 hvis det finnes bestilling i valgt etasje, 0 hvis ikke 
+1 if there is an order on the current floor. 
+
+0 if no orders on the current floor. 
 \end{DoxyReturn}
 
 
-Definition at line 55 of file orders.\+c.
+Definition at line 58 of file orders.\+c.
 
-\index{orders.\+h@{orders.\+h}!orders\+\_\+order\+Below\+Position@{orders\+\_\+order\+Below\+Position}}
-\index{orders\+\_\+order\+Below\+Position@{orders\+\_\+order\+Below\+Position}!orders.\+h@{orders.\+h}}
-\subsubsection[{\texorpdfstring{orders\+\_\+order\+Below\+Position()}{orders_orderBelowPosition()}}]{\setlength{\rightskip}{0pt plus 5cm}int orders\+\_\+order\+Below\+Position (
+\index{orders.\+h@{orders.\+h}!orders\+\_\+order\+\_\+below\+\_\+position@{orders\+\_\+order\+\_\+below\+\_\+position}}
+\index{orders\+\_\+order\+\_\+below\+\_\+position@{orders\+\_\+order\+\_\+below\+\_\+position}!orders.\+h@{orders.\+h}}
+\subsubsection[{\texorpdfstring{orders\+\_\+order\+\_\+below\+\_\+position()}{orders_order_below_position()}}]{\setlength{\rightskip}{0pt plus 5cm}int orders\+\_\+order\+\_\+below\+\_\+position (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}\hypertarget{orders_8h_a8a6aba1cc373ea6710d140bf64530140}{}\label{orders_8h_a8a6aba1cc373ea6710d140bf64530140}
+)}\hypertarget{orders_8h_af838d7a2d9d914c1db5a5d2c2496cee8}{}\label{orders_8h_af838d7a2d9d914c1db5a5d2c2496cee8}
 
 
-sjekker om det er noen bestillinger fra etasjene under nåværende posisjon 
+Checks if there are any orders, in order matrix, below the elevators current position. 
 
 \begin{DoxyReturn}{Returns}
-1 hvis det finnes bestilling i valgt etasjer under, 0 hvis ikke 
+1 if there are any orders below the current position. 
+
+0 if no orders below. 
 \end{DoxyReturn}
 
 
-Definition at line 64 of file orders.\+c.
+Definition at line 32 of file orders.\+c.
 
-\index{orders.\+h@{orders.\+h}!orders\+\_\+set\+Posisjon@{orders\+\_\+set\+Posisjon}}
-\index{orders\+\_\+set\+Posisjon@{orders\+\_\+set\+Posisjon}!orders.\+h@{orders.\+h}}
-\subsubsection[{\texorpdfstring{orders\+\_\+set\+Posisjon(posisjon pos)}{orders_setPosisjon(posisjon pos)}}]{\setlength{\rightskip}{0pt plus 5cm}void orders\+\_\+set\+Posisjon (
+\index{orders.\+h@{orders.\+h}!orders\+\_\+set\+\_\+posisjon@{orders\+\_\+set\+\_\+posisjon}}
+\index{orders\+\_\+set\+\_\+posisjon@{orders\+\_\+set\+\_\+posisjon}!orders.\+h@{orders.\+h}}
+\subsubsection[{\texorpdfstring{orders\+\_\+set\+\_\+posisjon(posisjon pos)}{orders_set_posisjon(posisjon pos)}}]{\setlength{\rightskip}{0pt plus 5cm}void orders\+\_\+set\+\_\+posisjon (
 \begin{DoxyParamCaption}
 \item[{{\bf posisjon}}]{pos}
 \end{DoxyParamCaption}
-)}\hypertarget{orders_8h_a8ba595f5b3ec8f77650e48ae75c9768b}{}\label{orders_8h_a8ba595f5b3ec8f77650e48ae75c9768b}
+)}\hypertarget{orders_8h_ab6ca554e85cd61b0588b2563e4ac5015}{}\label{orders_8h_ab6ca554e85cd61b0588b2563e4ac5015}
 
 
-Gir esm tilgang til å endre posisjon, når den beveger seg inn eller ut av en etasje. 
+Changes the current postion. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em Tar} & inn variabel av type posisjon \\
+{\em Variable} & of type postion. \\
 \hline
 \end{DoxyParams}
 
 
-Definition at line 110 of file orders.\+c.
+Definition at line 111 of file orders.\+c.
 
-\index{orders.\+h@{orders.\+h}!orders\+\_\+up\+At\+Floor@{orders\+\_\+up\+At\+Floor}}
-\index{orders\+\_\+up\+At\+Floor@{orders\+\_\+up\+At\+Floor}!orders.\+h@{orders.\+h}}
-\subsubsection[{\texorpdfstring{orders\+\_\+up\+At\+Floor(posisjon pos)}{orders_upAtFloor(posisjon pos)}}]{\setlength{\rightskip}{0pt plus 5cm}int orders\+\_\+up\+At\+Floor (
+\index{orders.\+h@{orders.\+h}!orders\+\_\+up\+\_\+at\+\_\+floor@{orders\+\_\+up\+\_\+at\+\_\+floor}}
+\index{orders\+\_\+up\+\_\+at\+\_\+floor@{orders\+\_\+up\+\_\+at\+\_\+floor}!orders.\+h@{orders.\+h}}
+\subsubsection[{\texorpdfstring{orders\+\_\+up\+\_\+at\+\_\+floor(posisjon pos)}{orders_up_at_floor(posisjon pos)}}]{\setlength{\rightskip}{0pt plus 5cm}int orders\+\_\+up\+\_\+at\+\_\+floor (
 \begin{DoxyParamCaption}
 \item[{{\bf posisjon}}]{pos}
 \end{DoxyParamCaption}
-)}\hypertarget{orders_8h_aff4ce3fe137a36325509df9a2cbc9f82}{}\label{orders_8h_aff4ce3fe137a36325509df9a2cbc9f82}
+)}\hypertarget{orders_8h_afa70a6f96827b2dd432dab4ea9801f04}{}\label{orders_8h_afa70a6f96827b2dd432dab4ea9801f04}
 
 
-Sier om det er noen som har trykket \textquotesingle{}opp\textquotesingle{} i etasjen heisen er i. 
+Checks if there are any orders, in order matrix, above the current floor. 
 
 \begin{DoxyReturn}{Returns}
-1 hvis noen har trykket på up i etasjen heisen er i 
+1 if there are any orders above the current floor. 
 
-0 hvis ikke 
+0 if no orders above the current floor. 
 \end{DoxyReturn}
 
 
-Definition at line 17 of file orders.\+c.
+Definition at line 93 of file orders.\+c.
 
