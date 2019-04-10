@@ -43,6 +43,10 @@ int fsm_stopAtFloor() {
 
 // HUSK Å ENDRE MED ORDERSBELOWPOSITION OG ORDERSABOVEPOSISTION
 void fsm_setPriorityDirection(){
+	//Sjekker at heisen nå står stille. Sikrer at ikke heisen momentant skifter retning
+	if (MotorDirection != DIRN_STOP){
+		return;
+	}
 	//sjekker om bestillinger i retning motorretning, hvis det er det; behold mottorretning, hvis ikke, bytt motorretning
 	if(LastMovingDirection==DIRN_UP){
 		if(orders_orderAbovePosition()){
@@ -89,7 +93,7 @@ void fsm_stateSwitch(){
 			elev_set_door_open_lamp(1);
 			// lag funksjon for å sette timestamp
 			timer_startTimer();
-			while(timer_timerExpired() == 0){
+			while(timer_timerExpired(3.0) == 0){
 				if(elev_get_stop_signal()){
 					CurrentState=EMERGENCY_STOP;
 					return;
@@ -120,7 +124,7 @@ void fsm_stateSwitch(){
             if (orders_getPosisjon() < 4) {
                 fsm_changePositionBetweenFloors();
             }
-			while(elev_get_floor_sensor_signal() == -1) {
+       		while(elev_get_floor_sensor_signal() == -1) {
 				//printf("Movingstate");
 				orders_updateOrderMatrix();
 				if(elev_get_stop_signal()){
@@ -128,6 +132,7 @@ void fsm_stateSwitch(){
 	                return;
 				}
 			}
+
 			CurrentState=AT_FLOOR;
 			return;
 

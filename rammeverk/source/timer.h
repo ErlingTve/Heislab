@@ -16,7 +16,7 @@ void timer_startTimer(void);
 /**
 @brief Sjekker om det har gått over tre sekunder siden timestamp ble satt
 */
-int timer_timerExpired(void);
+int timer_timerExpired(double sek);
 
 /**
 @brief Lokal variabel for antall sekunder gått
