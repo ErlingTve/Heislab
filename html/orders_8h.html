@@ -109,62 +109,62 @@ Enumerations</h2></td></tr>
 <b>MELLOM_ANDRE_OG_TREDJE</b> = 5, 
 <b>MELLOM_TREDJE_OG_FJERDE</b> = 6
 <br />
- }<tr class="memdesc:ab86c092f44cafca69dc6a1b1eef65871"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum for hvilken posisjon heisen er i. 0-3 for etasje (for enkel bruk i andre funksjoner). 4-6 for mellom etasjene. <br /></td></tr>
+ }<tr class="memdesc:ab86c092f44cafca69dc6a1b1eef65871"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum for the elevators current position, 0-3 are floors, 4-6 are between floors. <br /></td></tr>
 </td></tr>
 <tr class="separator:ab86c092f44cafca69dc6a1b1eef65871"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ac623b013331edd6e546887fc28152cb8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac623b013331edd6e546887fc28152cb8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orders_8h.html#ac623b013331edd6e546887fc28152cb8">orders_updateOrderMatrix</a> (void)</td></tr>
-<tr class="memdesc:ac623b013331edd6e546887fc28152cb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Itererer gjennom alle knappene for å se om de er trykket inn og oppdaterer bestillingsmatrisen. <br /></td></tr>
-<tr class="separator:ac623b013331edd6e546887fc28152cb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32e701ddf36056390cefe3b40084aae5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orders_8h.html#a32e701ddf36056390cefe3b40084aae5">orders_existOrders</a> (void)</td></tr>
-<tr class="memdesc:a32e701ddf36056390cefe3b40084aae5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gir om det finnes bestillinger i det hele tatt.  <a href="#a32e701ddf36056390cefe3b40084aae5">More...</a><br /></td></tr>
-<tr class="separator:a32e701ddf36056390cefe3b40084aae5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a6aba1cc373ea6710d140bf64530140"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orders_8h.html#a8a6aba1cc373ea6710d140bf64530140">orders_orderBelowPosition</a> ()</td></tr>
-<tr class="memdesc:a8a6aba1cc373ea6710d140bf64530140"><td class="mdescLeft">&#160;</td><td class="mdescRight">sjekker om det er noen bestillinger fra etasjene under nåværende posisjon  <a href="#a8a6aba1cc373ea6710d140bf64530140">More...</a><br /></td></tr>
-<tr class="separator:a8a6aba1cc373ea6710d140bf64530140"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7aada496879776462c9938034a69410"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orders_8h.html#ae7aada496879776462c9938034a69410">orders_orderAbovePosition</a> ()</td></tr>
-<tr class="memdesc:ae7aada496879776462c9938034a69410"><td class="mdescLeft">&#160;</td><td class="mdescRight">sjekker om det er noen bestillinger fra etasjene over nåværende posisjon  <a href="#ae7aada496879776462c9938034a69410">More...</a><br /></td></tr>
-<tr class="separator:ae7aada496879776462c9938034a69410"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ce102d75072a02a85fa62491d7c6acd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orders_8h.html#a4ce102d75072a02a85fa62491d7c6acd">orders_orderAtThisFloor</a> (int floor)</td></tr>
-<tr class="memdesc:a4ce102d75072a02a85fa62491d7c6acd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returnerer om det er bestillinger i valgt etasje.  <a href="#a4ce102d75072a02a85fa62491d7c6acd">More...</a><br /></td></tr>
-<tr class="separator:a4ce102d75072a02a85fa62491d7c6acd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd423ba645a6554b99f38b8a686d3094"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orders_8h.html#acd423ba645a6554b99f38b8a686d3094">orders_deleteOrdersAtThisFloor</a> (int floor)</td></tr>
-<tr class="memdesc:acd423ba645a6554b99f38b8a686d3094"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sletter besillinger i gitt etasje.  <a href="#acd423ba645a6554b99f38b8a686d3094">More...</a><br /></td></tr>
-<tr class="separator:acd423ba645a6554b99f38b8a686d3094"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a753a7a85a972e6dd6f6218b0b9f27aa9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a753a7a85a972e6dd6f6218b0b9f27aa9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orders_8h.html#a753a7a85a972e6dd6f6218b0b9f27aa9">orders_deleteAllOrders</a> (void)</td></tr>
-<tr class="memdesc:a753a7a85a972e6dd6f6218b0b9f27aa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sletter alle bestillinger. <br /></td></tr>
-<tr class="separator:a753a7a85a972e6dd6f6218b0b9f27aa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27187760c74601ce5eb69cdc0c822aa0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orders_8h.html#a27187760c74601ce5eb69cdc0c822aa0">orders_commandAtFloor</a> (<a class="el" href="orders_8h.html#ab86c092f44cafca69dc6a1b1eef65871">posisjon</a> pos)</td></tr>
-<tr class="memdesc:a27187760c74601ce5eb69cdc0c822aa0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ser om det er en bestilling fra inne i heisen til etasjen heisen er i.  <a href="#a27187760c74601ce5eb69cdc0c822aa0">More...</a><br /></td></tr>
-<tr class="separator:a27187760c74601ce5eb69cdc0c822aa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff4ce3fe137a36325509df9a2cbc9f82"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orders_8h.html#aff4ce3fe137a36325509df9a2cbc9f82">orders_upAtFloor</a> (<a class="el" href="orders_8h.html#ab86c092f44cafca69dc6a1b1eef65871">posisjon</a> pos)</td></tr>
-<tr class="memdesc:aff4ce3fe137a36325509df9a2cbc9f82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sier om det er noen som har trykket 'opp' i etasjen heisen er i.  <a href="#aff4ce3fe137a36325509df9a2cbc9f82">More...</a><br /></td></tr>
-<tr class="separator:aff4ce3fe137a36325509df9a2cbc9f82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1de363ad3f461857756156db28779067"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orders_8h.html#a1de363ad3f461857756156db28779067">orders_downAtFloor</a> (<a class="el" href="orders_8h.html#ab86c092f44cafca69dc6a1b1eef65871">posisjon</a> pos)</td></tr>
-<tr class="memdesc:a1de363ad3f461857756156db28779067"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sier om det er noen som har trykket 'ned' i etasjen heisen er i.  <a href="#a1de363ad3f461857756156db28779067">More...</a><br /></td></tr>
-<tr class="separator:a1de363ad3f461857756156db28779067"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b80056cd9e333ad7f4ad1137205718f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="orders_8h.html#ab86c092f44cafca69dc6a1b1eef65871">posisjon</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orders_8h.html#a9b80056cd9e333ad7f4ad1137205718f">orders_getPosisjon</a> (void)</td></tr>
-<tr class="memdesc:a9b80056cd9e333ad7f4ad1137205718f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gir esm tilgang på nåværende heispoisjon.  <a href="#a9b80056cd9e333ad7f4ad1137205718f">More...</a><br /></td></tr>
-<tr class="separator:a9b80056cd9e333ad7f4ad1137205718f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ba595f5b3ec8f77650e48ae75c9768b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orders_8h.html#a8ba595f5b3ec8f77650e48ae75c9768b">orders_setPosisjon</a> (<a class="el" href="orders_8h.html#ab86c092f44cafca69dc6a1b1eef65871">posisjon</a> pos)</td></tr>
-<tr class="memdesc:a8ba595f5b3ec8f77650e48ae75c9768b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gir esm tilgang til å endre posisjon, når den beveger seg inn eller ut av en etasje.  <a href="#a8ba595f5b3ec8f77650e48ae75c9768b">More...</a><br /></td></tr>
-<tr class="separator:a8ba595f5b3ec8f77650e48ae75c9768b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae99d9f1e7763f65438231c525772d73a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae99d9f1e7763f65438231c525772d73a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orders_8h.html#ae99d9f1e7763f65438231c525772d73a">orders_update_order_matrix</a> (void)</td></tr>
+<tr class="memdesc:ae99d9f1e7763f65438231c525772d73a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterate through all the buttons to check if they are pressed, if a button is pressed, this function updates the order matrix. <br /></td></tr>
+<tr class="separator:ae99d9f1e7763f65438231c525772d73a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26e627e58208d002f2da46d75dc79e5a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orders_8h.html#a26e627e58208d002f2da46d75dc79e5a">orders_exist_orders</a> (void)</td></tr>
+<tr class="memdesc:a26e627e58208d002f2da46d75dc79e5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells if there is any current orders in order matrix.  <a href="#a26e627e58208d002f2da46d75dc79e5a">More...</a><br /></td></tr>
+<tr class="separator:a26e627e58208d002f2da46d75dc79e5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af838d7a2d9d914c1db5a5d2c2496cee8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orders_8h.html#af838d7a2d9d914c1db5a5d2c2496cee8">orders_order_below_position</a> ()</td></tr>
+<tr class="memdesc:af838d7a2d9d914c1db5a5d2c2496cee8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if there are any orders, in order matrix, below the elevators current position.  <a href="#af838d7a2d9d914c1db5a5d2c2496cee8">More...</a><br /></td></tr>
+<tr class="separator:af838d7a2d9d914c1db5a5d2c2496cee8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a702403ea3736e6cdb165ba58e022da44"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orders_8h.html#a702403ea3736e6cdb165ba58e022da44">orders_order_above_position</a> ()</td></tr>
+<tr class="memdesc:a702403ea3736e6cdb165ba58e022da44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if there are any orders, in order matrix, above the elevators current position.  <a href="#a702403ea3736e6cdb165ba58e022da44">More...</a><br /></td></tr>
+<tr class="separator:a702403ea3736e6cdb165ba58e022da44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8be7f135068c2118d80f73dfbd0d4b16"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orders_8h.html#a8be7f135068c2118d80f73dfbd0d4b16">orders_order_at_this_floor</a> (int floor)</td></tr>
+<tr class="memdesc:a8be7f135068c2118d80f73dfbd0d4b16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if there are any orders on the current floor.  <a href="#a8be7f135068c2118d80f73dfbd0d4b16">More...</a><br /></td></tr>
+<tr class="separator:a8be7f135068c2118d80f73dfbd0d4b16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6643ce3042ce31c0a8251fab269c4ddd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orders_8h.html#a6643ce3042ce31c0a8251fab269c4ddd">orders_delete_orders_at_this_floor</a> (int floor)</td></tr>
+<tr class="memdesc:a6643ce3042ce31c0a8251fab269c4ddd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes orders in order matrix on the current floor.  <a href="#a6643ce3042ce31c0a8251fab269c4ddd">More...</a><br /></td></tr>
+<tr class="separator:a6643ce3042ce31c0a8251fab269c4ddd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1db58ad1dd61605812cd8cdb21997c60"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1db58ad1dd61605812cd8cdb21997c60"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orders_8h.html#a1db58ad1dd61605812cd8cdb21997c60">orders_delete_all_orders</a> (void)</td></tr>
+<tr class="memdesc:a1db58ad1dd61605812cd8cdb21997c60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes all orders in order matrix. <br /></td></tr>
+<tr class="separator:a1db58ad1dd61605812cd8cdb21997c60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a213093d982e9f5daf44744f10e389b2c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orders_8h.html#a213093d982e9f5daf44744f10e389b2c">orders_command_at_floor</a> (<a class="el" href="orders_8h.html#ab86c092f44cafca69dc6a1b1eef65871">posisjon</a> pos)</td></tr>
+<tr class="memdesc:a213093d982e9f5daf44744f10e389b2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if there are any orders in order matrix on the current floor.  <a href="#a213093d982e9f5daf44744f10e389b2c">More...</a><br /></td></tr>
+<tr class="separator:a213093d982e9f5daf44744f10e389b2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa70a6f96827b2dd432dab4ea9801f04"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orders_8h.html#afa70a6f96827b2dd432dab4ea9801f04">orders_up_at_floor</a> (<a class="el" href="orders_8h.html#ab86c092f44cafca69dc6a1b1eef65871">posisjon</a> pos)</td></tr>
+<tr class="memdesc:afa70a6f96827b2dd432dab4ea9801f04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if there are any orders, in order matrix, above the current floor.  <a href="#afa70a6f96827b2dd432dab4ea9801f04">More...</a><br /></td></tr>
+<tr class="separator:afa70a6f96827b2dd432dab4ea9801f04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c7840a530516cd0c2211d5e3a8887b6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orders_8h.html#a7c7840a530516cd0c2211d5e3a8887b6">orders_down_at_floor</a> (<a class="el" href="orders_8h.html#ab86c092f44cafca69dc6a1b1eef65871">posisjon</a> pos)</td></tr>
+<tr class="memdesc:a7c7840a530516cd0c2211d5e3a8887b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if there are any orders, in order matrix, below the current floor.  <a href="#a7c7840a530516cd0c2211d5e3a8887b6">More...</a><br /></td></tr>
+<tr class="separator:a7c7840a530516cd0c2211d5e3a8887b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad152a56c3879678b65ba3ad6853119cc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="orders_8h.html#ab86c092f44cafca69dc6a1b1eef65871">posisjon</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orders_8h.html#ad152a56c3879678b65ba3ad6853119cc">orders_get_posisjon</a> (void)</td></tr>
+<tr class="memdesc:ad152a56c3879678b65ba3ad6853119cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks current postiton.  <a href="#ad152a56c3879678b65ba3ad6853119cc">More...</a><br /></td></tr>
+<tr class="separator:ad152a56c3879678b65ba3ad6853119cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6ca554e85cd61b0588b2563e4ac5015"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orders_8h.html#ab6ca554e85cd61b0588b2563e4ac5015">orders_set_posisjon</a> (<a class="el" href="orders_8h.html#ab86c092f44cafca69dc6a1b1eef65871">posisjon</a> pos)</td></tr>
+<tr class="memdesc:ab6ca554e85cd61b0588b2563e4ac5015"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the current postion.  <a href="#ab6ca554e85cd61b0588b2563e4ac5015">More...</a><br /></td></tr>
+<tr class="separator:ab6ca554e85cd61b0588b2563e4ac5015"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>File to manage orders. </p>
 
 <p>Definition in file <a class="el" href="orders_8h_source.html">orders.h</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a27187760c74601ce5eb69cdc0c822aa0"></a>
+<a class="anchor" id="a213093d982e9f5daf44744f10e389b2c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int orders_commandAtFloor </td>
+          <td class="memname">int orders_command_at_floor </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="orders_8h.html#ab86c092f44cafca69dc6a1b1eef65871">posisjon</a>&#160;</td>
           <td class="paramname"><em>pos</em></td><td>)</td>
@@ -173,132 +173,21 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orde
       </table>
 </div><div class="memdoc">
 
-<p>Ser om det er en bestilling fra inne i heisen til etasjen heisen er i. </p>
-<dl class="section return"><dt>Returns</dt><dd>1 om det er en bestilling fra inne i heisen til etasjen heisen er i </dd>
+<p>Checks if there are any orders in order matrix on the current floor. </p>
+<dl class="section return"><dt>Returns</dt><dd>1 if there are any orders on the current floor. </dd>
 <dd>
-0 hvis ikke </dd></dl>
-
-<p>Definition at line <a class="el" href="orders_8c_source.html#l00010">10</a> of file <a class="el" href="orders_8c_source.html">orders.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="acd423ba645a6554b99f38b8a686d3094"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void orders_deleteOrdersAtThisFloor </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>floor</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Sletter besillinger i gitt etasje. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">floor</td><td>Etasjenummer </td></tr>
-  </table>
-  </dd>
-</dl>
+0 if no orders on the current floor. </dd></dl>
 
 <p>Definition at line <a class="el" href="orders_8c_source.html#l00086">86</a> of file <a class="el" href="orders_8c_source.html">orders.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a1de363ad3f461857756156db28779067"></a>
+<a class="anchor" id="a6643ce3042ce31c0a8251fab269c4ddd"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int orders_downAtFloor </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="orders_8h.html#ab86c092f44cafca69dc6a1b1eef65871">posisjon</a>&#160;</td>
-          <td class="paramname"><em>pos</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Sier om det er noen som har trykket 'ned' i etasjen heisen er i. </p>
-<dl class="section return"><dt>Returns</dt><dd>1 hvis noen har trykket på ned i etasjen heisen er i </dd>
-<dd>
-0 hvis ikke </dd></dl>
-
-<p>Definition at line <a class="el" href="orders_8c_source.html#l00025">25</a> of file <a class="el" href="orders_8c_source.html">orders.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a32e701ddf36056390cefe3b40084aae5"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int orders_existOrders </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Gir om det finnes bestillinger i det hele tatt. </p>
-<dl class="section return"><dt>Returns</dt><dd>1 om det finnes bestillinger, 0 hvis ikke </dd></dl>
-
-<p>Definition at line <a class="el" href="orders_8c_source.html#l00045">45</a> of file <a class="el" href="orders_8c_source.html">orders.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a9b80056cd9e333ad7f4ad1137205718f"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="orders_8h.html#ab86c092f44cafca69dc6a1b1eef65871">posisjon</a> orders_getPosisjon </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Gir esm tilgang på nåværende heispoisjon. </p>
-<dl class="section return"><dt>Returns</dt><dd>Variabel av type posisjon </dd></dl>
-
-<p>Definition at line <a class="el" href="orders_8c_source.html#l00106">106</a> of file <a class="el" href="orders_8c_source.html">orders.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ae7aada496879776462c9938034a69410"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int orders_orderAbovePosition </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>sjekker om det er noen bestillinger fra etasjene over nåværende posisjon </p>
-<dl class="section return"><dt>Returns</dt><dd>1 hvis det finnes bestilling i valgt etasjer over, 0 hvis ikke </dd></dl>
-
-<p>Definition at line <a class="el" href="orders_8c_source.html#l00075">75</a> of file <a class="el" href="orders_8c_source.html">orders.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a4ce102d75072a02a85fa62491d7c6acd"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int orders_orderAtThisFloor </td>
+          <td class="memname">void orders_delete_orders_at_this_floor </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>floor</em></td><td>)</td>
@@ -307,25 +196,91 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orde
       </table>
 </div><div class="memdoc">
 
-<p>Returnerer om det er bestillinger i valgt etasje. </p>
+<p>Deletes orders in order matrix on the current floor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">floor</td><td>Etasjenummer </td></tr>
+    <tr><td class="paramname">floor</td><td>Current floor. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>1 hvis det finnes bestilling i valgt etasje, 0 hvis ikke </dd></dl>
 
-<p>Definition at line <a class="el" href="orders_8c_source.html#l00055">55</a> of file <a class="el" href="orders_8c_source.html">orders.c</a>.</p>
+<p>Definition at line <a class="el" href="orders_8c_source.html#l00066">66</a> of file <a class="el" href="orders_8c_source.html">orders.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a8a6aba1cc373ea6710d140bf64530140"></a>
+<a class="anchor" id="a7c7840a530516cd0c2211d5e3a8887b6"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int orders_orderBelowPosition </td>
+          <td class="memname">int orders_down_at_floor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="orders_8h.html#ab86c092f44cafca69dc6a1b1eef65871">posisjon</a>&#160;</td>
+          <td class="paramname"><em>pos</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if there are any orders, in order matrix, below the current floor. </p>
+<dl class="section return"><dt>Returns</dt><dd>1 if there are any orders below the current floor. </dd>
+<dd>
+0 if no orders below the current floor. </dd></dl>
+
+<p>Definition at line <a class="el" href="orders_8c_source.html#l00100">100</a> of file <a class="el" href="orders_8c_source.html">orders.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a26e627e58208d002f2da46d75dc79e5a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int orders_exist_orders </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tells if there is any current orders in order matrix. </p>
+<dl class="section return"><dt>Returns</dt><dd>1 if there are any orders in order matrix </dd>
+<dd>
+0 if order matrix is empty. </dd></dl>
+
+<p>Definition at line <a class="el" href="orders_8c_source.html#l00022">22</a> of file <a class="el" href="orders_8c_source.html">orders.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad152a56c3879678b65ba3ad6853119cc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="orders_8h.html#ab86c092f44cafca69dc6a1b1eef65871">posisjon</a> orders_get_posisjon </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks current postiton. </p>
+<dl class="section return"><dt>Returns</dt><dd>Variable of type position. </dd></dl>
+
+<p>Definition at line <a class="el" href="orders_8c_source.html#l00107">107</a> of file <a class="el" href="orders_8c_source.html">orders.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a702403ea3736e6cdb165ba58e022da44"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int orders_order_above_position </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -333,19 +288,72 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orde
       </table>
 </div><div class="memdoc">
 
-<p>sjekker om det er noen bestillinger fra etasjene under nåværende posisjon </p>
-<dl class="section return"><dt>Returns</dt><dd>1 hvis det finnes bestilling i valgt etasjer under, 0 hvis ikke </dd></dl>
+<p>Checks if there are any orders, in order matrix, above the elevators current position. </p>
+<dl class="section return"><dt>Returns</dt><dd>1 if there are any orders above the current position. </dd>
+<dd>
+0 if no orders above. </dd></dl>
 
-<p>Definition at line <a class="el" href="orders_8c_source.html#l00064">64</a> of file <a class="el" href="orders_8c_source.html">orders.c</a>.</p>
+<p>Definition at line <a class="el" href="orders_8c_source.html#l00045">45</a> of file <a class="el" href="orders_8c_source.html">orders.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a8ba595f5b3ec8f77650e48ae75c9768b"></a>
+<a class="anchor" id="a8be7f135068c2118d80f73dfbd0d4b16"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void orders_setPosisjon </td>
+          <td class="memname">int orders_order_at_this_floor </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>floor</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if there are any orders on the current floor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">floor</td><td>Current floor. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 if there is an order on the current floor. </dd>
+<dd>
+0 if no orders on the current floor. </dd></dl>
+
+<p>Definition at line <a class="el" href="orders_8c_source.html#l00058">58</a> of file <a class="el" href="orders_8c_source.html">orders.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af838d7a2d9d914c1db5a5d2c2496cee8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int orders_order_below_position </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if there are any orders, in order matrix, below the elevators current position. </p>
+<dl class="section return"><dt>Returns</dt><dd>1 if there are any orders below the current position. </dd>
+<dd>
+0 if no orders below. </dd></dl>
+
+<p>Definition at line <a class="el" href="orders_8c_source.html#l00032">32</a> of file <a class="el" href="orders_8c_source.html">orders.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab6ca554e85cd61b0588b2563e4ac5015"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void orders_set_posisjon </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="orders_8h.html#ab86c092f44cafca69dc6a1b1eef65871">posisjon</a>&#160;</td>
           <td class="paramname"><em>pos</em></td><td>)</td>
@@ -354,24 +362,24 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orde
       </table>
 </div><div class="memdoc">
 
-<p>Gir esm tilgang til å endre posisjon, når den beveger seg inn eller ut av en etasje. </p>
+<p>Changes the current postion. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Tar</td><td>inn variabel av type posisjon </td></tr>
+    <tr><td class="paramname">Variable</td><td>of type postion. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="orders_8c_source.html#l00110">110</a> of file <a class="el" href="orders_8c_source.html">orders.c</a>.</p>
+<p>Definition at line <a class="el" href="orders_8c_source.html#l00111">111</a> of file <a class="el" href="orders_8c_source.html">orders.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aff4ce3fe137a36325509df9a2cbc9f82"></a>
+<a class="anchor" id="afa70a6f96827b2dd432dab4ea9801f04"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int orders_upAtFloor </td>
+          <td class="memname">int orders_up_at_floor </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="orders_8h.html#ab86c092f44cafca69dc6a1b1eef65871">posisjon</a>&#160;</td>
           <td class="paramname"><em>pos</em></td><td>)</td>
@@ -380,12 +388,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orde
       </table>
 </div><div class="memdoc">
 
-<p>Sier om det er noen som har trykket 'opp' i etasjen heisen er i. </p>
-<dl class="section return"><dt>Returns</dt><dd>1 hvis noen har trykket på up i etasjen heisen er i </dd>
+<p>Checks if there are any orders, in order matrix, above the current floor. </p>
+<dl class="section return"><dt>Returns</dt><dd>1 if there are any orders above the current floor. </dd>
 <dd>
-0 hvis ikke </dd></dl>
+0 if no orders above the current floor. </dd></dl>
 
-<p>Definition at line <a class="el" href="orders_8c_source.html#l00017">17</a> of file <a class="el" href="orders_8c_source.html">orders.c</a>.</p>
+<p>Definition at line <a class="el" href="orders_8c_source.html#l00093">93</a> of file <a class="el" href="orders_8c_source.html">orders.c</a>.</p>
 
 </div>
 </div>
