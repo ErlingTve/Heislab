@@ -29,6 +29,8 @@ static const int button_channel_matrix[N_FLOORS][N_BUTTONS] = {
     {BUTTON_UP4, BUTTON_DOWN4, BUTTON_COMMAND4},
 };
 
+
+
 int elev_init(void) {
     int i;
 
@@ -128,7 +130,6 @@ void elev_set_floor_indicator(int floor) {
     	return;
     }
 
-    FloorIndicator = floor;
     // Binary encoding. One light must always be on.
     if (floor & 0x02)
         io_set_bit(LIGHT_FLOOR_IND1);

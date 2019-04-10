@@ -6,17 +6,17 @@
 */
 
 /**
- @brief definerer navn på de forskjellige tilstandende til tilstandsmaskinen
+ @brief enum to define the different states of the finite statemachine
  */
 typedef enum {WAITING_FOR_INIT, NOT_MOVING_AT_FLOOR, MOVING, AT_FLOOR, EMERGENCY_STOP, NOT_MOVING_BETWEEN_FLOORS} state;
 
 /**
- @brief Endrer tilstander (i praksis tilstandsmaskinen)
+ @brief changes between states, and defines what to do in each state
 */
 void fsm_state_switch(void);
 
 /**
- @brief Privat variabel som sier hvilken state tilstandmaskinen er i
+ @brief Private variable containing the statemachines current state
  */
 static state CurrentState=WAITING_FOR_INIT;
 
