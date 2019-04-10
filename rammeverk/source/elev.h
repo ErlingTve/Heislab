@@ -33,12 +33,24 @@ typedef enum tag_elev_motor_direction {
 /**
  @brief Global variable for motor direction. Is set by elev_set_motor_direction().
  */
-elev_motor_direction_t MotorDirection;
+static elev_motor_direction_t MotorDirection;
 
 /**
 @brief Global variable for the last MOVING directon. Is set by elev_set_motor_direction().
 */
-elev_motor_direction_t LastMovingDirection;
+static elev_motor_direction_t LastMovingDirection;
+
+/**
+  @brief Gives the current moving direction.
+  @param MovingDirection Current moving direction
+*/
+int elev_get_motor_direction();
+/**
+  @brief Gives the last moving direction.
+  @returns MovingDirection Last moving direction
+*/
+int elev_get_last_moving_direction();
+
 /**
   @brief Sets the motor direction of the elevator and the global variable MotorDirection.
   @param dirn New direction of the elevator.

@@ -85,6 +85,15 @@ void elev_set_motor_direction(elev_motor_direction_t dirn) {
     }
 }
 
+int elev_get_motor_direction(){
+    return MotorDirection;
+}
+
+int elev_get_last_moving_direction(){
+    return LastMovingDirection;
+}
+
+
 void elev_set_door_open_lamp(int value) {
     if (value)
         io_set_bit(LIGHT_DOOR_OPEN);
@@ -156,7 +165,7 @@ int elev_get_button_signal(elev_button_type_t button, int floor) {
 }
 
 void elev_set_button_lamp(elev_button_type_t button, int floor, int value) {
-    assert(floor >= 0);
+    //assert(floor >= 0);
     assert(floor < N_FLOORS);
     assert(!(button == BUTTON_CALL_UP && floor == N_FLOORS - 1));
     assert(!(button == BUTTON_CALL_DOWN && floor == 0));
