@@ -41,7 +41,6 @@ int fsm_stop_at_floor() {
     return 0;
 }
 
-// HUSK Å ENDRE MED ORDERSBELOWPOSITION OG ORDERSABOVEPOSISTION
 void fsm_set_priority_direction(){
 	//Sjekker at heisen nå står stille. Sikrer at ikke heisen momentant skifter retning
 	if (elev_get_motor_direction() != DIRN_STOP){
