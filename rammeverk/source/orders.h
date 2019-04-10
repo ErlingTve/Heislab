@@ -37,13 +37,13 @@ int orders_exist_orders(void);
  @brief sjekker om det er noen bestillinger fra etasjene under nåværende posisjon
  @return 1 hvis det finnes bestilling i valgt etasjer under, 0 hvis ikke
 */
-int orders_order_below_position();
+int orders_order_below_position(void);
 
 /**
  @brief sjekker om det er noen bestillinger fra etasjene over nåværende posisjon
  @return 1 hvis det finnes bestilling i valgt etasjer over, 0 hvis ikke
 */
-int orders_order_above_position();
+int orders_order_above_position(void);
 
 /**
  @brief Returnerer om det er bestillinger i valgt etasje
