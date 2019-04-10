@@ -31,12 +31,12 @@ typedef enum tag_elev_motor_direction {
 } elev_motor_direction_t;
 
 /**
- @brief Global variable for motor direction. Is set by elev_set_motor_direction().
+ @brief Local variable for motor direction. Is set by elev_set_motor_direction().
  */
 static elev_motor_direction_t MotorDirection;
 
 /**
-@brief Global variable for the last MOVING directon. Is set by elev_set_motor_direction().
+@brief Local variable for the last MOVING directon. Is set by elev_set_motor_direction().
 */
 static elev_motor_direction_t LastMovingDirection;
 
