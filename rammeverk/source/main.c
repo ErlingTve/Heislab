@@ -17,7 +17,7 @@ int main() {
     //elev_set_motor_direction(DIRN_UP);
 
     while (1) {
-    	fsm_stateSwitch();
+    	fsm_state_switch();
  	   }
 
     return 0;

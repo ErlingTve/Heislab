@@ -3,7 +3,7 @@
 
 /**
 	@file
-	@brief Denne modulen inneholder alle timerfunksjoner og -variablecd ra	
+	@brief Denne modulen inneholder alle timerfunksjoner og -variablecd ra
 */
 
 #include <time.h>
@@ -11,12 +11,12 @@
 /**
 @brief Setter et timestamp til nåtid
 */
-void timer_startTimer(void);
+void timer_start_timer(void);
 
 /**
 @brief Sjekker om det har gått over tre sekunder siden timestamp ble satt
 */
-int timer_timerExpired(double sek);
+int timer_timer_expired(double sek);
 
 /**
 @brief Lokal variabel for antall sekunder gått

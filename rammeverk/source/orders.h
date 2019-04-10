@@ -24,75 +24,75 @@ static int order_matrix[N_FLOORS][N_BUTTONS];
 /**
  @brief Itererer gjennom alle knappene for å se om de er trykket inn og oppdaterer bestillingsmatrisen
 */
-void orders_updateOrderMatrix(void);
+void orders_update_order_matrix(void);
 
 /**
  @brief Gir om det finnes bestillinger i det hele tatt
  @return 1 om det finnes bestillinger, 0 hvis ikke
  */
-int orders_existOrders(void);
+int orders_exist_orders(void);
 
 
 /**
  @brief sjekker om det er noen bestillinger fra etasjene under nåværende posisjon
  @return 1 hvis det finnes bestilling i valgt etasjer under, 0 hvis ikke
 */
-int orders_orderBelowPosition();
+int orders_order_below_position();
 
 /**
  @brief sjekker om det er noen bestillinger fra etasjene over nåværende posisjon
  @return 1 hvis det finnes bestilling i valgt etasjer over, 0 hvis ikke
 */
-int orders_orderAbovePosition();
+int orders_order_above_position();
 
 /**
  @brief Returnerer om det er bestillinger i valgt etasje
  @param floor Etasjenummer
  @return 1 hvis det finnes bestilling i valgt etasje, 0 hvis ikke
 */
-int orders_orderAtThisFloor(int floor);
+int orders_order_at_this_floor(int floor);
 
 /**
  @brief Sletter besillinger i gitt etasje
  @param floor Etasjenummer
  */
-void orders_deleteOrdersAtThisFloor(int floor);
+void orders_delete_orders_at_this_floor(int floor);
 
 /**
  @brief Sletter alle bestillinger
  */
-void orders_deleteAllOrders(void);
+void orders_delete_all_orders(void);
 
 /**
  @brief Ser om det er en bestilling fra inne i heisen til etasjen heisen er i
  @return 1 om det er en bestilling fra inne i heisen til etasjen heisen er i
  @return 0 hvis ikke
  */
-int orders_commandAtFloor(posisjon pos);
+int orders_command_at_floor(posisjon pos);
 
 /**
  @brief Sier om det er noen som har trykket 'opp' i etasjen heisen er i
  @return 1 hvis noen har trykket på up i etasjen heisen er i
  @return 0 hvis ikke
  */
-int orders_upAtFloor(posisjon pos);
+int orders_up_at_floor(posisjon pos);
 
 /**
  @brief Sier om det er noen som har trykket 'ned' i etasjen heisen er i
  @return 1 hvis noen har trykket på ned i etasjen heisen er i
  @return 0 hvis ikke
 */
-int orders_downAtFloor(posisjon pos);
+int orders_down_at_floor(posisjon pos);
 
 /**
  @brief Gir esm tilgang på nåværende heispoisjon
- @return Variabel av type posisjon 
+ @return Variabel av type posisjon
 */
-posisjon orders_getPosisjon(void);
+posisjon orders_get_posisjon(void);
 /**
  @brief Gir esm tilgang til å endre posisjon, når den beveger seg inn eller ut av en etasje
  @param Tar inn variabel av type posisjon
 */
-void orders_setPosisjon(posisjon pos);
+void orders_set_posisjon(posisjon pos);
 
 #endif

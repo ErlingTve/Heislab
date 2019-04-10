@@ -13,7 +13,7 @@ typedef enum {WAITING_FOR_INIT, NOT_MOVING_AT_FLOOR, MOVING, AT_FLOOR, EMERGENCY
 /**
  @brief Endrer tilstander (i praksis tilstandsmaskinen)
 */
-void fsm_stateSwitch(void);
+void fsm_state_switch(void);
 
 /**
  @brief Privat variabel som sier hvilken state tilstandmaskinen er i
