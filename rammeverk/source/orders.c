@@ -9,7 +9,10 @@
 void orders_update_order_matrix(){
 	for (int floor=0; floor<N_FLOORS; floor++){
 		for (int button=0; button<N_BUTTONS; button++){
-            if (((floor != FØRSTE) && (button == BUTTON_CALL_DOWN)) || ((floor != FJERDE) && (button == BUTTON_CALL_UP)) || button == BUTTON_COMMAND) {
+            if (((floor != FIRST) && (button == BUTTON_CALL_DOWN)) ||
+            	((floor != FOURTH) && (button == BUTTON_CALL_UP)) ||
+            	button == BUTTON_COMMAND)
+            {
                 if(elev_get_button_signal(button,floor)){
                 order_matrix[floor][button] = 1;
                 elev_set_button_lamp(button, floor, 1);
@@ -66,7 +69,10 @@ int orders_order_at_this_floor(int floor) {
 void orders_delete_orders_at_this_floor(int floor) {
 	for (int button = 0; button < N_BUTTONS; ++button){
 		order_matrix[floor][button] = 0;
-		if (((floor != FØRSTE) && (button == BUTTON_CALL_DOWN)) || ((floor != FJERDE) && (button == BUTTON_CALL_UP)) || button == BUTTON_COMMAND) {
+		if (((floor != FIRST) && (button == BUTTON_CALL_DOWN)) ||
+			((floor != FOURTH) && (button == BUTTON_CALL_UP)) ||
+			button == BUTTON_COMMAND)
+		{
 			elev_set_button_lamp(button, floor, 0);
 		}
 	}
@@ -76,7 +82,10 @@ void orders_delete_all_orders() {
 	for (int floor = 0; floor < N_FLOORS; ++floor){
 		for (int button = 0; button < N_BUTTONS; ++button){
 			order_matrix[floor][button] = 0;
-			if (((floor != FØRSTE) && (button == BUTTON_CALL_DOWN)) || ((floor != FJERDE) && (button == BUTTON_CALL_UP)) || button == BUTTON_COMMAND) {
+			if (((floor != FIRST) && (button == BUTTON_CALL_DOWN)) ||
+				((floor != FOURTH) && (button == BUTTON_CALL_UP)) ||
+				button == BUTTON_COMMAND)
+			{
 				elev_set_button_lamp(button, floor, 0);
 			}
 		}
@@ -90,14 +99,14 @@ int orders_command_at_floor(position pos) {
     }return order_matrix[pos][BUTTON_COMMAND];
 }
 
-int orders_up_at_floor(position pos) {
+int orders_button_up_at_floor(position pos) {
     if (pos > 3) {
         printf("order_upAtFloor er kalt mens Position ikke er i en etasje");
         return -1;
     }return order_matrix[Position][BUTTON_CALL_UP];
 }
 
-int orders_down_at_floor(position pos) {
+int orders_button_down_at_floor(position pos) {
     if (pos > 3) {
         printf("order_downAtFloor er kalt mens Position ikke er i en etasje");
         return -1;

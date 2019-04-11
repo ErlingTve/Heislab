@@ -1,6 +1,5 @@
 #ifndef ORDERS_H
 #define ORDERS_H
-#include "channels.h"
 /**
 	@file
 	@brief File to manage orders.
@@ -9,7 +8,7 @@
 /**
     @brief Enum for the elevators current position, 0-3 are floors, 4-6 are between floors.
  */
-typedef enum {FØRSTE = 0, ANDRE = 1, TREDJE = 2, FJERDE = 3, MELLOM_FØRSTE_OG_ANDRE = 4, MELLOM_ANDRE_OG_TREDJE = 5,  MELLOM_TREDJE_OG_FJERDE = 6} position;
+typedef enum {FIRST = 0, SECOND = 1, THIRD = 2, FOURTH = 3, BETWEEN_FIRST_AND_SECOND = 4, BETWEEN_SECOND_AND_THIRD = 5,  BETWEEN_THIRD_AND_FOURTH = 6} position;
 
 /**
     @brief Local variable containing the elevators position.
@@ -79,14 +78,14 @@ int orders_command_at_floor(position pos);
  @return 1 if there are any orders above the current floor.
  @return 0 if no orders above the current floor.
  */
-int orders_up_at_floor(position pos);
+int orders_button_up_at_floor(position pos);
 
 /**
  @brief Checks if there are any orders, in order matrix, below the current floor.
  @return 1 if there are any orders below the current floor.
  @return 0 if no orders below the current floor.
  */
-int orders_down_at_floor(position pos);
+int orders_button_down_at_floor(position pos);
 
 /**
  @brief Checks current postiton.

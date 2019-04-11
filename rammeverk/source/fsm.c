@@ -13,8 +13,7 @@
 /**
 	@brief Sets Position from "on floor" to "between floors"
 */
-//Endrer position til noe mellom etasjer
-//Kalles kun når man går inn i MOVING og positionen er satt til "i etasje" fra før
+
 void fsm_change_position_between_floors() {
     switch (elev_get_motor_direction()) {
         case DIRN_DOWN:
@@ -35,7 +34,9 @@ void fsm_change_position_between_floors() {
 	@return 0 If not.
 */
 int fsm_stop_at_floor() {
-    if ((orders_command_at_floor(orders_get_position())) || (orders_up_at_floor(orders_get_position()) && elev_get_motor_direction() == DIRN_UP) || (orders_down_at_floor(orders_get_position()) && elev_get_motor_direction() == DIRN_DOWN)) {
+    if ((orders_command_at_floor(orders_get_position())) ||
+     (orders_button_up_at_floor(orders_get_position()) && elev_get_motor_direction() == DIRN_UP) ||
+     (orders_button_down_at_floor(orders_get_position()) && elev_get_motor_direction() == DIRN_DOWN)) {
         return 1;
     }
     if((orders_order_below_position() == 0) && elev_get_motor_direction() == DIRN_DOWN){
@@ -46,13 +47,15 @@ int fsm_stop_at_floor() {
     }
     return 0;
 }
-
+/**
+	@brief Sets the most prioritized direction for the elevator. (UP/DOWN)
+*/
 void fsm_set_priority_direction(){
-	//Sjekker at heisen nå står stille. Sikrer at ikke heisen momentant skifter retning
+	//Checks that the elvator is still. Secures that it wont change direction momentarily.
 	if (elev_get_motor_direction() != DIRN_STOP){
 		return;
 	}
-	//sjekker om bestillinger i retning motorretning, hvis det er det; behold mottorretning, hvis ikke, bytt motorretning
+	//Checks for orders in direction of the motor, if there is; keep MotorDirection, if not; switch MotorDirection.
 	if(elev_get_last_moving_direction()==DIRN_UP){
 		if(orders_order_above_position()){
 			elev_set_motor_direction(DIRN_UP);
@@ -61,7 +64,7 @@ void fsm_set_priority_direction(){
 		elev_set_motor_direction(DIRN_DOWN);
 		return;
 	}
-	//Hvis elev_get_last_moving_direction() == DIRN_DOWN
+	//If elev_get_last_moving_direction() == DIRN_DOWN
 	if(orders_order_below_position()){
 		elev_set_motor_direction(DIRN_DOWN);
 		return;
@@ -96,7 +99,6 @@ void fsm_state_switch(){
 			elev_set_motor_direction(DIRN_STOP);
 			orders_delete_orders_at_this_floor(elev_get_floor_sensor_signal());
 			elev_set_door_open_lamp(1);
-			// lag funksjon for å sette timestamp
 			timer_start_timer();
 			while(timer_timer_expired(3.0) == 0){
 				if(elev_get_stop_signal()){
@@ -116,7 +118,7 @@ void fsm_state_switch(){
 					return;
 				}
 			}
-			//Heisen går inn i samme tilstand på nytt om det er ny bestilling i samme etasje
+			//FSM enters the same state "NOT_MOVING_AT_FLOOR" if there is a new order at the same floor
             if (orders_order_at_this_floor(orders_get_position())){
 				CurrentState = NOT_MOVING_AT_FLOOR;
 				return;
@@ -130,7 +132,6 @@ void fsm_state_switch(){
                 fsm_change_position_between_floors();
             }
        		while(elev_get_floor_sensor_signal() == -1) {
-				//printf("Movingstate");
 				orders_update_order_matrix();
 				if(elev_get_stop_signal()){
 	                CurrentState = EMERGENCY_STOP;
@@ -142,7 +143,7 @@ void fsm_state_switch(){
 			return;
 
         case AT_FLOOR:
-            orders_set_position(elev_get_floor_sensor_signal()); //test at ikke oppstår problem når den returnerer -1 fordi heisen er mellom etasjer
+            orders_set_position(elev_get_floor_sensor_signal());
 			elev_set_floor_indicator(orders_get_position());
 
 			if (fsm_stop_at_floor()){
@@ -163,24 +164,22 @@ void fsm_state_switch(){
 			elev_set_stop_lamp(1);
 			elev_set_motor_direction(DIRN_STOP);
 			orders_delete_all_orders();
-			if (orders_get_position()<4){
-				//i etasje
+			if (orders_get_position()<4){ //at floor
 				elev_set_door_open_lamp(1);
 				while(elev_get_stop_signal()){
-					//ingenting
+					//do nothing
 				}
 				CurrentState=NOT_MOVING_AT_FLOOR;
 				elev_set_stop_lamp(0);
 				return;
 			}
 				while(elev_get_stop_signal()){
-					//ingenting
+					//do nothing
 				}
 			CurrentState=NOT_MOVING_BETWEEN_FLOORS;
 			elev_set_stop_lamp(0);
 			return;
 
-		//hvis endring i planene
 		case NOT_MOVING_BETWEEN_FLOORS:
 			while((orders_exist_orders() == 0) && (elev_get_stop_signal() == 0)){
 				orders_update_order_matrix();
