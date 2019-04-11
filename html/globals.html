@@ -67,7 +67,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li class="current"><a href="globals.html"><span>All</span></a></li>
       <li><a href="globals_func.html"><span>Functions</span></a></li>
-      <li><a href="globals_vars.html"><span>Variables</span></a></li>
       <li><a href="globals_type.html"><span>Typedefs</span></a></li>
       <li><a href="globals_enum.html"><span>Enumerations</span></a></li>
     </ul>
@@ -76,8 +75,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="#index_e"><span>e</span></a></li>
       <li><a href="#index_f"><span>f</span></a></li>
-      <li><a href="#index_l"><span>l</span></a></li>
-      <li><a href="#index_m"><span>m</span></a></li>
       <li><a href="#index_o"><span>o</span></a></li>
       <li><a href="#index_p"><span>p</span></a></li>
       <li><a href="#index_s"><span>s</span></a></li>
@@ -112,6 +109,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>elev_get_floor_sensor_signal()
 : <a class="el" href="elev_8h.html#a97d30b7e2538acf5647515638070fdc5">elev.h</a>
 </li>
+<li>elev_get_last_moving_direction()
+: <a class="el" href="elev_8h.html#a61a30f77ea9ca6e156950e73d73497c5">elev.h</a>
+</li>
+<li>elev_get_motor_direction()
+: <a class="el" href="elev_8h.html#af447a3acd7f57ae05653ba7869199d20">elev.h</a>
+</li>
 <li>elev_get_obstruction_signal()
 : <a class="el" href="elev_8h.html#acd97a0fbc9013dc954923e25e90be9df">elev.h</a>
 </li>
@@ -143,29 +146,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <h3><a class="anchor" id="index_f"></a>- f -</h3><ul>
+<li>fsm_change_position_between_floors()
+: <a class="el" href="fsm_8c.html#ae7891f7c20c6e6ad6f6d4acedb0eb426">fsm.c</a>
+</li>
+<li>fsm_set_priority_direction()
+: <a class="el" href="fsm_8c.html#a8467202f8f6143d0cb4ee3439ba48526">fsm.c</a>
+</li>
 <li>fsm_state_switch()
-: <a class="el" href="fsm_8h.html#af69f22b3da684be82ee8a1d3f7401265">fsm.h</a>
+: <a class="el" href="fsm_8c.html#ac582ec039baed691eaef6b4b40ffec70">fsm.c</a>
+, <a class="el" href="fsm_8h.html#af69f22b3da684be82ee8a1d3f7401265">fsm.h</a>
 </li>
-</ul>
-
-
-<h3><a class="anchor" id="index_l"></a>- l -</h3><ul>
-<li>LastMovingDirection
-: <a class="el" href="elev_8h.html#a35c57309097cdfaa79a0aeb6759bbc78">elev.h</a>
-</li>
-</ul>
-
-
-<h3><a class="anchor" id="index_m"></a>- m -</h3><ul>
-<li>MotorDirection
-: <a class="el" href="elev_8h.html#a3efa4a82d57e78fdf1b156401e27d838">elev.h</a>
+<li>fsm_stop_at_floor()
+: <a class="el" href="fsm_8c.html#a50bf5b2e049e73ca042200dfc7a7ab8c">fsm.c</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_o"></a>- o -</h3><ul>
+<li>orders_button_down_at_floor()
+: <a class="el" href="orders_8h.html#af5e91e933216d84816b7e3a107410693">orders.h</a>
+</li>
+<li>orders_button_up_at_floor()
+: <a class="el" href="orders_8h.html#a322b9a2933720e06273894856f6f0361">orders.h</a>
+</li>
 <li>orders_command_at_floor()
-: <a class="el" href="orders_8h.html#a213093d982e9f5daf44744f10e389b2c">orders.h</a>
+: <a class="el" href="orders_8h.html#af07a0cc0d6fd1810cce0de593cd23a7e">orders.h</a>
 </li>
 <li>orders_delete_all_orders()
 : <a class="el" href="orders_8h.html#a1db58ad1dd61605812cd8cdb21997c60">orders.h</a>
@@ -173,29 +178,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>orders_delete_orders_at_this_floor()
 : <a class="el" href="orders_8h.html#a6643ce3042ce31c0a8251fab269c4ddd">orders.h</a>
 </li>
-<li>orders_down_at_floor()
-: <a class="el" href="orders_8h.html#a7c7840a530516cd0c2211d5e3a8887b6">orders.h</a>
-</li>
 <li>orders_exist_orders()
 : <a class="el" href="orders_8h.html#a26e627e58208d002f2da46d75dc79e5a">orders.h</a>
 </li>
-<li>orders_get_posisjon()
-: <a class="el" href="orders_8h.html#ad152a56c3879678b65ba3ad6853119cc">orders.h</a>
+<li>orders_get_position()
+: <a class="el" href="orders_8h.html#a89bc715f037d4e5e90aebcf04bace7c1">orders.h</a>
 </li>
 <li>orders_order_above_position()
-: <a class="el" href="orders_8h.html#a702403ea3736e6cdb165ba58e022da44">orders.h</a>
+: <a class="el" href="orders_8h.html#a34fd6a69897ae789219b3e51843011e1">orders.h</a>
 </li>
 <li>orders_order_at_this_floor()
 : <a class="el" href="orders_8h.html#a8be7f135068c2118d80f73dfbd0d4b16">orders.h</a>
 </li>
 <li>orders_order_below_position()
-: <a class="el" href="orders_8h.html#af838d7a2d9d914c1db5a5d2c2496cee8">orders.h</a>
+: <a class="el" href="orders_8h.html#ae52b8b90687848eb361a11010bb3c4b3">orders.h</a>
 </li>
-<li>orders_set_posisjon()
-: <a class="el" href="orders_8h.html#ab6ca554e85cd61b0588b2563e4ac5015">orders.h</a>
-</li>
-<li>orders_up_at_floor()
-: <a class="el" href="orders_8h.html#afa70a6f96827b2dd432dab4ea9801f04">orders.h</a>
+<li>orders_set_position()
+: <a class="el" href="orders_8h.html#adcc98e5a2ea1282e8c3357d456773d8b">orders.h</a>
 </li>
 <li>orders_update_order_matrix()
 : <a class="el" href="orders_8h.html#ae99d9f1e7763f65438231c525772d73a">orders.h</a>
@@ -204,8 +203,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <h3><a class="anchor" id="index_p"></a>- p -</h3><ul>
-<li>posisjon
-: <a class="el" href="orders_8h.html#ab86c092f44cafca69dc6a1b1eef65871">orders.h</a>
+<li>position
+: <a class="el" href="orders_8h.html#a7130b1618285588513fd1ff97884b9d9">orders.h</a>
 </li>
 </ul>
 

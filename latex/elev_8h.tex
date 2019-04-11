@@ -42,9 +42,13 @@ enum \hyperlink{elev_8h_a0c3f8374e6ebcc71f91341eb3ba6f6f9}{tag\+\_\+elev\+\_\+la
 \begin{DoxyCompactItemize}
 \item 
 int \hyperlink{elev_8h_a949b0e1f7c0f03ea6f92008c378e4573}{elev\+\_\+init} (void)
-\begin{DoxyCompactList}\small\item\em Initialize elevator. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Initialize elevator to F\+I\+R\+ST floor. \end{DoxyCompactList}\item 
 void \hyperlink{elev_8h_ac7dccb879f6e812e9d245174a0214536}{elev\+\_\+set\+\_\+motor\+\_\+direction} (\hyperlink{elev_8h_a2256dfd58fecce253106f83fd2ed607f}{elev\+\_\+motor\+\_\+direction\+\_\+t} dirn)
-\begin{DoxyCompactList}\small\item\em Sets the motor direction of the elevator and the global variable Motor\+Direction. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Sets the motor direction of the elevator and the local variables Motor\+Direction and Last\+Moving\+Direction. \end{DoxyCompactList}\item 
+int \hyperlink{elev_8h_af447a3acd7f57ae05653ba7869199d20}{elev\+\_\+get\+\_\+motor\+\_\+direction} (void)
+\begin{DoxyCompactList}\small\item\em Gives the current moving direction. \end{DoxyCompactList}\item 
+int \hyperlink{elev_8h_a61a30f77ea9ca6e156950e73d73497c5}{elev\+\_\+get\+\_\+last\+\_\+moving\+\_\+direction} (void)
+\begin{DoxyCompactList}\small\item\em Gives the last moving direction. \end{DoxyCompactList}\item 
 void \hyperlink{elev_8h_a6ce9a34b8677b483b0d8f9dc47b42c40}{elev\+\_\+set\+\_\+door\+\_\+open\+\_\+lamp} (int value)
 \begin{DoxyCompactList}\small\item\em Turn door-\/open lamp on or off. \end{DoxyCompactList}\item 
 int \hyperlink{elev_8h_acd97a0fbc9013dc954923e25e90be9df}{elev\+\_\+get\+\_\+obstruction\+\_\+signal} (void)
@@ -61,15 +65,6 @@ int \hyperlink{elev_8h_a2350a1635233760719700552a6cb0763}{elev\+\_\+get\+\_\+but
 \begin{DoxyCompactList}\small\item\em Gets a button signal. \end{DoxyCompactList}\item 
 void \hyperlink{elev_8h_a9e81321c63d80ddf1699bc91593cd9d4}{elev\+\_\+set\+\_\+button\+\_\+lamp} (\hyperlink{elev_8h_af61c4136fb437a2c49037e5a57c9abda}{elev\+\_\+button\+\_\+type\+\_\+t} button, int floor, int value)
 \begin{DoxyCompactList}\small\item\em Set a button lamp. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Variables}
-\begin{DoxyCompactItemize}
-\item 
-\hyperlink{elev_8h_a2256dfd58fecce253106f83fd2ed607f}{elev\+\_\+motor\+\_\+direction\+\_\+t} \hyperlink{elev_8h_a3efa4a82d57e78fdf1b156401e27d838}{Motor\+Direction}\hypertarget{elev_8h_a3efa4a82d57e78fdf1b156401e27d838}{}\label{elev_8h_a3efa4a82d57e78fdf1b156401e27d838}
-
-\begin{DoxyCompactList}\small\item\em Global variable for motor direction. Is set by \hyperlink{elev_8h_ac7dccb879f6e812e9d245174a0214536}{elev\+\_\+set\+\_\+motor\+\_\+direction()}. \end{DoxyCompactList}\item 
-\hyperlink{elev_8h_a2256dfd58fecce253106f83fd2ed607f}{elev\+\_\+motor\+\_\+direction\+\_\+t} \hyperlink{elev_8h_a35c57309097cdfaa79a0aeb6759bbc78}{Last\+Moving\+Direction}\hypertarget{elev_8h_a35c57309097cdfaa79a0aeb6759bbc78}{}\label{elev_8h_a35c57309097cdfaa79a0aeb6759bbc78}
-
-\begin{DoxyCompactList}\small\item\em Global variable for the last M\+O\+V\+I\+NG directon. Is set by \hyperlink{elev_8h_ac7dccb879f6e812e9d245174a0214536}{elev\+\_\+set\+\_\+motor\+\_\+direction()}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -102,7 +97,7 @@ Gets a button signal.
 \end{DoxyReturn}
 
 
-Definition at line 145 of file elev.\+c.
+Definition at line 152 of file elev.\+c.
 
 \index{elev.\+h@{elev.\+h}!elev\+\_\+get\+\_\+floor\+\_\+sensor\+\_\+signal@{elev\+\_\+get\+\_\+floor\+\_\+sensor\+\_\+signal}}
 \index{elev\+\_\+get\+\_\+floor\+\_\+sensor\+\_\+signal@{elev\+\_\+get\+\_\+floor\+\_\+sensor\+\_\+signal}!elev.\+h@{elev.\+h}}
@@ -120,7 +115,43 @@ Get floor sensor signal.
 \end{DoxyReturn}
 
 
-Definition at line 110 of file elev.\+c.
+Definition at line 117 of file elev.\+c.
+
+\index{elev.\+h@{elev.\+h}!elev\+\_\+get\+\_\+last\+\_\+moving\+\_\+direction@{elev\+\_\+get\+\_\+last\+\_\+moving\+\_\+direction}}
+\index{elev\+\_\+get\+\_\+last\+\_\+moving\+\_\+direction@{elev\+\_\+get\+\_\+last\+\_\+moving\+\_\+direction}!elev.\+h@{elev.\+h}}
+\subsubsection[{\texorpdfstring{elev\+\_\+get\+\_\+last\+\_\+moving\+\_\+direction(void)}{elev_get_last_moving_direction(void)}}]{\setlength{\rightskip}{0pt plus 5cm}int elev\+\_\+get\+\_\+last\+\_\+moving\+\_\+direction (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{elev_8h_a61a30f77ea9ca6e156950e73d73497c5}{}\label{elev_8h_a61a30f77ea9ca6e156950e73d73497c5}
+
+
+Gives the last moving direction. 
+
+\begin{DoxyReturn}{Returns}
+int Last moving direction 
+\end{DoxyReturn}
+
+
+Definition at line 90 of file elev.\+c.
+
+\index{elev.\+h@{elev.\+h}!elev\+\_\+get\+\_\+motor\+\_\+direction@{elev\+\_\+get\+\_\+motor\+\_\+direction}}
+\index{elev\+\_\+get\+\_\+motor\+\_\+direction@{elev\+\_\+get\+\_\+motor\+\_\+direction}!elev.\+h@{elev.\+h}}
+\subsubsection[{\texorpdfstring{elev\+\_\+get\+\_\+motor\+\_\+direction(void)}{elev_get_motor_direction(void)}}]{\setlength{\rightskip}{0pt plus 5cm}int elev\+\_\+get\+\_\+motor\+\_\+direction (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{elev_8h_af447a3acd7f57ae05653ba7869199d20}{}\label{elev_8h_af447a3acd7f57ae05653ba7869199d20}
+
+
+Gives the current moving direction. 
+
+\begin{DoxyReturn}{Returns}
+int Current moving direction 
+\end{DoxyReturn}
+
+
+Definition at line 86 of file elev.\+c.
 
 \index{elev.\+h@{elev.\+h}!elev\+\_\+get\+\_\+obstruction\+\_\+signal@{elev\+\_\+get\+\_\+obstruction\+\_\+signal}}
 \index{elev\+\_\+get\+\_\+obstruction\+\_\+signal@{elev\+\_\+get\+\_\+obstruction\+\_\+signal}!elev.\+h@{elev.\+h}}
@@ -138,7 +169,7 @@ Get signal from obstruction switch.
 \end{DoxyReturn}
 
 
-Definition at line 95 of file elev.\+c.
+Definition at line 102 of file elev.\+c.
 
 \index{elev.\+h@{elev.\+h}!elev\+\_\+get\+\_\+stop\+\_\+signal@{elev\+\_\+get\+\_\+stop\+\_\+signal}}
 \index{elev\+\_\+get\+\_\+stop\+\_\+signal@{elev\+\_\+get\+\_\+stop\+\_\+signal}!elev.\+h@{elev.\+h}}
@@ -156,7 +187,7 @@ Get signal from stop button.
 \end{DoxyReturn}
 
 
-Definition at line 99 of file elev.\+c.
+Definition at line 106 of file elev.\+c.
 
 \index{elev.\+h@{elev.\+h}!elev\+\_\+init@{elev\+\_\+init}}
 \index{elev\+\_\+init@{elev\+\_\+init}!elev.\+h@{elev.\+h}}
@@ -167,7 +198,7 @@ Definition at line 99 of file elev.\+c.
 )}\hypertarget{elev_8h_a949b0e1f7c0f03ea6f92008c378e4573}{}\label{elev_8h_a949b0e1f7c0f03ea6f92008c378e4573}
 
 
-Initialize elevator. 
+Initialize elevator to F\+I\+R\+ST floor. 
 
 \begin{DoxyReturn}{Returns}
 Non-\/zero on success, 0 on failure. 
@@ -200,7 +231,7 @@ Set a button lamp.
 \end{DoxyParams}
 
 
-Definition at line 158 of file elev.\+c.
+Definition at line 165 of file elev.\+c.
 
 \index{elev.\+h@{elev.\+h}!elev\+\_\+set\+\_\+door\+\_\+open\+\_\+lamp@{elev\+\_\+set\+\_\+door\+\_\+open\+\_\+lamp}}
 \index{elev\+\_\+set\+\_\+door\+\_\+open\+\_\+lamp@{elev\+\_\+set\+\_\+door\+\_\+open\+\_\+lamp}!elev.\+h@{elev.\+h}}
@@ -220,7 +251,7 @@ Turn door-\/open lamp on or off.
 \end{DoxyParams}
 
 
-Definition at line 88 of file elev.\+c.
+Definition at line 95 of file elev.\+c.
 
 \index{elev.\+h@{elev.\+h}!elev\+\_\+set\+\_\+floor\+\_\+indicator@{elev\+\_\+set\+\_\+floor\+\_\+indicator}}
 \index{elev\+\_\+set\+\_\+floor\+\_\+indicator@{elev\+\_\+set\+\_\+floor\+\_\+indicator}!elev.\+h@{elev.\+h}}
@@ -240,7 +271,7 @@ Set floor indicator lamp for a given floor and the global variable Floor\+Indica
 \end{DoxyParams}
 
 
-Definition at line 123 of file elev.\+c.
+Definition at line 130 of file elev.\+c.
 
 \index{elev.\+h@{elev.\+h}!elev\+\_\+set\+\_\+motor\+\_\+direction@{elev\+\_\+set\+\_\+motor\+\_\+direction}}
 \index{elev\+\_\+set\+\_\+motor\+\_\+direction@{elev\+\_\+set\+\_\+motor\+\_\+direction}!elev.\+h@{elev.\+h}}
@@ -251,7 +282,7 @@ Definition at line 123 of file elev.\+c.
 )}\hypertarget{elev_8h_ac7dccb879f6e812e9d245174a0214536}{}\label{elev_8h_ac7dccb879f6e812e9d245174a0214536}
 
 
-Sets the motor direction of the elevator and the global variable Motor\+Direction. 
+Sets the motor direction of the elevator and the local variables Motor\+Direction and Last\+Moving\+Direction. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -280,5 +311,5 @@ Turn stop lamp on or off.
 \end{DoxyParams}
 
 
-Definition at line 103 of file elev.\+c.
+Definition at line 110 of file elev.\+c.
 

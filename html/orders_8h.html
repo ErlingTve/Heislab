@@ -93,25 +93,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>File to manage orders.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;channels.h&quot;</code><br />
-</div>
+
 <p><a href="orders_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:ab86c092f44cafca69dc6a1b1eef65871"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab86c092f44cafca69dc6a1b1eef65871"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orders_8h.html#ab86c092f44cafca69dc6a1b1eef65871">posisjon</a> { <br />
-&#160;&#160;<b>FØRSTE</b> = 0, 
-<b>ANDRE</b> = 1, 
-<b>TREDJE</b> = 2, 
-<b>FJERDE</b> = 3, 
+<tr class="memitem:a7130b1618285588513fd1ff97884b9d9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7130b1618285588513fd1ff97884b9d9"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orders_8h.html#a7130b1618285588513fd1ff97884b9d9">position</a> { <br />
+&#160;&#160;<b>FIRST</b> = 0, 
+<b>SECOND</b> = 1, 
+<b>THIRD</b> = 2, 
+<b>FOURTH</b> = 3, 
 <br />
-&#160;&#160;<b>MELLOM_FØRSTE_OG_ANDRE</b> = 4, 
-<b>MELLOM_ANDRE_OG_TREDJE</b> = 5, 
-<b>MELLOM_TREDJE_OG_FJERDE</b> = 6
+&#160;&#160;<b>BETWEEN_FIRST_AND_SECOND</b> = 4, 
+<b>BETWEEN_SECOND_AND_THIRD</b> = 5, 
+<b>BETWEEN_THIRD_AND_FOURTH</b> = 6
 <br />
- }<tr class="memdesc:ab86c092f44cafca69dc6a1b1eef65871"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum for the elevators current position, 0-3 are floors, 4-6 are between floors. <br /></td></tr>
+ }<tr class="memdesc:a7130b1618285588513fd1ff97884b9d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum for the elevators current position, 0-3 are floors, 4-6 are between floors. <br /></td></tr>
 </td></tr>
-<tr class="separator:ab86c092f44cafca69dc6a1b1eef65871"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a7130b1618285588513fd1ff97884b9d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -122,12 +121,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orde
 <tr class="memitem:a26e627e58208d002f2da46d75dc79e5a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orders_8h.html#a26e627e58208d002f2da46d75dc79e5a">orders_exist_orders</a> (void)</td></tr>
 <tr class="memdesc:a26e627e58208d002f2da46d75dc79e5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells if there is any current orders in order matrix.  <a href="#a26e627e58208d002f2da46d75dc79e5a">More...</a><br /></td></tr>
 <tr class="separator:a26e627e58208d002f2da46d75dc79e5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af838d7a2d9d914c1db5a5d2c2496cee8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orders_8h.html#af838d7a2d9d914c1db5a5d2c2496cee8">orders_order_below_position</a> ()</td></tr>
-<tr class="memdesc:af838d7a2d9d914c1db5a5d2c2496cee8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if there are any orders, in order matrix, below the elevators current position.  <a href="#af838d7a2d9d914c1db5a5d2c2496cee8">More...</a><br /></td></tr>
-<tr class="separator:af838d7a2d9d914c1db5a5d2c2496cee8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a702403ea3736e6cdb165ba58e022da44"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orders_8h.html#a702403ea3736e6cdb165ba58e022da44">orders_order_above_position</a> ()</td></tr>
-<tr class="memdesc:a702403ea3736e6cdb165ba58e022da44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if there are any orders, in order matrix, above the elevators current position.  <a href="#a702403ea3736e6cdb165ba58e022da44">More...</a><br /></td></tr>
-<tr class="separator:a702403ea3736e6cdb165ba58e022da44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae52b8b90687848eb361a11010bb3c4b3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orders_8h.html#ae52b8b90687848eb361a11010bb3c4b3">orders_order_below_position</a> (void)</td></tr>
+<tr class="memdesc:ae52b8b90687848eb361a11010bb3c4b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if there are any orders, in order matrix, below the elevators current position.  <a href="#ae52b8b90687848eb361a11010bb3c4b3">More...</a><br /></td></tr>
+<tr class="separator:ae52b8b90687848eb361a11010bb3c4b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34fd6a69897ae789219b3e51843011e1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orders_8h.html#a34fd6a69897ae789219b3e51843011e1">orders_order_above_position</a> (void)</td></tr>
+<tr class="memdesc:a34fd6a69897ae789219b3e51843011e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if there are any orders, in order matrix, above the elevators current position.  <a href="#a34fd6a69897ae789219b3e51843011e1">More...</a><br /></td></tr>
+<tr class="separator:a34fd6a69897ae789219b3e51843011e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8be7f135068c2118d80f73dfbd0d4b16"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orders_8h.html#a8be7f135068c2118d80f73dfbd0d4b16">orders_order_at_this_floor</a> (int floor)</td></tr>
 <tr class="memdesc:a8be7f135068c2118d80f73dfbd0d4b16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if there are any orders on the current floor.  <a href="#a8be7f135068c2118d80f73dfbd0d4b16">More...</a><br /></td></tr>
 <tr class="separator:a8be7f135068c2118d80f73dfbd0d4b16"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -138,47 +137,111 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orde
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orders_8h.html#a1db58ad1dd61605812cd8cdb21997c60">orders_delete_all_orders</a> (void)</td></tr>
 <tr class="memdesc:a1db58ad1dd61605812cd8cdb21997c60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes all orders in order matrix. <br /></td></tr>
 <tr class="separator:a1db58ad1dd61605812cd8cdb21997c60"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a213093d982e9f5daf44744f10e389b2c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orders_8h.html#a213093d982e9f5daf44744f10e389b2c">orders_command_at_floor</a> (<a class="el" href="orders_8h.html#ab86c092f44cafca69dc6a1b1eef65871">posisjon</a> pos)</td></tr>
-<tr class="memdesc:a213093d982e9f5daf44744f10e389b2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if there are any orders in order matrix on the current floor.  <a href="#a213093d982e9f5daf44744f10e389b2c">More...</a><br /></td></tr>
-<tr class="separator:a213093d982e9f5daf44744f10e389b2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa70a6f96827b2dd432dab4ea9801f04"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orders_8h.html#afa70a6f96827b2dd432dab4ea9801f04">orders_up_at_floor</a> (<a class="el" href="orders_8h.html#ab86c092f44cafca69dc6a1b1eef65871">posisjon</a> pos)</td></tr>
-<tr class="memdesc:afa70a6f96827b2dd432dab4ea9801f04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if there are any orders, in order matrix, above the current floor.  <a href="#afa70a6f96827b2dd432dab4ea9801f04">More...</a><br /></td></tr>
-<tr class="separator:afa70a6f96827b2dd432dab4ea9801f04"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c7840a530516cd0c2211d5e3a8887b6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orders_8h.html#a7c7840a530516cd0c2211d5e3a8887b6">orders_down_at_floor</a> (<a class="el" href="orders_8h.html#ab86c092f44cafca69dc6a1b1eef65871">posisjon</a> pos)</td></tr>
-<tr class="memdesc:a7c7840a530516cd0c2211d5e3a8887b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if there are any orders, in order matrix, below the current floor.  <a href="#a7c7840a530516cd0c2211d5e3a8887b6">More...</a><br /></td></tr>
-<tr class="separator:a7c7840a530516cd0c2211d5e3a8887b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad152a56c3879678b65ba3ad6853119cc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="orders_8h.html#ab86c092f44cafca69dc6a1b1eef65871">posisjon</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orders_8h.html#ad152a56c3879678b65ba3ad6853119cc">orders_get_posisjon</a> (void)</td></tr>
-<tr class="memdesc:ad152a56c3879678b65ba3ad6853119cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks current postiton.  <a href="#ad152a56c3879678b65ba3ad6853119cc">More...</a><br /></td></tr>
-<tr class="separator:ad152a56c3879678b65ba3ad6853119cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6ca554e85cd61b0588b2563e4ac5015"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orders_8h.html#ab6ca554e85cd61b0588b2563e4ac5015">orders_set_posisjon</a> (<a class="el" href="orders_8h.html#ab86c092f44cafca69dc6a1b1eef65871">posisjon</a> pos)</td></tr>
-<tr class="memdesc:ab6ca554e85cd61b0588b2563e4ac5015"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the current postion.  <a href="#ab6ca554e85cd61b0588b2563e4ac5015">More...</a><br /></td></tr>
-<tr class="separator:ab6ca554e85cd61b0588b2563e4ac5015"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af07a0cc0d6fd1810cce0de593cd23a7e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orders_8h.html#af07a0cc0d6fd1810cce0de593cd23a7e">orders_command_at_floor</a> (<a class="el" href="orders_8h.html#a7130b1618285588513fd1ff97884b9d9">position</a> pos)</td></tr>
+<tr class="memdesc:af07a0cc0d6fd1810cce0de593cd23a7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if there are any commands in order matrix on the floor "pos".  <a href="#af07a0cc0d6fd1810cce0de593cd23a7e">More...</a><br /></td></tr>
+<tr class="separator:af07a0cc0d6fd1810cce0de593cd23a7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a322b9a2933720e06273894856f6f0361"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orders_8h.html#a322b9a2933720e06273894856f6f0361">orders_button_up_at_floor</a> (<a class="el" href="orders_8h.html#a7130b1618285588513fd1ff97884b9d9">position</a> pos)</td></tr>
+<tr class="memdesc:a322b9a2933720e06273894856f6f0361"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if there are any up-orders, in order matrix, on the floor "pos".  <a href="#a322b9a2933720e06273894856f6f0361">More...</a><br /></td></tr>
+<tr class="separator:a322b9a2933720e06273894856f6f0361"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5e91e933216d84816b7e3a107410693"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orders_8h.html#af5e91e933216d84816b7e3a107410693">orders_button_down_at_floor</a> (<a class="el" href="orders_8h.html#a7130b1618285588513fd1ff97884b9d9">position</a> pos)</td></tr>
+<tr class="memdesc:af5e91e933216d84816b7e3a107410693"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if there are any down-orders, in order matrix, on the floor "pos".  <a href="#af5e91e933216d84816b7e3a107410693">More...</a><br /></td></tr>
+<tr class="separator:af5e91e933216d84816b7e3a107410693"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89bc715f037d4e5e90aebcf04bace7c1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="orders_8h.html#a7130b1618285588513fd1ff97884b9d9">position</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orders_8h.html#a89bc715f037d4e5e90aebcf04bace7c1">orders_get_position</a> (void)</td></tr>
+<tr class="memdesc:a89bc715f037d4e5e90aebcf04bace7c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks current postiton.  <a href="#a89bc715f037d4e5e90aebcf04bace7c1">More...</a><br /></td></tr>
+<tr class="separator:a89bc715f037d4e5e90aebcf04bace7c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcc98e5a2ea1282e8c3357d456773d8b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orders_8h.html#adcc98e5a2ea1282e8c3357d456773d8b">orders_set_position</a> (<a class="el" href="orders_8h.html#a7130b1618285588513fd1ff97884b9d9">position</a> pos)</td></tr>
+<tr class="memdesc:adcc98e5a2ea1282e8c3357d456773d8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the current postion.  <a href="#adcc98e5a2ea1282e8c3357d456773d8b">More...</a><br /></td></tr>
+<tr class="separator:adcc98e5a2ea1282e8c3357d456773d8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>File to manage orders. </p>
 
 <p>Definition in file <a class="el" href="orders_8h_source.html">orders.h</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a213093d982e9f5daf44744f10e389b2c"></a>
+<a class="anchor" id="af5e91e933216d84816b7e3a107410693"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int orders_command_at_floor </td>
+          <td class="memname">int orders_button_down_at_floor </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="orders_8h.html#ab86c092f44cafca69dc6a1b1eef65871">posisjon</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="orders_8h.html#a7130b1618285588513fd1ff97884b9d9">position</a>&#160;</td>
           <td class="paramname"><em>pos</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Checks if there are any orders in order matrix on the current floor. </p>
-<dl class="section return"><dt>Returns</dt><dd>1 if there are any orders on the current floor. </dd>
+<p>Checks if there are any down-orders, in order matrix, on the floor "pos". </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pos</td><td>The floor you want to check at. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 If there are any down-orders on the current floor. </dd>
 <dd>
-0 if no orders on the current floor. </dd></dl>
+0 If no down-orders on the current floor. </dd></dl>
 
-<p>Definition at line <a class="el" href="orders_8c_source.html#l00086">86</a> of file <a class="el" href="orders_8c_source.html">orders.c</a>.</p>
+<p>Definition at line <a class="el" href="orders_8c_source.html#l00109">109</a> of file <a class="el" href="orders_8c_source.html">orders.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a322b9a2933720e06273894856f6f0361"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int orders_button_up_at_floor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="orders_8h.html#a7130b1618285588513fd1ff97884b9d9">position</a>&#160;</td>
+          <td class="paramname"><em>pos</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if there are any up-orders, in order matrix, on the floor "pos". </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pos</td><td>The floor you want to check at. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 If there are any up-orders on the current floor. </dd>
+<dd>
+0 If no up-orders on the current floor. </dd></dl>
+
+<p>Definition at line <a class="el" href="orders_8c_source.html#l00102">102</a> of file <a class="el" href="orders_8c_source.html">orders.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af07a0cc0d6fd1810cce0de593cd23a7e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int orders_command_at_floor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="orders_8h.html#a7130b1618285588513fd1ff97884b9d9">position</a>&#160;</td>
+          <td class="paramname"><em>pos</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if there are any commands in order matrix on the floor "pos". </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pos</td><td>The floor you want to check at. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 If there are any commands on the current floor. </dd>
+<dd>
+0 If no commands on the current floor. </dd></dl>
+
+<p>Definition at line <a class="el" href="orders_8c_source.html#l00095">95</a> of file <a class="el" href="orders_8c_source.html">orders.c</a>.</p>
 
 </div>
 </div>
@@ -204,30 +267,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orde
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="orders_8c_source.html#l00066">66</a> of file <a class="el" href="orders_8c_source.html">orders.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7c7840a530516cd0c2211d5e3a8887b6"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int orders_down_at_floor </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="orders_8h.html#ab86c092f44cafca69dc6a1b1eef65871">posisjon</a>&#160;</td>
-          <td class="paramname"><em>pos</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Checks if there are any orders, in order matrix, below the current floor. </p>
-<dl class="section return"><dt>Returns</dt><dd>1 if there are any orders below the current floor. </dd>
-<dd>
-0 if no orders below the current floor. </dd></dl>
-
-<p>Definition at line <a class="el" href="orders_8c_source.html#l00100">100</a> of file <a class="el" href="orders_8c_source.html">orders.c</a>.</p>
+<p>Definition at line <a class="el" href="orders_8c_source.html#l00069">69</a> of file <a class="el" href="orders_8c_source.html">orders.c</a>.</p>
 
 </div>
 </div>
@@ -246,20 +286,20 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orde
 </div><div class="memdoc">
 
 <p>Tells if there is any current orders in order matrix. </p>
-<dl class="section return"><dt>Returns</dt><dd>1 if there are any orders in order matrix </dd>
+<dl class="section return"><dt>Returns</dt><dd>1 If there are any orders in order matrix. </dd>
 <dd>
-0 if order matrix is empty. </dd></dl>
+0 If order matrix is empty. </dd></dl>
 
-<p>Definition at line <a class="el" href="orders_8c_source.html#l00022">22</a> of file <a class="el" href="orders_8c_source.html">orders.c</a>.</p>
+<p>Definition at line <a class="el" href="orders_8c_source.html#l00025">25</a> of file <a class="el" href="orders_8c_source.html">orders.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ad152a56c3879678b65ba3ad6853119cc"></a>
+<a class="anchor" id="a89bc715f037d4e5e90aebcf04bace7c1"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="orders_8h.html#ab86c092f44cafca69dc6a1b1eef65871">posisjon</a> orders_get_posisjon </td>
+          <td class="memname"><a class="el" href="orders_8h.html#a7130b1618285588513fd1ff97884b9d9">position</a> orders_get_position </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -269,19 +309,20 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orde
 </div><div class="memdoc">
 
 <p>Checks current postiton. </p>
-<dl class="section return"><dt>Returns</dt><dd>Variable of type position. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The position variable; Position. </dd></dl>
 
-<p>Definition at line <a class="el" href="orders_8c_source.html#l00107">107</a> of file <a class="el" href="orders_8c_source.html">orders.c</a>.</p>
+<p>Definition at line <a class="el" href="orders_8c_source.html#l00116">116</a> of file <a class="el" href="orders_8c_source.html">orders.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a702403ea3736e6cdb165ba58e022da44"></a>
+<a class="anchor" id="a34fd6a69897ae789219b3e51843011e1"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">int orders_order_above_position </td>
           <td>(</td>
+          <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -289,11 +330,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orde
 </div><div class="memdoc">
 
 <p>Checks if there are any orders, in order matrix, above the elevators current position. </p>
-<dl class="section return"><dt>Returns</dt><dd>1 if there are any orders above the current position. </dd>
+<dl class="section return"><dt>Returns</dt><dd>1 If there are any orders above the current position. </dd>
 <dd>
-0 if no orders above. </dd></dl>
+0 If no orders above. </dd></dl>
 
-<p>Definition at line <a class="el" href="orders_8c_source.html#l00045">45</a> of file <a class="el" href="orders_8c_source.html">orders.c</a>.</p>
+<p>Definition at line <a class="el" href="orders_8c_source.html#l00048">48</a> of file <a class="el" href="orders_8c_source.html">orders.c</a>.</p>
 
 </div>
 </div>
@@ -318,21 +359,22 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orde
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>1 if there is an order on the current floor. </dd>
+<dl class="section return"><dt>Returns</dt><dd>1 If there is an order on the current floor. </dd>
 <dd>
-0 if no orders on the current floor. </dd></dl>
+0 If no orders on the current floor. </dd></dl>
 
-<p>Definition at line <a class="el" href="orders_8c_source.html#l00058">58</a> of file <a class="el" href="orders_8c_source.html">orders.c</a>.</p>
+<p>Definition at line <a class="el" href="orders_8c_source.html#l00061">61</a> of file <a class="el" href="orders_8c_source.html">orders.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="af838d7a2d9d914c1db5a5d2c2496cee8"></a>
+<a class="anchor" id="ae52b8b90687848eb361a11010bb3c4b3"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">int orders_order_below_position </td>
           <td>(</td>
+          <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -340,22 +382,22 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orde
 </div><div class="memdoc">
 
 <p>Checks if there are any orders, in order matrix, below the elevators current position. </p>
-<dl class="section return"><dt>Returns</dt><dd>1 if there are any orders below the current position. </dd>
+<dl class="section return"><dt>Returns</dt><dd>1 If there are any orders below the current position. </dd>
 <dd>
-0 if no orders below. </dd></dl>
+0 If no orders below. </dd></dl>
 
-<p>Definition at line <a class="el" href="orders_8c_source.html#l00032">32</a> of file <a class="el" href="orders_8c_source.html">orders.c</a>.</p>
+<p>Definition at line <a class="el" href="orders_8c_source.html#l00035">35</a> of file <a class="el" href="orders_8c_source.html">orders.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ab6ca554e85cd61b0588b2563e4ac5015"></a>
+<a class="anchor" id="adcc98e5a2ea1282e8c3357d456773d8b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void orders_set_posisjon </td>
+          <td class="memname">void orders_set_position </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="orders_8h.html#ab86c092f44cafca69dc6a1b1eef65871">posisjon</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="orders_8h.html#a7130b1618285588513fd1ff97884b9d9">position</a>&#160;</td>
           <td class="paramname"><em>pos</em></td><td>)</td>
           <td></td>
         </tr>
@@ -365,35 +407,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="orde
 <p>Changes the current postion. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Variable</td><td>of type postion. </td></tr>
+    <tr><td class="paramname">pos</td><td>The position you want Position to be. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="orders_8c_source.html#l00111">111</a> of file <a class="el" href="orders_8c_source.html">orders.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="afa70a6f96827b2dd432dab4ea9801f04"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int orders_up_at_floor </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="orders_8h.html#ab86c092f44cafca69dc6a1b1eef65871">posisjon</a>&#160;</td>
-          <td class="paramname"><em>pos</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Checks if there are any orders, in order matrix, above the current floor. </p>
-<dl class="section return"><dt>Returns</dt><dd>1 if there are any orders above the current floor. </dd>
-<dd>
-0 if no orders above the current floor. </dd></dl>
-
-<p>Definition at line <a class="el" href="orders_8c_source.html#l00093">93</a> of file <a class="el" href="orders_8c_source.html">orders.c</a>.</p>
+<p>Definition at line <a class="el" href="orders_8c_source.html#l00120">120</a> of file <a class="el" href="orders_8c_source.html">orders.c</a>.</p>
 
 </div>
 </div>

@@ -2,6 +2,8 @@ var searchData=
 [
   ['elev_5fget_5fbutton_5fsignal',['elev_get_button_signal',['../elev_8h.html#a2350a1635233760719700552a6cb0763',1,'elev.c']]],
   ['elev_5fget_5ffloor_5fsensor_5fsignal',['elev_get_floor_sensor_signal',['../elev_8h.html#a97d30b7e2538acf5647515638070fdc5',1,'elev.c']]],
+  ['elev_5fget_5flast_5fmoving_5fdirection',['elev_get_last_moving_direction',['../elev_8h.html#a61a30f77ea9ca6e156950e73d73497c5',1,'elev.c']]],
+  ['elev_5fget_5fmotor_5fdirection',['elev_get_motor_direction',['../elev_8h.html#af447a3acd7f57ae05653ba7869199d20',1,'elev.c']]],
   ['elev_5fget_5fobstruction_5fsignal',['elev_get_obstruction_signal',['../elev_8h.html#acd97a0fbc9013dc954923e25e90be9df',1,'elev.c']]],
   ['elev_5fget_5fstop_5fsignal',['elev_get_stop_signal',['../elev_8h.html#ab702d0ff2d7d03172b7ae3829ba13028',1,'elev.c']]],
   ['elev_5finit',['elev_init',['../elev_8h.html#a949b0e1f7c0f03ea6f92008c378e4573',1,'elev.c']]],

@@ -1,0 +1,56 @@
+\hypertarget{fsm_8c}{}\section{rammeverk/source/fsm.c File Reference}
+\label{fsm_8c}\index{rammeverk/source/fsm.\+c@{rammeverk/source/fsm.\+c}}
+
+
+C-\/file to make the finite state machine for the elevator.  
+
+
+{\ttfamily \#include \char`\"{}elev.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}orders.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}fsm.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}timer.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$assert.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{fsm_8c_ae7891f7c20c6e6ad6f6d4acedb0eb426}{fsm\+\_\+change\+\_\+position\+\_\+between\+\_\+floors} ()\hypertarget{fsm_8c_ae7891f7c20c6e6ad6f6d4acedb0eb426}{}\label{fsm_8c_ae7891f7c20c6e6ad6f6d4acedb0eb426}
+
+\begin{DoxyCompactList}\small\item\em Changes Position from being on a floor to being between floors. \end{DoxyCompactList}\item 
+int \hyperlink{fsm_8c_a50bf5b2e049e73ca042200dfc7a7ab8c}{fsm\+\_\+stop\+\_\+at\+\_\+floor} ()
+\begin{DoxyCompactList}\small\item\em Checks if elevator should stop at the current floor. \end{DoxyCompactList}\item 
+void \hyperlink{fsm_8c_a8467202f8f6143d0cb4ee3439ba48526}{fsm\+\_\+set\+\_\+priority\+\_\+direction} ()\hypertarget{fsm_8c_a8467202f8f6143d0cb4ee3439ba48526}{}\label{fsm_8c_a8467202f8f6143d0cb4ee3439ba48526}
+
+\begin{DoxyCompactList}\small\item\em Sets the prioritized direction for the elevator. (U\+P/\+D\+O\+WN) \end{DoxyCompactList}\item 
+void \hyperlink{fsm_8c_ac582ec039baed691eaef6b4b40ffec70}{fsm\+\_\+state\+\_\+switch} ()\hypertarget{fsm_8c_ac582ec039baed691eaef6b4b40ffec70}{}\label{fsm_8c_ac582ec039baed691eaef6b4b40ffec70}
+
+\begin{DoxyCompactList}\small\item\em Changes between states, and defines what to do in each state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+C-\/file to make the finite state machine for the elevator. 
+
+
+
+\subsection{Function Documentation}
+\index{fsm.\+c@{fsm.\+c}!fsm\+\_\+stop\+\_\+at\+\_\+floor@{fsm\+\_\+stop\+\_\+at\+\_\+floor}}
+\index{fsm\+\_\+stop\+\_\+at\+\_\+floor@{fsm\+\_\+stop\+\_\+at\+\_\+floor}!fsm.\+c@{fsm.\+c}}
+\subsubsection[{\texorpdfstring{fsm\+\_\+stop\+\_\+at\+\_\+floor()}{fsm_stop_at_floor()}}]{\setlength{\rightskip}{0pt plus 5cm}int fsm\+\_\+stop\+\_\+at\+\_\+floor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{fsm_8c_a50bf5b2e049e73ca042200dfc7a7ab8c}{}\label{fsm_8c_a50bf5b2e049e73ca042200dfc7a7ab8c}
+
+
+Checks if elevator should stop at the current floor. 
+
+\begin{DoxyReturn}{Returns}
+1 If elevator should stop. 
+
+0 If not. 
+\end{DoxyReturn}
+
+
+Definition at line 37 of file fsm.\+c.
+

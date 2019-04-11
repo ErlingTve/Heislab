@@ -87,8 +87,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">elev.h File Reference</div>  </div>
 </div><!--header-->
@@ -112,7 +111,7 @@ Macros</h2></td></tr>
 Typedefs</h2></td></tr>
 <tr class="memitem:a2256dfd58fecce253106f83fd2ed607f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2256dfd58fecce253106f83fd2ed607f"></a>
 typedef enum <a class="el" href="elev_8h.html#aaf85d173ea1bbd3d99c5a2fcf58cba11">tag_elev_motor_direction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="elev_8h.html#a2256dfd58fecce253106f83fd2ed607f">elev_motor_direction_t</a></td></tr>
-<tr class="memdesc:a2256dfd58fecce253106f83fd2ed607f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Motor direction for function <a class="el" href="elev_8h.html#ac7dccb879f6e812e9d245174a0214536" title="Sets the motor direction of the elevator and the global variable MotorDirection. ">elev_set_motor_direction()</a>. <br /></td></tr>
+<tr class="memdesc:a2256dfd58fecce253106f83fd2ed607f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Motor direction for function <a class="el" href="elev_8h.html#ac7dccb879f6e812e9d245174a0214536" title="Sets the motor direction of the elevator and the local variables MotorDirection and LastMovingDirecti...">elev_set_motor_direction()</a>. <br /></td></tr>
 <tr class="separator:a2256dfd58fecce253106f83fd2ed607f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af61c4136fb437a2c49037e5a57c9abda"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af61c4136fb437a2c49037e5a57c9abda"></a>
 typedef enum <a class="el" href="elev_8h.html#a0c3f8374e6ebcc71f91341eb3ba6f6f9">tag_elev_lamp_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="elev_8h.html#af61c4136fb437a2c49037e5a57c9abda">elev_button_type_t</a></td></tr>
@@ -124,7 +123,7 @@ Enumerations</h2></td></tr>
 <tr class="memitem:aaf85d173ea1bbd3d99c5a2fcf58cba11"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaf85d173ea1bbd3d99c5a2fcf58cba11"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="elev_8h.html#aaf85d173ea1bbd3d99c5a2fcf58cba11">tag_elev_motor_direction</a> { <b>DIRN_DOWN</b> = -1, 
 <b>DIRN_STOP</b> = 0, 
 <b>DIRN_UP</b> = 1
- }<tr class="memdesc:aaf85d173ea1bbd3d99c5a2fcf58cba11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Motor direction for function <a class="el" href="elev_8h.html#ac7dccb879f6e812e9d245174a0214536" title="Sets the motor direction of the elevator and the global variable MotorDirection. ">elev_set_motor_direction()</a>. <br /></td></tr>
+ }<tr class="memdesc:aaf85d173ea1bbd3d99c5a2fcf58cba11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Motor direction for function <a class="el" href="elev_8h.html#ac7dccb879f6e812e9d245174a0214536" title="Sets the motor direction of the elevator and the local variables MotorDirection and LastMovingDirecti...">elev_set_motor_direction()</a>. <br /></td></tr>
 </td></tr>
 <tr class="separator:aaf85d173ea1bbd3d99c5a2fcf58cba11"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c3f8374e6ebcc71f91341eb3ba6f6f9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0c3f8374e6ebcc71f91341eb3ba6f6f9"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="elev_8h.html#a0c3f8374e6ebcc71f91341eb3ba6f6f9">tag_elev_lamp_type</a> { <b>BUTTON_CALL_UP</b> = 0, 
@@ -137,11 +136,17 @@ Enumerations</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a949b0e1f7c0f03ea6f92008c378e4573"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="elev_8h.html#a949b0e1f7c0f03ea6f92008c378e4573">elev_init</a> (void)</td></tr>
-<tr class="memdesc:a949b0e1f7c0f03ea6f92008c378e4573"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize elevator.  <a href="#a949b0e1f7c0f03ea6f92008c378e4573">More...</a><br /></td></tr>
+<tr class="memdesc:a949b0e1f7c0f03ea6f92008c378e4573"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize elevator to FIRST floor.  <a href="#a949b0e1f7c0f03ea6f92008c378e4573">More...</a><br /></td></tr>
 <tr class="separator:a949b0e1f7c0f03ea6f92008c378e4573"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac7dccb879f6e812e9d245174a0214536"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="elev_8h.html#ac7dccb879f6e812e9d245174a0214536">elev_set_motor_direction</a> (<a class="el" href="elev_8h.html#a2256dfd58fecce253106f83fd2ed607f">elev_motor_direction_t</a> dirn)</td></tr>
-<tr class="memdesc:ac7dccb879f6e812e9d245174a0214536"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the motor direction of the elevator and the global variable MotorDirection.  <a href="#ac7dccb879f6e812e9d245174a0214536">More...</a><br /></td></tr>
+<tr class="memdesc:ac7dccb879f6e812e9d245174a0214536"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the motor direction of the elevator and the local variables MotorDirection and LastMovingDirection.  <a href="#ac7dccb879f6e812e9d245174a0214536">More...</a><br /></td></tr>
 <tr class="separator:ac7dccb879f6e812e9d245174a0214536"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af447a3acd7f57ae05653ba7869199d20"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="elev_8h.html#af447a3acd7f57ae05653ba7869199d20">elev_get_motor_direction</a> (void)</td></tr>
+<tr class="memdesc:af447a3acd7f57ae05653ba7869199d20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives the current moving direction.  <a href="#af447a3acd7f57ae05653ba7869199d20">More...</a><br /></td></tr>
+<tr class="separator:af447a3acd7f57ae05653ba7869199d20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61a30f77ea9ca6e156950e73d73497c5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="elev_8h.html#a61a30f77ea9ca6e156950e73d73497c5">elev_get_last_moving_direction</a> (void)</td></tr>
+<tr class="memdesc:a61a30f77ea9ca6e156950e73d73497c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives the last moving direction.  <a href="#a61a30f77ea9ca6e156950e73d73497c5">More...</a><br /></td></tr>
+<tr class="separator:a61a30f77ea9ca6e156950e73d73497c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ce9a34b8677b483b0d8f9dc47b42c40"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="elev_8h.html#a6ce9a34b8677b483b0d8f9dc47b42c40">elev_set_door_open_lamp</a> (int value)</td></tr>
 <tr class="memdesc:a6ce9a34b8677b483b0d8f9dc47b42c40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turn door-open lamp on or off.  <a href="#a6ce9a34b8677b483b0d8f9dc47b42c40">More...</a><br /></td></tr>
 <tr class="separator:a6ce9a34b8677b483b0d8f9dc47b42c40"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -166,17 +171,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a9e81321c63d80ddf1699bc91593cd9d4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="elev_8h.html#a9e81321c63d80ddf1699bc91593cd9d4">elev_set_button_lamp</a> (<a class="el" href="elev_8h.html#af61c4136fb437a2c49037e5a57c9abda">elev_button_type_t</a> button, int floor, int value)</td></tr>
 <tr class="memdesc:a9e81321c63d80ddf1699bc91593cd9d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a button lamp.  <a href="#a9e81321c63d80ddf1699bc91593cd9d4">More...</a><br /></td></tr>
 <tr class="separator:a9e81321c63d80ddf1699bc91593cd9d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a3efa4a82d57e78fdf1b156401e27d838"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3efa4a82d57e78fdf1b156401e27d838"></a>
-<a class="el" href="elev_8h.html#a2256dfd58fecce253106f83fd2ed607f">elev_motor_direction_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="elev_8h.html#a3efa4a82d57e78fdf1b156401e27d838">MotorDirection</a></td></tr>
-<tr class="memdesc:a3efa4a82d57e78fdf1b156401e27d838"><td class="mdescLeft">&#160;</td><td class="mdescRight">Global variable for motor direction. Is set by <a class="el" href="elev_8h.html#ac7dccb879f6e812e9d245174a0214536" title="Sets the motor direction of the elevator and the global variable MotorDirection. ">elev_set_motor_direction()</a>. <br /></td></tr>
-<tr class="separator:a3efa4a82d57e78fdf1b156401e27d838"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35c57309097cdfaa79a0aeb6759bbc78"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a35c57309097cdfaa79a0aeb6759bbc78"></a>
-<a class="el" href="elev_8h.html#a2256dfd58fecce253106f83fd2ed607f">elev_motor_direction_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="elev_8h.html#a35c57309097cdfaa79a0aeb6759bbc78">LastMovingDirection</a></td></tr>
-<tr class="memdesc:a35c57309097cdfaa79a0aeb6759bbc78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Global variable for the last MOVING directon. Is set by <a class="el" href="elev_8h.html#ac7dccb879f6e812e9d245174a0214536" title="Sets the motor direction of the elevator and the global variable MotorDirection. ">elev_set_motor_direction()</a>. <br /></td></tr>
-<tr class="separator:a35c57309097cdfaa79a0aeb6759bbc78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>These functions provides an interface to the elevators in the real time lab. </p>
@@ -217,7 +211,7 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 if button is not pushed. 1 if button is pushed. </dd></dl>
 
-<p>Definition at line <a class="el" href="elev_8c_source.html#l00145">145</a> of file <a class="el" href="elev_8c_source.html">elev.c</a>.</p>
+<p>Definition at line <a class="el" href="elev_8c_source.html#l00152">152</a> of file <a class="el" href="elev_8c_source.html">elev.c</a>.</p>
 
 </div>
 </div>
@@ -238,7 +232,49 @@ Variables</h2></td></tr>
 <p>Get floor sensor signal. </p>
 <dl class="section return"><dt>Returns</dt><dd>-1 if elevator is not on a floor. 0-3 if elevator is on floor. 0 is ground floor, 3 is top floor. </dd></dl>
 
-<p>Definition at line <a class="el" href="elev_8c_source.html#l00110">110</a> of file <a class="el" href="elev_8c_source.html">elev.c</a>.</p>
+<p>Definition at line <a class="el" href="elev_8c_source.html#l00117">117</a> of file <a class="el" href="elev_8c_source.html">elev.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a61a30f77ea9ca6e156950e73d73497c5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int elev_get_last_moving_direction </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gives the last moving direction. </p>
+<dl class="section return"><dt>Returns</dt><dd>int Last moving direction </dd></dl>
+
+<p>Definition at line <a class="el" href="elev_8c_source.html#l00090">90</a> of file <a class="el" href="elev_8c_source.html">elev.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af447a3acd7f57ae05653ba7869199d20"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int elev_get_motor_direction </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gives the current moving direction. </p>
+<dl class="section return"><dt>Returns</dt><dd>int Current moving direction </dd></dl>
+
+<p>Definition at line <a class="el" href="elev_8c_source.html#l00086">86</a> of file <a class="el" href="elev_8c_source.html">elev.c</a>.</p>
 
 </div>
 </div>
@@ -259,7 +295,7 @@ Variables</h2></td></tr>
 <p>Get signal from obstruction switch. </p>
 <dl class="section return"><dt>Returns</dt><dd>1 if obstruction is enabled. 0 if not. </dd></dl>
 
-<p>Definition at line <a class="el" href="elev_8c_source.html#l00095">95</a> of file <a class="el" href="elev_8c_source.html">elev.c</a>.</p>
+<p>Definition at line <a class="el" href="elev_8c_source.html#l00102">102</a> of file <a class="el" href="elev_8c_source.html">elev.c</a>.</p>
 
 </div>
 </div>
@@ -280,7 +316,7 @@ Variables</h2></td></tr>
 <p>Get signal from stop button. </p>
 <dl class="section return"><dt>Returns</dt><dd>1 if stop button is pushed, 0 if not. </dd></dl>
 
-<p>Definition at line <a class="el" href="elev_8c_source.html#l00099">99</a> of file <a class="el" href="elev_8c_source.html">elev.c</a>.</p>
+<p>Definition at line <a class="el" href="elev_8c_source.html#l00106">106</a> of file <a class="el" href="elev_8c_source.html">elev.c</a>.</p>
 
 </div>
 </div>
@@ -298,7 +334,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Initialize elevator. </p>
+<p>Initialize elevator to FIRST floor. </p>
 <dl class="section return"><dt>Returns</dt><dd>Non-zero on success, 0 on failure. </dd></dl>
 
 <p>Definition at line <a class="el" href="elev_8c_source.html#l00034">34</a> of file <a class="el" href="elev_8c_source.html">elev.c</a>.</p>
@@ -345,7 +381,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="elev_8c_source.html#l00158">158</a> of file <a class="el" href="elev_8c_source.html">elev.c</a>.</p>
+<p>Definition at line <a class="el" href="elev_8c_source.html#l00165">165</a> of file <a class="el" href="elev_8c_source.html">elev.c</a>.</p>
 
 </div>
 </div>
@@ -371,7 +407,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="elev_8c_source.html#l00088">88</a> of file <a class="el" href="elev_8c_source.html">elev.c</a>.</p>
+<p>Definition at line <a class="el" href="elev_8c_source.html#l00095">95</a> of file <a class="el" href="elev_8c_source.html">elev.c</a>.</p>
 
 </div>
 </div>
@@ -397,7 +433,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="elev_8c_source.html#l00123">123</a> of file <a class="el" href="elev_8c_source.html">elev.c</a>.</p>
+<p>Definition at line <a class="el" href="elev_8c_source.html#l00130">130</a> of file <a class="el" href="elev_8c_source.html">elev.c</a>.</p>
 
 </div>
 </div>
@@ -415,7 +451,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the motor direction of the elevator and the global variable MotorDirection. </p>
+<p>Sets the motor direction of the elevator and the local variables MotorDirection and LastMovingDirection. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">dirn</td><td>New direction of the elevator. </td></tr>
@@ -449,7 +485,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="elev_8c_source.html#l00103">103</a> of file <a class="el" href="elev_8c_source.html">elev.c</a>.</p>
+<p>Definition at line <a class="el" href="elev_8c_source.html#l00110">110</a> of file <a class="el" href="elev_8c_source.html">elev.c</a>.</p>
 
 </div>
 </div>

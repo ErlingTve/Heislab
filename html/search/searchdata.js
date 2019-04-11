@@ -1,11 +1,10 @@
 var indexSectionsWithContent =
 {
-  0: "eflmopst",
+  0: "efopst",
   1: "efot",
   2: "efot",
-  3: "lm",
-  4: "e",
-  5: "pst"
+  3: "e",
+  4: "pst"
 };
 
 var indexSectionNames =
@@ -13,9 +12,8 @@ var indexSectionNames =
   0: "all",
   1: "files",
   2: "functions",
-  3: "variables",
-  4: "typedefs",
-  5: "enums"
+  3: "typedefs",
+  4: "enums"
 };
 
 var indexSectionLabels =
@@ -23,8 +21,7 @@ var indexSectionLabels =
   0: "All",
   1: "Files",
   2: "Functions",
-  3: "Variables",
-  4: "Typedefs",
-  5: "Enumerations"
+  3: "Typedefs",
+  4: "Enumerations"
 };
 
