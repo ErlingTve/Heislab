@@ -34,8 +34,8 @@ int orders_exist_orders() {
 
 int orders_order_below_position(){
 	int pos = orders_get_position();
-	if(pos > 3){
-		pos -= 3;
+	if(pos >= N_FLOORS){
+		pos -= (N_FLOORS-1);
 	}
 	for (int i = 0; i < pos; ++i){
 		if(orders_order_at_this_floor(i)){
@@ -47,8 +47,8 @@ int orders_order_below_position(){
 
 int orders_order_above_position(){
 	int pos =orders_get_position();
-	if (pos > 3){
-		pos -= 4;
+	if (pos >= N_FLOORS){
+		pos -= N_FLOORS;
 	}
 	for (int i = pos+1; i < N_FLOORS; ++i){
 		if(orders_order_at_this_floor(i)){
@@ -93,21 +93,21 @@ void orders_delete_all_orders() {
 }
 
 int orders_command_at_floor(position pos) {
-    if (pos > 3) {
+    if (pos >= N_FLOORS) {
         printf("order_commandAtFloor er kalt mens Position ikke er i en etasje");
         return -1;
     }return order_matrix[pos][BUTTON_COMMAND];
 }
 
 int orders_button_up_at_floor(position pos) {
-    if (pos > 3) {
+    if (pos >= N_FLOORS) {
         printf("order_upAtFloor er kalt mens Position ikke er i en etasje");
         return -1;
     }return order_matrix[Position][BUTTON_CALL_UP];
 }
 
 int orders_button_down_at_floor(position pos) {
-    if (pos > 3) {
+    if (pos >= N_FLOORS) {
         printf("order_downAtFloor er kalt mens Position ikke er i en etasje");
         return -1;
     }return order_matrix[pos][BUTTON_CALL_DOWN];
@@ -119,7 +119,4 @@ position orders_get_position(void){
 
 void orders_set_position(position pos){
 	Position=pos;
-	printf("Position: ");
-	printf("%d", pos);
-	printf("\n" );
 }
