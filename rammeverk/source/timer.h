@@ -9,7 +9,7 @@
 #include <time.h>
 
 /**
-    @brief Sets timestamp to current time
+    @brief Sets timestamp to current time.
 */
 void timer_start_timer(void);
 

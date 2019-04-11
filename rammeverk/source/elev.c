@@ -49,12 +49,12 @@ int elev_init(void) {
         elev_set_button_lamp(BUTTON_COMMAND, i, 0);
     }
 
-    //get elevator to ground floor
+    //Get elevator to FIRST floor.
     if(elev_get_floor_sensor_signal() != 0){
         elev_set_motor_direction(DIRN_DOWN);
     }
     while(elev_get_floor_sensor_signal() != 0) {
-    	//busy wait
+    	//Do nothing.
     }
     elev_set_motor_direction(DIRN_STOP);
 
@@ -72,8 +72,6 @@ void elev_set_motor_direction(elev_motor_direction_t dirn) {
         LastMovingDirection = MotorDirection;
     }
     MotorDirection = dirn;
-    printf("LastMovingDirection: %d \n", LastMovingDirection);
-    printf("MotorDirection: %d \n", MotorDirection);
     if (dirn == 0){
         io_write_analog(MOTOR, 0);
     } else if (dirn > 0) {

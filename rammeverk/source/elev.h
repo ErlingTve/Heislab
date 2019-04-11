@@ -14,7 +14,7 @@
 #define N_BUTTONS 3
 
 /**
-  @brief Initialize elevator.
+  @brief Initialize elevator to FIRST floor.
   @return Non-zero on success, 0 on failure.
 */
 int elev_init(void);
@@ -41,6 +41,12 @@ static elev_motor_direction_t MotorDirection;
 static elev_motor_direction_t LastMovingDirection;
 
 /**
+  @brief Sets the motor direction of the elevator and the local variables MotorDirection and LastMovingDirection.
+  @param dirn New direction of the elevator.
+*/
+void elev_set_motor_direction(elev_motor_direction_t dirn);
+
+/**
   @brief Gives the current moving direction.
   @return int Current moving direction
 */
@@ -50,14 +56,6 @@ int elev_get_motor_direction(void);
   @return int Last moving direction
 */
 int elev_get_last_moving_direction(void);
-
-/**
-  @brief Sets the motor direction of the elevator and the global variable MotorDirection.
-  @param dirn New direction of the elevator.
-*/
-void elev_set_motor_direction(elev_motor_direction_t dirn);
-
-
 
 /**
   @brief Turn door-open lamp on or off.

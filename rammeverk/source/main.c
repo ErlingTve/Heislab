@@ -11,14 +11,10 @@ int main() {
         printf("Unable to initialize elevator hardware!\n");
         return 1;
     }
-
     printf("Press CTRL + C to exit program.\n");
-
-    //elev_set_motor_direction(DIRN_UP);
-
+	//While loop to always run the finite state machine.
     while (1) {
     	fsm_state_switch();
- 	   }
-
+ 	}
     return 0;
 }
