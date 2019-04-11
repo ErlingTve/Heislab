@@ -12,7 +12,7 @@ int main() {
         return 1;
     }
 
-    printf("Press STOP button to stop elevator and exit program.\n");
+    printf("Press CTRL + C to exit program.\n");
 
     //elev_set_motor_direction(DIRN_UP);
 

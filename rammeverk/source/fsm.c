@@ -6,30 +6,36 @@
 #include <assert.h>
 #include <stdlib.h>
 #include <stdio.h>
-
-
-//Endrer posisjon til noe mellom etasjer
-//Kalles kun når man går inn i MOVING og posisjonen er satt til "i etasje" fra før
+/**
+	@file
+	@brief C-file to make elevator state machine.
+*/
+/**
+	@brief Sets Position from "on floor" to "between floors"
+*/
+//Endrer position til noe mellom etasjer
+//Kalles kun når man går inn i MOVING og positionen er satt til "i etasje" fra før
 void fsm_change_position_between_floors() {
     switch (elev_get_motor_direction()) {
         case DIRN_DOWN:
-        	orders_set_posisjon(orders_get_posisjon()+3);
-            //Posisjon += 3;
+        	orders_set_position(orders_get_position()+3);
             break;
 
         case DIRN_UP:
-        	orders_set_posisjon(orders_get_posisjon()+4);
-            //Posisjon += 4;
+        	orders_set_position(orders_get_position()+4);
             break;
         default:
-            printf("MotorDirection er satt til DIRN_STOP selv om du vil endre posisjon til noe mellom etasjer.");
+            printf("MotorDirection er satt til DIRN_STOP selv om du vil endre position til noe mellom etasjer.");
             break;
     }
 }
-
-//Returnerer 1 om heisen skal stoppe, 0 hvis ikke
+/**
+	@brief Checks if elevator should stop at the current floor.
+	@return 1 If elevator should stop.
+	@return 0 If not.
+*/
 int fsm_stop_at_floor() {
-    if ((orders_command_at_floor(orders_get_posisjon())) || (orders_up_at_floor(orders_get_posisjon()) && elev_get_motor_direction() == DIRN_UP) || (orders_down_at_floor(orders_get_posisjon()) && elev_get_motor_direction() == DIRN_DOWN)) {
+    if ((orders_command_at_floor(orders_get_position())) || (orders_up_at_floor(orders_get_position()) && elev_get_motor_direction() == DIRN_UP) || (orders_down_at_floor(orders_get_position()) && elev_get_motor_direction() == DIRN_DOWN)) {
         return 1;
     }
     if((orders_order_below_position() == 0) && elev_get_motor_direction() == DIRN_DOWN){
@@ -98,7 +104,7 @@ void fsm_state_switch(){
 					return;
 				}
 				orders_update_order_matrix();
-				if (orders_order_at_this_floor(orders_get_posisjon())){
+				if (orders_order_at_this_floor(orders_get_position())){
 					return;
 				}
 			}
@@ -111,7 +117,7 @@ void fsm_state_switch(){
 				}
 			}
 			//Heisen går inn i samme tilstand på nytt om det er ny bestilling i samme etasje
-            if (orders_order_at_this_floor(orders_get_posisjon())){
+            if (orders_order_at_this_floor(orders_get_position())){
 				CurrentState = NOT_MOVING_AT_FLOOR;
 				return;
 			}
@@ -120,7 +126,7 @@ void fsm_state_switch(){
 
         case MOVING:
         	fsm_set_priority_direction();
-            if (orders_get_posisjon() < 4) {
+            if (orders_get_position() < N_FLOORS) {
                 fsm_change_position_between_floors();
             }
        		while(elev_get_floor_sensor_signal() == -1) {
@@ -136,8 +142,8 @@ void fsm_state_switch(){
 			return;
 
         case AT_FLOOR:
-            orders_set_posisjon(elev_get_floor_sensor_signal()); //test at ikke oppstår problem når den returnerer -1 fordi heisen er mellom etasjer
-			elev_set_floor_indicator(orders_get_posisjon());
+            orders_set_position(elev_get_floor_sensor_signal()); //test at ikke oppstår problem når den returnerer -1 fordi heisen er mellom etasjer
+			elev_set_floor_indicator(orders_get_position());
 
 			if (fsm_stop_at_floor()){
 				CurrentState = NOT_MOVING_AT_FLOOR;
@@ -157,7 +163,7 @@ void fsm_state_switch(){
 			elev_set_stop_lamp(1);
 			elev_set_motor_direction(DIRN_STOP);
 			orders_delete_all_orders();
-			if (orders_get_posisjon()<4){
+			if (orders_get_position()<4){
 				//i etasje
 				elev_set_door_open_lamp(1);
 				while(elev_get_stop_signal()){

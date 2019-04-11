@@ -9,12 +9,12 @@
 /**
     @brief Enum for the elevators current position, 0-3 are floors, 4-6 are between floors.
  */
-typedef enum {FØRSTE = 0, ANDRE = 1, TREDJE = 2, FJERDE = 3, MELLOM_FØRSTE_OG_ANDRE = 4, MELLOM_ANDRE_OG_TREDJE = 5,  MELLOM_TREDJE_OG_FJERDE = 6} posisjon;
+typedef enum {FØRSTE = 0, ANDRE = 1, TREDJE = 2, FJERDE = 3, MELLOM_FØRSTE_OG_ANDRE = 4, MELLOM_ANDRE_OG_TREDJE = 5,  MELLOM_TREDJE_OG_FJERDE = 6} position;
 
 /**
     @brief Local variable containing the elevators position.
  */
-static posisjon Posisjon = 0;
+static position Position = 0;
 
 /**
     @brief Array containing the elevators current orders.
@@ -72,31 +72,31 @@ void orders_delete_all_orders(void);
  @return 1 if there are any orders on the current floor.
  @return 0 if no orders on the current floor.
  */
-int orders_command_at_floor(posisjon pos);
+int orders_command_at_floor(position pos);
 
 /**
  @brief Checks if there are any orders, in order matrix, above the current floor.
  @return 1 if there are any orders above the current floor.
  @return 0 if no orders above the current floor.
  */
-int orders_up_at_floor(posisjon pos);
+int orders_up_at_floor(position pos);
 
 /**
  @brief Checks if there are any orders, in order matrix, below the current floor.
  @return 1 if there are any orders below the current floor.
  @return 0 if no orders below the current floor.
  */
-int orders_down_at_floor(posisjon pos);
+int orders_down_at_floor(position pos);
 
 /**
  @brief Checks current postiton.
  @return Variable of type position.
 */
-posisjon orders_get_posisjon(void);
+position orders_get_position(void);
 /**
  @brief Changes the current postion.
  @param pos of type postion.
 */
-void orders_set_posisjon(posisjon pos);
+void orders_set_position(position pos);
 
 #endif

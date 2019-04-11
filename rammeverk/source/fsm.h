@@ -2,7 +2,7 @@
 #define FSM_H
 /**
 	@file
-	@brief File to make elevator state machine
+	@brief H-file to make elevator state machine
 */
 
 /**
