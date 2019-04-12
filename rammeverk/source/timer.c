@@ -1,7 +1,5 @@
 #include "timer.h"
 
-
-#include <stdio.h>
 #include <time.h>
 
 void timer_start_timer(void){
